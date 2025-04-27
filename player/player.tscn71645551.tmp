@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://8eyfjjaypegc" path="res://player/sprites/ExamplePlayerSprite.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c1k6mtt3lqi7w" path="res://player/Scripts/player.gd" id="1_rkbax"]
-[ext_resource type="Resource" uid="uid://bu52riw8gye5n" path="res://Inventory/playerInv.tres" id="2_g1dw6"]
-[ext_resource type="PackedScene" uid="uid://dpbqot7qtcjbo" path="res://Inventory/inventory_ui.tscn" id="4_yw30f"]
+[ext_resource type="Resource" uid="uid://v5wxa2u0ljx0" path="res://Inventory/playerInv.tres" id="2_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://cc8surfpv3shw" path="res://Inventory/inventory_ui.tscn" id="4_yw30f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_edjgo"]
 
@@ -18,11 +18,12 @@ shape = SubResource("CircleShape2D_edjgo")
 
 [node name="ExamplePlayerSprite" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(93, 75)
 texture = ExtResource("1_oul6g")
 hframes = 21
 
 [node name="Inventory_UI" parent="." instance=ExtResource("4_yw30f")]
-offset_left = 12.0
-offset_top = -100.0
-offset_right = 111.0
-offset_bottom = -22.0
+offset_left = 47.0
+offset_top = -27.0
+offset_right = 139.0
+offset_bottom = 43.0
