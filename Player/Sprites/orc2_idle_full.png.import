@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6gfkgtvwsv2d"
-path="res://.godot/imported/walk animations.png-12123815788309a4041b761d6c29c6b5.ctex"
+uid="uid://c3i00buciwjfp"
+path="res://.godot/imported/orc2_idle_full.png-c0eb479d34d1668e2b601952b60ad59b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Sprites/walk animations.png"
-dest_files=["res://.godot/imported/walk animations.png-12123815788309a4041b761d6c29c6b5.ctex"]
+source_file="res://player/Sprites/orc2_idle_full.png"
+dest_files=["res://.godot/imported/orc2_idle_full.png-c0eb479d34d1668e2b601952b60ad59b.ctex"]
 
 [params]
 

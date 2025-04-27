@@ -2,6 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://cgxlb3vc2qqpr" path="res://Player/player.tscn" id="1_rupst"]
 [ext_resource type="PackedScene" uid="uid://b00wy6gk7qwg3" path="res://Tile Maps/grass-01.tscn" id="2_wt17y"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="PackedScene" uid="uid://bktownt0k0myk" path="res://player/player_2.tscn" id="3_is3ju"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://cd05to7pln60k" path="res://Tile Maps/grass-02.tscn" id="3_m8u5f"]
 
 [node name="Playground" type="Node2D"]
