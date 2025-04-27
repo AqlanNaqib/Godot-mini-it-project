@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqxu1276h5rxi"
-path="res://.godot/imported/death_Gun_Down.png-1ca25cb79ebcf094a39627a60a6b46fe.ctex"
+path="res://.godot/imported/death_Gun_Down.png-3465bfc708470e2b1c105392aa794334.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player 2/art/death_Gun_Down.png"
-dest_files=["res://.godot/imported/death_Gun_Down.png-1ca25cb79ebcf094a39627a60a6b46fe.ctex"]
+source_file="res://Player 2/art/death_Gun_Down.png"
+dest_files=["res://.godot/imported/death_Gun_Down.png-3465bfc708470e2b1c105392aa794334.ctex"]
 
 [params]
 
