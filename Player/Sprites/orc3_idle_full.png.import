@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmotk01730ckk"
-path="res://.godot/imported/orc3_idle_full.png-07c6a4af413dd5142a533fbfce9f2543.ctex"
+path="res://.godot/imported/orc3_idle_full.png-5a5bc77e0a438097b75df11bb67b523e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Sprites/orc3_idle_full.png"
-dest_files=["res://.godot/imported/orc3_idle_full.png-07c6a4af413dd5142a533fbfce9f2543.ctex"]
+source_file="res://player/Sprites/orc3_idle_full.png"
+dest_files=["res://.godot/imported/orc3_idle_full.png-5a5bc77e0a438097b75df11bb67b523e.ctex"]
 
 [params]
 
