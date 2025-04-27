@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6gfkgtvwsv2d"
-path="res://.godot/imported/walk animations.png-12123815788309a4041b761d6c29c6b5.ctex"
+uid="uid://elgd7164dxd2"
+path="res://.godot/imported/Idle_Gun_Left_Up.png-8efc255523f24f464e1af93888de6de7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Sprites/walk animations.png"
-dest_files=["res://.godot/imported/walk animations.png-12123815788309a4041b761d6c29c6b5.ctex"]
+source_file="res://player 2/art/Idle_Gun_Left_Up.png"
+dest_files=["res://.godot/imported/Idle_Gun_Left_Up.png-8efc255523f24f464e1af93888de6de7.ctex"]
 
 [params]
 
