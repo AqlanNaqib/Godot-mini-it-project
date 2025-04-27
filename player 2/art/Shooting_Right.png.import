@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6gfkgtvwsv2d"
-path="res://.godot/imported/walk animations.png-12123815788309a4041b761d6c29c6b5.ctex"
+uid="uid://c7jx15p1372si"
+path="res://.godot/imported/Shooting_Right.png-dbf6829dfb380cd0a981266c93664ab4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Sprites/walk animations.png"
-dest_files=["res://.godot/imported/walk animations.png-12123815788309a4041b761d6c29c6b5.ctex"]
+source_file="res://player 2/art/Shooting_Right.png"
+dest_files=["res://.godot/imported/Shooting_Right.png-dbf6829dfb380cd0a981266c93664ab4.ctex"]
 
 [params]
 
