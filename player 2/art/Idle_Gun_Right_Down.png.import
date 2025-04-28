@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8rhsy0eyqphp"
-path="res://.godot/imported/Idle_Gun_Right_Down.png-d2be4dbaeed17b983e8d317a11d386f6.ctex"
+path="res://.godot/imported/Idle_Gun_Right_Down.png-36d55f945a7646d94f96145ecac52d36.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player 2/art/Idle_Gun_Right_Down.png"
-dest_files=["res://.godot/imported/Idle_Gun_Right_Down.png-d2be4dbaeed17b983e8d317a11d386f6.ctex"]
+source_file="res://player 2/art/Idle_Gun_Right_Down.png"
+dest_files=["res://.godot/imported/Idle_Gun_Right_Down.png-36d55f945a7646d94f96145ecac52d36.ctex"]
 
 [params]
 

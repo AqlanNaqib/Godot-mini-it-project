@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dl660b12mg0hh" path="res://Tile Maps/Sprites/Oak_Tree.png" id="5_qx5du"]
 [ext_resource type="Texture2D" uid="uid://cl1p0hnn8suru" path="res://Tile Maps/Sprites/Basic_Grass_Biom_things.png" id="5_tb4m5"]
 [ext_resource type="Texture2D" uid="uid://bdg5a8n0jbg3d" path="res://Tile Maps/Sprites/House.png" id="6_5mwrw"]
-[ext_resource type="Texture2D" uid="uid://bvqe2u1qvxjuc" path="res://Tile Maps/Sprites/Basic_Furniture.png" id="6_qx5du"]
+[ext_resource type="Texture2D" uid="uid://d0gj2pxyr5p6q" path="res://Tile Maps/Sprites/Basic_Furniture.png" id="6_qx5du"]
 [ext_resource type="Texture2D" uid="uid://ca3jpbwboep50" path="res://Tile Maps/Sprites/Basic_tools_and_meterials.png" id="7_5mwrw"]
 [ext_resource type="Texture2D" uid="uid://bo6a18du04foq" path="res://Tile Maps/Sprites/Chest.png" id="8_ir75r"]
 [ext_resource type="Texture2D" uid="uid://dpaen3iah1gke" path="res://Tile Maps/Sprites/Fences.png" id="9_ipk8b"]
