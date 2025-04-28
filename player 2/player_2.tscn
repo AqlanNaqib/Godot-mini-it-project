@@ -32,6 +32,9 @@
 [ext_resource type="Texture2D" uid="uid://bgfqxb23iligv" path="res://Player 2/art/Run_Gun_Up.png" id="30_6x7kc"]
 [ext_resource type="PackedScene" uid="uid://dqnr7ucrovusk" path="res://ui/healthbar/healthbar.tscn" id="31_la1qn"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_eykoa"]
+radius = 4.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_su2g6"]
 atlas = ExtResource("2_la1qn")
 region = Rect2(0, 0, 48, 64)
@@ -1967,20 +1970,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_eykoa"]
-radius = 4.0
-
 [node name="player 2" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_eykoa")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_mt8yd")
-animation = &"front idle"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_eykoa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mt8yd")
+animation = &"front idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 drag_horizontal_enabled = true
