@@ -1,6 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://brmv5ykswnrx"]
 
 [ext_resource type="PackedScene" uid="uid://b00wy6gk7qwg3" path="res://Tile Maps/grass-01.tscn" id="2_wt17y"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="PackedScene" uid="uid://bktownt0k0myk" path="res://player/player_2.tscn" id="3_is3ju"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://cd05to7pln60k" path="res://Tile Maps/grass-02.tscn" id="3_m8u5f"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="4_is3ju"]
 
