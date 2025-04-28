@@ -1,4 +1,4 @@
-[gd_scene load_steps=290 format=3 uid="uid://ddu4kmdy5xthe"]
+[gd_scene load_steps=291 format=3 uid="uid://ddu4kmdy5xthe"]
 
 [ext_resource type="Script" uid="uid://cnelf67nv5hwk" path="res://Player 2/scripts/player_2.gd" id="1_eykoa"]
 [ext_resource type="Texture2D" uid="uid://hodjxwnol3tl" path="res://Player 2/art/Idle_Gun_Up.png" id="2_la1qn"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://b3rhp4rr7rm7s" path="res://Player 2/art/Run_Gun_Right_Up.png" id="29_jf6sy"]
 [ext_resource type="Texture2D" uid="uid://bgfqxb23iligv" path="res://Player 2/art/Run_Gun_Up.png" id="30_6x7kc"]
 [ext_resource type="PackedScene" uid="uid://dqnr7ucrovusk" path="res://ui/healthbar/healthbar.tscn" id="31_la1qn"]
+[ext_resource type="PackedScene" uid="uid://bd8adrwyyvtqj" path="res://playground_2.tscn" id="32_tgvj6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eykoa"]
 radius = 4.0
@@ -1995,5 +1996,7 @@ offset_bottom = -17.0
 [node name="regen_timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="playground2" parent="." instance=ExtResource("32_tgvj6")]
 
 [connection signal="timeout" from="regen_timer" to="." method="_on_regen_timer_timeout"]
