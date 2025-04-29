@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccr6y8hscndhv"]
+
+[ext_resource type="Script" uid="uid://db7jxggtf600a" path="res://ItemDrop.gd" id="1_dbq2y"]
+[ext_resource type="Texture2D" uid="uid://bdiod2hto5256" path="res://Inventory/items/Apple.png" id="1_q8iqi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbq2y"]
+size = Vector2(14, 17)
+
+[node name="ItemDrop" type="CharacterBody2D"]
+script = ExtResource("1_dbq2y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_q8iqi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_dbq2y")

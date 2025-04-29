@@ -2,14 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://8eyfjjaypegc" path="res://player/sprites/ExamplePlayerSprite.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c1k6mtt3lqi7w" path="res://player/Scripts/player.gd" id="1_rkbax"]
-[ext_resource type="Resource" uid="uid://bu52riw8gye5n" path="res://Inventory/playerInv.tres" id="2_g1dw6"]
-[ext_resource type="PackedScene" uid="uid://dpbqot7qtcjbo" path="res://Inventory/inventory_ui.tscn" id="4_yw30f"]
+[ext_resource type="Script" uid="uid://c5e66gk2m8738" path="res://player/PickUpZone.gd" id="3_g1dw6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_edjgo"]
+radius = 14.1421
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yw30f"]
+radius = 24.0208
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_rkbax")
-inv = ExtResource("2_g1dw6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_edjgo")
@@ -21,8 +24,13 @@ texture_filter = 1
 texture = ExtResource("1_oul6g")
 hframes = 21
 
-[node name="Inventory_UI" parent="." instance=ExtResource("4_yw30f")]
-offset_left = 12.0
-offset_top = -100.0
-offset_right = 111.0
-offset_bottom = -22.0
+[node name="PickUpZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_g1dw6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpZone"]
+shape = SubResource("CircleShape2D_yw30f")
+
+[connection signal="body_entered" from="PickUpZone" to="PickUpZone" method="_on_body_entered"]
+[connection signal="body_exited" from="PickUpZone" to="PickUpZone" method="_on_body_exited"]

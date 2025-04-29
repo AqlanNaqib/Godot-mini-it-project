@@ -1,7 +1,5 @@
 class_name Player extends CharacterBody2D
 
-@export var inv: Inv
-
 var move_speed : float = 100.0
 
 
@@ -23,3 +21,10 @@ func _process(delta):
 
 func _physics_process(delta):
 	move_and_slide()
+	
+func _input(event):
+	if event.is_action_pressed("pickup"):
+		if $PickUpZone.items_in_range.size() > 0:
+			var pickup_item = $PickUpZone.items_in_range.values()[0]
+			pickup_item.pick_up_item(self)
+			$PickUpZone.items_in_range.erase(pickup_item)

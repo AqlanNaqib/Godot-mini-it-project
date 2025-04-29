@@ -1,7 +1,49 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3t4hv48y3a7m"]
+[gd_scene load_steps=6 format=3 uid="uid://b3t4hv48y3a7m"]
 
 [ext_resource type="PackedScene" uid="uid://bkt40dwyjgqao" path="res://player/player.tscn" id="1_rupst"]
+[ext_resource type="Script" uid="uid://dp4yleram75rl" path="res://interface.gd" id="2_m8u5f"]
+[ext_resource type="PackedScene" uid="uid://ltsnsbftbqux" path="res://inventory.tscn" id="3_is3ju"]
+[ext_resource type="PackedScene" uid="uid://ccr6y8hscndhv" path="res://ItemDrop.tscn" id="4_is3ju"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_is3ju"]
+size = Vector2(582, 104)
 
 [node name="Playground" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_rupst")]
+position = Vector2(1, 1)
+
+[node name="Interface" type="CanvasLayer" parent="."]
+script = ExtResource("2_m8u5f")
+
+[node name="Inventory" parent="Interface" instance=ExtResource("3_is3ju")]
+visible = false
+
+[node name="ground" type="StaticBody2D" parent="."]
+position = Vector2(237, 241)
+collision_layer = 2
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+position = Vector2(5, 4)
+shape = SubResource("RectangleShape2D_is3ju")
+
+[node name="ItemDrop" parent="." instance=ExtResource("4_is3ju")]
+position = Vector2(82, 146)
+collision_layer = 4
+collision_mask = 2
+
+[node name="ItemDrop2" parent="." instance=ExtResource("4_is3ju")]
+position = Vector2(326, 173)
+collision_layer = 4
+collision_mask = 2
+
+[node name="ItemDrop3" parent="." instance=ExtResource("4_is3ju")]
+position = Vector2(228, 164)
+collision_layer = 4
+collision_mask = 2
+
+[node name="ItemDrop4" parent="." instance=ExtResource("4_is3ju")]
+position = Vector2(141, 150)
+collision_layer = 4
+collision_mask = 2
