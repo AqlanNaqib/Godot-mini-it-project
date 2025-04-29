@@ -6,8 +6,10 @@ const NUM_INVENTORY_SLOTS = 12
 
 var inventory = {
 	0: ["Axe", 1],
-	1: ["Apple", 98],
-	2: ["Apple", 68]
+	1: ["Hoe", 1],
+	2: ["Apple", 98],
+	3: ["Apple", 68],
+	4: ["Apple", 42]
 }
 
 func add_item(item_name,item_quantity):
