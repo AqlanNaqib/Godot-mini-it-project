@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfbfghvvliob6"]
+[gd_scene load_steps=6 format=3 uid="uid://cfbfghvvliob6"]
 
 [ext_resource type="Texture2D" uid="uid://b2x0r6trbqo6h" path="res://assets/game background.jpg" id="1_cok42"]
 [ext_resource type="Script" uid="uid://4smxjlewrubu" path="res://main menu/main_menu.gd" id="1_m48o8"]
 [ext_resource type="FontFile" uid="uid://xgab11b7pv77" path="res://assets/Early GameBoy.ttf" id="2_8f8xy"]
 [ext_resource type="PackedScene" uid="uid://clpsiy2vfs0h8" path="res://options menu/options_menu.tscn" id="4_ra13p"]
+[ext_resource type="AudioStream" uid="uid://censkjbj28mat" path="res://Mouse Click Sound Effect.mp3" id="5_45qoi"]
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -103,3 +104,7 @@ text = "exit
 [node name="Options_Menu" parent="." instance=ExtResource("4_ra13p")]
 visible = false
 layout_mode = 1
+
+[node name="sfx_click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_45qoi")
+volume_db = 12.011
