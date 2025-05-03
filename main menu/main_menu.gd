@@ -7,12 +7,14 @@ extends Control
 @onready var options_menu = $Options_Menu as OptionMenu
 @onready var margin_container = $MarginContainer as MarginContainer
 @onready var sfx_click: AudioStreamPlayer2D = $sfx_click
+@onready var menu_music: AudioStreamPlayer = $"menu music"
 
  
 
 
 func _ready():
 	handle_connecting_signals()
+	menu_music.play()
 
 
 func on_start_pressed() -> void:
