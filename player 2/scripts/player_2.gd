@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 
 
-const speed = 60
+const speed = 80
 var current_dir = "none"
 var health = 100
 
