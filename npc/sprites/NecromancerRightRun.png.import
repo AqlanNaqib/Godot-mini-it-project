@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://te2xx0n0rplw"
-path="res://.godot/imported/Idle.png-8c10bc5eafaeef09be4409361c6d50b4.ctex"
+uid="uid://nhcu42gwwqk8"
+path="res://.godot/imported/NecromancerRightRun.png-03a736a69b0e09825d97729a7ac8c053.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player 2/art/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-8c10bc5eafaeef09be4409361c6d50b4.ctex"]
+source_file="res://npc/sprites/NecromancerRightRun.png"
+dest_files=["res://.godot/imported/NecromancerRightRun.png-03a736a69b0e09825d97729a7ac8c053.ctex"]
 
 [params]
 
