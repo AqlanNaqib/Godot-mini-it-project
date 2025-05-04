@@ -1,17 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca4o8plimbenm"]
+[gd_scene load_steps=6 format=3 uid="uid://ca4o8plimbenm"]
 
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="1_5r0kg"]
 [ext_resource type="PackedScene" uid="uid://bw13dhhfw1n7d" path="res://npc.tscn" id="1_wpilt"]
 [ext_resource type="PackedScene" uid="uid://bvjmoy5v70emv" path="res://enemy.tscn" id="3_wpilt"]
+[ext_resource type="Script" uid="uid://dvo763gmnmhuu" path="res://WalkIn.gd" id="4_pqwt6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wpilt"]
+radius = 12.0
 
 [node name="Node2D" type="Node2D"]
+y_sort_enabled = true
 
 [node name="player 2" parent="." instance=ExtResource("1_5r0kg")]
-position = Vector2(54, -6)
-collision_layer = 3
 
 [node name="enemy" parent="." instance=ExtResource("3_wpilt")]
 position = Vector2(501, -294)
 
 [node name="npc" parent="." instance=ExtResource("1_wpilt")]
 position = Vector2(-228, 22)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("4_pqwt6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-143, -72)
+shape = SubResource("CircleShape2D_wpilt")
+
+[node name="collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collision"]
+polygon = PackedVector2Array(-237, -142, -235, -72, -115, -71, -115, -140, -151, -153, -187, -186, -206, -174, -224, -173, -223, -153)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="collision"]
+polygon = PackedVector2Array(-167, -46, -262, -46, -260, -200, -90, -199, -88, -46, -127, -46, -126, -39, -86, -39, -85, -204, -264, -204, -265, -40, -168, -39)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="collision"]
+polygon = PackedVector2Array(479, -329, 475, -396, 504, -421, 534, -394, 532, -331)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

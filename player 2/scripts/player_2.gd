@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+class_name Player
 
 @onready var gun = $Gun
 @onready var healthbar: ProgressBar = $healthbar
