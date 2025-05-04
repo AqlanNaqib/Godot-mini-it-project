@@ -1,6 +1,6 @@
 [gd_scene load_steps=293 format=3 uid="uid://ddu4kmdy5xthe"]
 
-[ext_resource type="Script" uid="uid://5jmnch5x5e12" path="res://Player 2/scripts/player_2.gd" id="1_eykoa"]
+[ext_resource type="Script" uid="uid://5jmnch5x5e12" path="res://player 2/scripts/player_2.gd" id="1_eykoa"]
 [ext_resource type="Texture2D" uid="uid://hodjxwnol3tl" path="res://Player 2/art/Idle_Gun_Up.png" id="2_la1qn"]
 [ext_resource type="Texture2D" uid="uid://cqxu1276h5rxi" path="res://Player 2/art/death_Gun_Down.png" id="3_dipqy"]
 [ext_resource type="Texture2D" uid="uid://534hpncvg1ei" path="res://Player 2/art/death_Gun_Left_Down.png" id="4_ul2c3"]
