@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvl5pr2vohdmg"
-path="res://.godot/imported/Run_Gun_Left_Up.png-f301f6d87fa60df5bce9ad944d0409a6.ctex"
+path="res://.godot/imported/Run_Gun_Left_Up.png-acb2066b7fbe072d71f17be59459f7d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player 2/art/Run_Gun_Left_Up.png"
-dest_files=["res://.godot/imported/Run_Gun_Left_Up.png-f301f6d87fa60df5bce9ad944d0409a6.ctex"]
+source_file="res://player 2/art/Run_Gun_Left_Up.png"
+dest_files=["res://.godot/imported/Run_Gun_Left_Up.png-acb2066b7fbe072d71f17be59459f7d3.ctex"]
 
 [params]
 
