@@ -1,4 +1,4 @@
-[gd_scene load_steps=294 format=3 uid="uid://ddu4kmdy5xthe"]
+[gd_scene load_steps=293 format=3 uid="uid://ddu4kmdy5xthe"]
 
 [ext_resource type="Script" uid="uid://cnelf67nv5hwk" path="res://player 2/scripts/player_2.gd" id="1_eykoa"]
 [ext_resource type="Texture2D" uid="uid://hodjxwnol3tl" path="res://player 2/art/Idle_Gun_Up.png" id="2_la1qn"]
@@ -33,7 +33,6 @@
 [ext_resource type="PackedScene" uid="uid://dqnr7ucrovusk" path="res://ui/healthbar/healthbar.tscn" id="31_la1qn"]
 [ext_resource type="PackedScene" uid="uid://bd8adrwyyvtqj" path="res://playground_2.tscn" id="32_tgvj6"]
 [ext_resource type="PackedScene" uid="uid://b4i2mbpg0b44k" path="res://Tile Maps/map1.tscn" id="33_sqehb"]
-[ext_resource type="PackedScene" uid="uid://dlphqsklqei6s" path="res://NPC.tscn" id="33_sveab"]
 [ext_resource type="PackedScene" uid="uid://ba845y1h3i25l" path="res://gun.tscn" id="33_ul2c3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eykoa"]
@@ -2007,9 +2006,6 @@ autostart = true
 [node name="Gun" parent="." instance=ExtResource("33_ul2c3")]
 position = Vector2(0, 3)
 scale = Vector2(1e-05, 1e-05)
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("33_sveab")]
-position = Vector2(501, -301)
 
 [node name="Node" type="Node" parent="."]
 
