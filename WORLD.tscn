@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca4o8plimbenm"]
+
+[ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="1_5r0kg"]
+[ext_resource type="PackedScene" uid="uid://dlphqsklqei6s" path="res://NPC.tscn" id="2_ww74b"]
+[ext_resource type="PackedScene" uid="uid://bvjmoy5v70emv" path="res://enemy.tscn" id="3_wpilt"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="player 2" parent="." instance=ExtResource("1_5r0kg")]
+position = Vector2(54, -6)
+collision_layer = 3
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_ww74b")]
+position = Vector2(499, -285)
+
+[node name="enemy" parent="." instance=ExtResource("3_wpilt")]
+position = Vector2(502, -222)

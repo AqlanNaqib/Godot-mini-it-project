@@ -1,0 +1,152 @@
+[gd_scene load_steps=20 format=3 uid="uid://dlphqsklqei6s"]
+
+[ext_resource type="Texture2D" uid="uid://deh46ewtp6hjy" path="res://player 2/art/orc1_idle_full.png" id="1_twre2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ll5ud"]
+atlas = ExtResource("1_twre2")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1jv5"]
+atlas = ExtResource("1_twre2")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tciug"]
+atlas = ExtResource("1_twre2")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bksm8"]
+atlas = ExtResource("1_twre2")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc52h"]
+atlas = ExtResource("1_twre2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sao2"]
+atlas = ExtResource("1_twre2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5vbj"]
+atlas = ExtResource("1_twre2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru7ao"]
+atlas = ExtResource("1_twre2")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7isa0"]
+atlas = ExtResource("1_twre2")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1478n"]
+atlas = ExtResource("1_twre2")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6m5aw"]
+atlas = ExtResource("1_twre2")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1hoc"]
+atlas = ExtResource("1_twre2")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i48ha"]
+atlas = ExtResource("1_twre2")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8ame"]
+atlas = ExtResource("1_twre2")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hge7"]
+atlas = ExtResource("1_twre2")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rmvk"]
+atlas = ExtResource("1_twre2")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r7vc0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ll5ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1jv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tciug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bksm8")
+}],
+"loop": true,
+"name": &"back idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc52h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sao2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5vbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru7ao")
+}],
+"loop": true,
+"name": &"front idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7isa0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1478n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6m5aw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1hoc")
+}],
+"loop": true,
+"name": &"left idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i48ha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8ame")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hge7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rmvk")
+}],
+"loop": true,
+"name": &"right idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_78u5r"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r7vc0")
+animation = &"front idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_78u5r")
+
+[node name="Area2D" type="Area2D" parent="."]
