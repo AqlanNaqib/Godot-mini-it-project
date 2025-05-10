@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://baoeq5li0jrvr"]
+[gd_scene load_steps=9 format=3 uid="uid://baoeq5li0jrvr"]
 
 [ext_resource type="Texture2D" uid="uid://brth33ip3peyo" path="res://Tile Maps/Sprites/Floors.png" id="1_sodcb"]
 [ext_resource type="Texture2D" uid="uid://6pk4tdnt6ybj" path="res://Tile Maps/Sprites/Furniture.png" id="2_xgnru"]
 [ext_resource type="Texture2D" uid="uid://du04duoik8657" path="res://Tile Maps/Sprites/Interior.png" id="3_60obl"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="4_xgnru"]
-[ext_resource type="Script" uid="uid://25y3g3i3ux0i" path="res://WalkOut.gd" id="5_60obl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qjyp0"]
 texture = ExtResource("1_sodcb")
@@ -736,9 +735,6 @@ sources/0 = SubResource("TileSetAtlasSource_qjyp0")
 sources/1 = SubResource("TileSetAtlasSource_gat2s")
 sources/2 = SubResource("TileSetAtlasSource_pm6pe")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qjyp0"]
-radius = 15.0333
-
 [node name="House1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -754,17 +750,7 @@ layer_1/tile_data = PackedInt32Array(655378, 589826, 21, 720914, 589826, 22, 786
 [node name="player 2" parent="." instance=ExtResource("4_xgnru")]
 position = Vector2(297, 163)
 
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("5_60obl")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(297, 165)
-shape = SubResource("CircleShape2D_qjyp0")
-
 [node name="colliosion" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="colliosion"]
 polygon = PackedVector2Array(128, 48, 128, 191, 336, 192, 336, 48, 134, 48, 133, 37, 343, 37, 346, 195, 116, 199, 122, 37, 133, 47)
-
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

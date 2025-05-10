@@ -20,7 +20,6 @@ func _ready():
 
 func _physics_process(delta):
 	
-	
 	# Attack input - changed to is_action_pressed for spamming
 	if Input.is_action_pressed("attack"):
 		gun.shoot()  # This will now fire continuously while E is held
