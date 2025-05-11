@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://ca4o8plimbenm"]
+[gd_scene load_steps=35 format=3 uid="uid://ca4o8plimbenm"]
 
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="1_5r0kg"]
 [ext_resource type="Script" uid="uid://buwqfuei7y0oe" path="res://world.gd" id="1_ogjvx"]
@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://xkjrvyyi3jv3" path="res://Tile Maps/Sprites/house_details.png" id="15_d7nyt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogjvx"]
-size = Vector2(120, 33)
+size = Vector2(123, 75)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ogjvx"]
 texture = ExtResource("5_hsc1g")
@@ -189,7 +189,7 @@ texture = ExtResource("9_vqxxj")
 6:1/0 = 0
 0:2/0 = 0
 0:2/0/y_sort_origin = 2
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.75548, 5.57562, 6.29506, 15.1081, -7.01449, 15.4679, -8, 6.29506)
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.13675, -1.61873, 4.67633, -1.25901, 8, 4.13675, 1.43887, 5.75548, -6.1152, 4.13675)
 1:2/0 = 0
 2:2/0 = 0
 3:2/0 = 0
@@ -1023,8 +1023,8 @@ texture = ExtResource("15_d7nyt")
 1:1/0 = 0
 0:6/size_in_atlas = Vector2i(10, 7)
 0:6/0 = 0
-0:6/0/y_sort_origin = -20
-0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-35.5619, -16.3697, -13.5474, -23.7079, 18.0632, -6.77369, 40.0776, 6.20921, 62.0921, 14.1118, 62.6566, 40.6421, 40.0776, 33.8684, 23.7079, 28.2237, 9.03159, 13.5474, -12.9829, -3.38684, -62.0921, 40.6421, -66.6079, 5.64474)
+0:6/0/y_sort_origin = -30
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-66.6079, -7.33816, -14.6763, -37.2553, 24.2724, -12.9829, 63.7855, 3.38684, 63.2211, 19.1921, -13.5474, -16.9342, -63.7855, 11.2895)
 1:13/0 = 0
 2:13/0 = 0
 2:14/0 = 0
@@ -1299,6 +1299,9 @@ sources/17 = SubResource("TileSetAtlasSource_i5q6v")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqxxj"]
 size = Vector2(20, 34)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tspm"]
+size = Vector2(20, 34)
+
 [node name="world" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ogjvx")
@@ -1315,7 +1318,7 @@ position = Vector2(-399, -46)
 [node name="colliosions" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="colliosions"]
-position = Vector2(-168, 59.5)
+position = Vector2(-169.5, 38.5)
 shape = SubResource("RectangleShape2D_ogjvx")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="colliosions"]
@@ -1333,7 +1336,7 @@ layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array(196597, 65538, 1, -65537, 10, 0, -1, 10, 1, 65535, 10, 2, 0, 10, 2, -65536, 10, 1, -131072, 10, 0, 393206, 65546, 3, 393207, 131082, 3, 393208, 196618, 3, 327669, 12, 9, -327672, 65553, 2, -327674, 17, 2, -327673, 65553, 2, -327671, 65553, 2, -327670, 65553, 2, -327669, 65553, 2, -327668, 65553, 2, -327667, 65553, 2, -327666, 65553, 2, -393210, 17, 1, -458746, 17, 1, -524282, 17, 1, -589818, 17, 1, -589817, 65553, 1, -589816, 65553, 1, -589815, 65553, 1, -589814, 65553, 1, -589813, 65553, 1, -589812, 65553, 1, -589811, 65553, 1, -524275, 65553, 1, -524274, 65553, 1, -589810, 65553, 1, -524276, 65553, 1, -524277, 65553, 1, -524278, 65553, 1, -524279, 65553, 1, -524280, 65553, 1, -524281, 65553, 1, -458745, 65553, 1, -458744, 65553, 1, -458743, 65553, 1, -458742, 65553, 1, -458741, 65553, 1, -458740, 65553, 1, -458739, 65553, 1, -458738, 65553, 1, -393202, 65553, 1, -393203, 65553, 1, -393204, 65553, 1, -393205, 65553, 1, -393206, 65553, 1, -393207, 65553, 1, -393208, 65553, 1, -393209, 65553, 1)
 layer_2/name = "Ysort"
 layer_2/y_sort_enabled = true
-layer_2/tile_data = PackedInt32Array(65525, 2, 6, 262130, 196610, 13, 327666, 196610, 14, 262131, 262146, 13, 327667, 262146, 14, 131060, 327682, 13, 196596, 327682, 14, 131061, 393218, 13, 196597, 393218, 14, 262139, 131081, 0, 131069, 131081, 0, -65542, 131081, 0, -458764, 3, 0, -131073, 3080208, 10, 131067, 14, 2, -524280, 3, 0, -327678, 3, 0, -65528, 131081, 0)
+layer_2/tile_data = PackedInt32Array(65525, 2, 6, 262130, 196610, 13, 327666, 196610, 14, 262131, 262146, 13, 327667, 262146, 14, 131060, 327682, 13, 196596, 327682, 14, 131061, 393218, 13, 196597, 393218, 14, 262139, 131081, 0, 131069, 131081, 0, -65542, 131081, 0, -458764, 3, 0, -131073, 3080208, 10, 131067, 14, 2, -524280, 3, 0, -327678, 3, 0, -65528, 131081, 0, -524281, 3, 0, -524279, 3, 0, -524278, 3, 0, -524277, 3, 0, -524276, 3, 0, -524275, 3, 0, -458739, 3, 0, -458740, 3, 0, -458741, 3, 0, -458742, 3, 0, -458743, 3, 0, -458744, 3, 0, -458745, 3, 0, -458738, 3, 0, -524274, 3, 0, 458759, 131081, 0, 458758, 131081, 0, 458760, 131081, 0, 458763, 131081, 0, 458764, 131081, 0, 458765, 131081, 0, 458766, 131081, 0, 393230, 131081, 0, 393229, 131081, 0, 393228, 131081, 0, 393227, 131081, 0, 393224, 131081, 0, 393223, 131081, 0, 393222, 131081, 0, 327686, 131081, 0, 327687, 131081, 0, 327688, 131081, 0, 327691, 131081, 0, 327692, 131081, 0, 327693, 131081, 0, 327694, 131081, 0, 458757, 131081, 0, 393221, 131081, 0, 458756, 131081, 0)
 
 [node name="leftpath_transition_point" type="Area2D" parent="."]
 
@@ -1341,4 +1344,11 @@ layer_2/tile_data = PackedInt32Array(65525, 2, 6, 262130, 196610, 13, 327666, 19
 position = Vector2(-250, -64)
 shape = SubResource("RectangleShape2D_vqxxj")
 
+[node name="rightpath_transition_point" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rightpath_transition_point"]
+position = Vector2(250, 64)
+shape = SubResource("RectangleShape2D_2tspm")
+
 [connection signal="body_entered" from="leftpath_transition_point" to="." method="_on_leftpath_transition_point_body_entered"]
+[connection signal="body_entered" from="rightpath_transition_point" to="." method="_on_rightpath_transition_point_body_entered"]
