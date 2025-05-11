@@ -12,6 +12,9 @@ func _ready():
 		elif global.going_right:
 			$"player 2".position.x = global.player_exit_rightpath_posx
 			$"player 2".position.y = global.player_exit_rightpath_posy
+		elif global.going_down:
+			$"player 2".position.x = global.player_exit_secret_posx
+			$"player 2".position.y = global.player_exit_secret_posy
 
 func _process(delta):
 	pass
@@ -23,25 +26,21 @@ func _on_leftpath_transition_point_body_entered(body: PhysicsBody2D):
 		global.transition_scene = true
 		global.game_first_loadin = false
 		global.finish_changescenes()
-
-'''
-func _on_leftpath_transition_point_body_exited(body: PhysicsBody2D):
-	if body.name == "player 2":
-		global.transition_scene = false
 		
-		
-func change_scene():
-	if global.transition_scene == true:
-		if global.current_scene == "world":
-			get_tree().change_scene_to_file("res://left_path.tscn")
-			global.game_first_loadin = false
-			global.finish_changescenes()
-
-'''
 func _on_rightpath_transition_point_body_entered(body: PhysicsBody2D):
 	if body.name == "player 2":
 		global.going_left = false
 		global.going_right = true
+		global.transition_scene = true
+		global.game_first_loadin = false
+		global.finish_changescenes()
+
+
+func _on_secret_transition_point_body_entered(body: PhysicsBody2D):
+	if body.name == "player 2":
+		global.going_left = false
+		global.going_right = false
+		global.going_down = true
 		global.transition_scene = true
 		global.game_first_loadin = false
 		global.finish_changescenes()
