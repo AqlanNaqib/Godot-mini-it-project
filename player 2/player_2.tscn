@@ -1974,6 +1974,7 @@ radius = 6.0
 [node name="player 2" type="CharacterBody2D"]
 y_sort_enabled = true
 position = Vector2(0, -1)
+collision_layer = 3
 script = ExtResource("1_eykoa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -2011,7 +2012,7 @@ position = Vector2(0, 3)
 scale = Vector2(1e-05, 1e-05)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
+position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_dipqy")
 
 [connection signal="timeout" from="regen_timer" to="." method="_on_regen_timer_timeout"]

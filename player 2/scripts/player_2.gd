@@ -4,6 +4,8 @@ class_name Player
 
 @onready var gun = $Gun
 @onready var healthbar: ProgressBar = $healthbar
+@onready var bullet_spawn_point = $CenterMarker  # Add a Marker2D node at center
+
 
 
 
@@ -19,16 +21,27 @@ func _ready():
 
 
 func _physics_process(delta):
-	
-	# Attack input - changed to is_action_pressed for spamming
-	if Input.is_action_pressed("attack"):
-		gun.shoot()  # This will now fire continuously while E is held
-	
-
-	
-	move_and_slide()
-	player_movement(delta)
+	player_movement(delta)  # Add this line
 	update_health()
+	
+	if Input.is_action_pressed("attack"):
+		gun.setup_direction(get_shooting_direction())
+		gun.shoot()
+
+
+# Helper function to convert current_dir to Vector2
+func get_shooting_direction() -> Vector2:
+	match current_dir:
+		"right":
+			return Vector2.RIGHT
+		"left":
+			return Vector2.LEFT
+		"up":
+			return Vector2.UP
+		"down":
+			return Vector2.DOWN
+		_:
+			return Vector2.RIGHT  # Default to right if no direction
 
 func player_movement(delta):
 	
