@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://4883rayf7ti7"]
+[gd_scene load_steps=6 format=3 uid="uid://4883rayf7ti7"]
 
 [ext_resource type="FontFile" uid="uid://xgab11b7pv77" path="res://assets/Early GameBoy.ttf" id="1_efxv5"]
 [ext_resource type="PackedScene" uid="uid://dyyvll57ee7at" path="res://hotkey_rebind_button.tscn" id="2_vr7dw"]
+[ext_resource type="PackedScene" uid="uid://cu4xwm3akjwbf" path="res://sound slider.tscn" id="2_xd2c3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxv5"]
 
@@ -34,10 +35,9 @@ theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("1_efxv5")
 theme_override_font_sizes/font_size = 20
 tab_alignment = 1
-current_tab = 2
+current_tab = 0
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -58,30 +58,23 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sound/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Sound/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 120
-alignment = 1
 
-[node name="Label" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sound/MarginContainer/ScrollContainer"]
 layout_mode = 2
-text = "Sound 1"
+theme_override_constants/separation = 64
 
-[node name="Label2" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+[node name="Audio_Slider_Settings" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_xd2c3")]
 layout_mode = 2
-text = "Sound 1"
+bus_name = "Master"
 
-[node name="Label3" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+[node name="Audio_Slider_Settings2" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_xd2c3")]
 layout_mode = 2
-text = "Sound 1"
 
-[node name="Label4" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+[node name="Audio_Slider_Settings3" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_xd2c3")]
 layout_mode = 2
-text = "Sound 1"
-
-[node name="Label5" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Sound 1"
+bus_name = "Sfx"
 
 [node name="Graphics" type="TabBar" parent="TabContainer"]
 visible = false
@@ -126,6 +119,7 @@ layout_mode = 2
 text = "G5"
 
 [node name="Controls" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
