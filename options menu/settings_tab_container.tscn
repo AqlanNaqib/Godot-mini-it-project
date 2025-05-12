@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://4883rayf7ti7"]
+[gd_scene load_steps=8 format=3 uid="uid://4883rayf7ti7"]
 
 [ext_resource type="FontFile" uid="uid://xgab11b7pv77" path="res://assets/Early GameBoy.ttf" id="1_efxv5"]
 [ext_resource type="PackedScene" uid="uid://dyyvll57ee7at" path="res://hotkey_rebind_button.tscn" id="2_vr7dw"]
 [ext_resource type="PackedScene" uid="uid://cu4xwm3akjwbf" path="res://sound slider.tscn" id="2_xd2c3"]
+[ext_resource type="PackedScene" uid="uid://dk73ox326mlob" path="res://window_mode_button.tscn" id="3_ygodd"]
+[ext_resource type="PackedScene" uid="uid://tdgldq2qxibv" path="res://resolution_mode_button.tscn" id="4_pk0c1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxv5"]
 
@@ -35,9 +37,10 @@ theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("1_efxv5")
 theme_override_font_sizes/font_size = 20
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -77,7 +80,6 @@ layout_mode = 2
 bus_name = "Sfx"
 
 [node name="Graphics" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -93,30 +95,18 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Graphics/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 64
-alignment = 1
 
-[node name="Label" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics/MarginContainer/ScrollContainer"]
 layout_mode = 2
-text = "G1"
+theme_override_constants/separation = 128
 
-[node name="Label2" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+[node name="Window_Mode_Button" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_ygodd")]
 layout_mode = 2
-text = "G2"
 
-[node name="Label3" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+[node name="Resolution_Mode_Button" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_pk0c1")]
 layout_mode = 2
-text = "G3"
-
-[node name="Label4" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "G4"
-
-[node name="Label5" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "G5"
 
 [node name="Controls" type="TabBar" parent="TabContainer"]
 visible = false
