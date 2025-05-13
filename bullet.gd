@@ -18,5 +18,6 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):
-		body.get_damage(damage)
+		# Call the monster's take_damage function
+		body.take_damage(damage)  # Use your damage variable
 	queue_free()

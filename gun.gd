@@ -20,11 +20,11 @@ func update_fire_rate():
 
 func shoot():
 	if shoot_timer.is_stopped() and (max_bullets == 0 or bullets_fired < max_bullets):
-		# Instant fire on first trigger
 		fire_bullet()
 		
 		if burst_mode:
 			shoot_timer.start()
+
 
 func _on_shoot_speed_timer_timeout():
 	if Input.is_action_pressed("attack") and burst_mode:
@@ -37,7 +37,7 @@ func _on_shoot_speed_timer_timeout():
 func fire_bullet():
 	var bullet = BULLET.instantiate()
 	bullet.set_direction(bullet_direction)
-	get_parent().add_child(bullet)  # Better than root for scene management
+	get_parent().add_child(bullet)
 	bullet.global_position = marker_2d.global_position
 	bullets_fired += 1
 

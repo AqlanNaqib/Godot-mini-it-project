@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bvjmoy5v70emv"]
+[gd_scene load_steps=24 format=3 uid="uid://bvjmoy5v70emv"]
 
 [ext_resource type="Script" uid="uid://c7qjddndcmijb" path="res://enemy.gd" id="1_qi2p4"]
 [ext_resource type="Texture2D" uid="uid://jrryjto4c3mj" path="res://player 2/art/orc1_death_full.png" id="2_iifgy"]
@@ -96,7 +96,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ar8e5")
 }],
 "loop": true,
-"name": &"death",
+"name": &"death_monster",
 "speed": 5.0
 }, {
 "frames": [{
@@ -139,12 +139,17 @@ radius = 66.1891
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jpbtr"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qi2p4"]
+radius = 19.2354
+
 [node name="enemy" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_qi2p4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o7rgc")
-animation = &"idle"
+animation = &"death_monster"
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 2
@@ -156,6 +161,11 @@ shape = SubResource("CircleShape2D_kdav3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_jpbtr")
+
+[node name="enemy_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
+shape = SubResource("CircleShape2D_qi2p4")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
