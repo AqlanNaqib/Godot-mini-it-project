@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cs867uifxtbuj"]
 
-[ext_resource type="Script" uid="uid://p4a5xut50rof" path="res://npc/dialogue/dialogueplayer.gd" id="1_a8ysr"]
+[ext_resource type="Script" uid="uid://p4a5xut50rof" path="res://coding/dialogueplayer.gd" id="1_a8ysr"]
 [ext_resource type="Texture2D" uid="uid://02ap1jlvy4is" path="res://npc/dialogue/dfc9d5a6ae0289ca8b9d14ac47bff5ba.png" id="1_qtk0s"]
 
 [node name="Dialogue" type="Control"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=50 format=3 uid="uid://732rg828odbr"]
 
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="1_6ec7m"]
-[ext_resource type="Script" uid="uid://i2j18lriyp5j" path="res://right_path.gd" id="1_6xqwn"]
+[ext_resource type="Script" uid="uid://i2j18lriyp5j" path="res://coding/right_path.gd" id="1_6xqwn"]
 [ext_resource type="Texture2D" uid="uid://c2vedv3ygugq0" path="res://Tile Maps/Sprites/Grass.png" id="2_ofyxt"]
 [ext_resource type="Texture2D" uid="uid://dyrtdw1r5lfje" path="res://Tile Maps/Sprites/Paths.png" id="3_j8gyd"]
 [ext_resource type="Texture2D" uid="uid://bdg5a8n0jbg3d" path="res://Tile Maps/Sprites/House.png" id="4_guqrc"]
@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://ctgegyxxdmb3a" path="res://Tile Maps/Sprites/Water_Tile.png" id="19_nfbjd"]
 [ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="20_vipho"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="21_ofyxt"]
-[ext_resource type="PackedScene" uid="uid://bvjmoy5v70emv" path="res://enemy.tscn" id="22_j8gyd"]
+[ext_resource type="PackedScene" uid="uid://bvjmoy5v70emv" path="res://SCENES/enemy.tscn" id="22_j8gyd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p7d2x"]
 texture = ExtResource("1_6ec7m")

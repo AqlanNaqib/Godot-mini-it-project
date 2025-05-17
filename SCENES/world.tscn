@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7pqlhji1gqi"]
 
 [ext_resource type="PackedScene" uid="uid://l46bgqfjeya7" path="res://SCENES/player.tscn" id="1_fo104"]
-[ext_resource type="PackedScene" uid="uid://bvjmoy5v70emv" path="res://enemy.tscn" id="2_pf7wt"]
+[ext_resource type="PackedScene" uid="uid://bvjmoy5v70emv" path="res://SCENES/enemy.tscn" id="2_pf7wt"]
 
-[node name="world" type="Node2D"]
+[node name="world_test" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_fo104")]
 

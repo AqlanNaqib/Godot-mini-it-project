@@ -1,36 +1,36 @@
 [gd_scene load_steps=44 format=3 uid="uid://ca4o8plimbenm"]
 
-[ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="1_5r0kg"]
-[ext_resource type="Script" uid="uid://buwqfuei7y0oe" path="res://world.gd" id="1_ogjvx"]
-[ext_resource type="PackedScene" uid="uid://bw13dhhfw1n7d" path="res://npc.tscn" id="1_wpilt"]
-[ext_resource type="PackedScene" uid="uid://bvjmoy5v70emv" path="res://enemy.tscn" id="3_wpilt"]
-[ext_resource type="Texture2D" uid="uid://c7da84ydyjdgw" path="res://Tile Maps/Sprites/Hills.png" id="5_1h0i2"]
-[ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="5_hsc1g"]
-[ext_resource type="Texture2D" uid="uid://dyrtdw1r5lfje" path="res://Tile Maps/Sprites/Paths.png" id="7_3ey18"]
-[ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="7_ogjvx"]
-[ext_resource type="Texture2D" uid="uid://rixhfrqq1s2g" path="res://Tile Maps/Sprites/Resources.png" id="8_ogjvx"]
-[ext_resource type="Texture2D" uid="uid://dl660b12mg0hh" path="res://Tile Maps/Sprites/Oak_Tree.png" id="8_vqxxj"]
-[ext_resource type="Texture2D" uid="uid://bc72k0y1g3mx0" path="res://Tile Maps/Sprites/Size_03.png" id="9_vo0oc"]
-[ext_resource type="Texture2D" uid="uid://bsaa3lyokjlvl" path="res://Tile Maps/Sprites/Outdoor_Decor_Free.png" id="9_vqxxj"]
-[ext_resource type="Texture2D" uid="uid://du04duoik8657" path="res://Tile Maps/Sprites/Interior.png" id="10_2tspm"]
-[ext_resource type="Texture2D" uid="uid://kshiixig2mum" path="res://Tile Maps/Sprites/Tilled_Dirt_v2.png" id="10_aal5r"]
-[ext_resource type="Texture2D" uid="uid://c2vedv3ygugq0" path="res://Tile Maps/Sprites/Grass.png" id="11_d7nyt"]
-[ext_resource type="Texture2D" uid="uid://6pk4tdnt6ybj" path="res://Tile Maps/Sprites/Furniture.png" id="11_f8fgu"]
-[ext_resource type="Texture2D" uid="uid://c11nhw2dbql5w" path="res://Tile Maps/Sprites/Vegetation.png" id="14_2tspm"]
-[ext_resource type="Texture2D" uid="uid://c6ph44np1oat4" path="res://Tile Maps/Sprites/Dungeon_Tiles.png" id="15_4s6hw"]
-[ext_resource type="Texture2D" uid="uid://xkjrvyyi3jv3" path="res://Tile Maps/Sprites/house_details.png" id="15_d7nyt"]
-[ext_resource type="Texture2D" uid="uid://bo6a18du04foq" path="res://Tile Maps/Sprites/Chest.png" id="16_f8fgu"]
-[ext_resource type="Texture2D" uid="uid://byvlvnoqy5eue" path="res://Tile Maps/Sprites/Dungeon_Props.png" id="16_fvo4x"]
+[ext_resource type="Script" uid="uid://buwqfuei7y0oe" path="res://coding/world.gd" id="1_ihqeo"]
+[ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="2_spbpa"]
+[ext_resource type="PackedScene" uid="uid://bvjmoy5v70emv" path="res://SCENES/enemy.tscn" id="3_xseqv"]
+[ext_resource type="PackedScene" uid="uid://bw13dhhfw1n7d" path="res://SCENES/npc.tscn" id="4_6316l"]
+[ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="5_38x0x"]
+[ext_resource type="Texture2D" uid="uid://c2vedv3ygugq0" path="res://Tile Maps/Sprites/Grass.png" id="6_uc4n6"]
+[ext_resource type="Texture2D" uid="uid://dyrtdw1r5lfje" path="res://Tile Maps/Sprites/Paths.png" id="7_7dvhg"]
+[ext_resource type="Texture2D" uid="uid://rixhfrqq1s2g" path="res://Tile Maps/Sprites/Resources.png" id="8_7fw85"]
+[ext_resource type="Texture2D" uid="uid://bsaa3lyokjlvl" path="res://Tile Maps/Sprites/Outdoor_Decor_Free.png" id="9_dqpp0"]
+[ext_resource type="Texture2D" uid="uid://du04duoik8657" path="res://Tile Maps/Sprites/Interior.png" id="10_35k7y"]
+[ext_resource type="Texture2D" uid="uid://6pk4tdnt6ybj" path="res://Tile Maps/Sprites/Furniture.png" id="11_anige"]
+[ext_resource type="Texture2D" uid="uid://c7da84ydyjdgw" path="res://Tile Maps/Sprites/Hills.png" id="12_ijkqb"]
+[ext_resource type="Texture2D" uid="uid://xkjrvyyi3jv3" path="res://Tile Maps/Sprites/house_details.png" id="13_i1gee"]
+[ext_resource type="Texture2D" uid="uid://c11nhw2dbql5w" path="res://Tile Maps/Sprites/Vegetation.png" id="14_36tom"]
+[ext_resource type="Texture2D" uid="uid://c6ph44np1oat4" path="res://Tile Maps/Sprites/Dungeon_Tiles.png" id="15_03f5y"]
+[ext_resource type="Texture2D" uid="uid://byvlvnoqy5eue" path="res://Tile Maps/Sprites/Dungeon_Props.png" id="16_tr7he"]
+[ext_resource type="Texture2D" uid="uid://dl660b12mg0hh" path="res://Tile Maps/Sprites/Oak_Tree.png" id="17_0xwl6"]
+[ext_resource type="Texture2D" uid="uid://bo6a18du04foq" path="res://Tile Maps/Sprites/Chest.png" id="18_1fitx"]
+[ext_resource type="Texture2D" uid="uid://bc72k0y1g3mx0" path="res://Tile Maps/Sprites/Size_03.png" id="19_lubas"]
+[ext_resource type="Texture2D" uid="uid://kshiixig2mum" path="res://Tile Maps/Sprites/Tilled_Dirt_v2.png" id="20_2o5sp"]
+[ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="21_sx66n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogjvx"]
 size = Vector2(123, 75)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tspm"]
-texture = ExtResource("5_hsc1g")
+texture = ExtResource("5_38x0x")
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f8fgu"]
-texture = ExtResource("11_d7nyt")
+texture = ExtResource("6_uc4n6")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -104,7 +104,7 @@ texture = ExtResource("11_d7nyt")
 8:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d7nyt"]
-texture = ExtResource("7_3ey18")
+texture = ExtResource("7_7dvhg")
 0:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
@@ -117,7 +117,7 @@ texture = ExtResource("7_3ey18")
 3:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4s6hw"]
-texture = ExtResource("8_ogjvx")
+texture = ExtResource("8_7fw85")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -176,7 +176,7 @@ texture = ExtResource("8_ogjvx")
 2:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fvo4x"]
-texture = ExtResource("9_vqxxj")
+texture = ExtResource("9_dqpp0")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -240,7 +240,7 @@ texture = ExtResource("9_vqxxj")
 1:7/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i5q6v"]
-texture = ExtResource("10_2tspm")
+texture = ExtResource("10_35k7y")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -517,7 +517,7 @@ texture = ExtResource("10_2tspm")
 10:24/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eoiq8"]
-texture = ExtResource("11_f8fgu")
+texture = ExtResource("11_anige")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -952,7 +952,7 @@ texture = ExtResource("11_f8fgu")
 3:25/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6uho"]
-texture = ExtResource("5_1h0i2")
+texture = ExtResource("12_ijkqb")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1022,7 +1022,7 @@ texture = ExtResource("5_1h0i2")
 10:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_614p3"]
-texture = ExtResource("15_d7nyt")
+texture = ExtResource("13_i1gee")
 1:1/size_in_atlas = Vector2i(8, 5)
 1:1/0 = 0
 0:6/size_in_atlas = Vector2i(10, 7)
@@ -1053,7 +1053,7 @@ texture = ExtResource("15_d7nyt")
 4:14/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a4ptu"]
-texture = ExtResource("14_2tspm")
+texture = ExtResource("14_36tom")
 6:0/0 = 0
 7:0/0 = 0
 9:0/0 = 0
@@ -1318,7 +1318,7 @@ texture = ExtResource("14_2tspm")
 3:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_td78e"]
-texture = ExtResource("15_4s6hw")
+texture = ExtResource("15_03f5y")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1615,7 +1615,7 @@ texture = ExtResource("15_4s6hw")
 10:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yndns"]
-texture = ExtResource("16_fvo4x")
+texture = ExtResource("16_tr7he")
 1:0/0 = 0
 3:0/0 = 0
 4:0/0 = 0
@@ -1660,14 +1660,14 @@ texture = ExtResource("16_fvo4x")
 6:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0o1q6"]
-texture = ExtResource("8_vqxxj")
+texture = ExtResource("17_0xwl6")
 0:0/size_in_atlas = Vector2i(4, 5)
 0:0/0 = 0
 0:0/0/y_sort_origin = 13
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.899294, 8, 4.13675, 8, 6.83463, 21.583, 0.899294, 23.2018, -6.83463, 22.4823, -3.95689, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6w28h"]
-texture = ExtResource("16_f8fgu")
+texture = ExtResource("18_1fitx")
 10:0/0 = 0
 13:0/0 = 0
 1:1/0 = 0
@@ -1691,7 +1691,7 @@ texture = ExtResource("16_f8fgu")
 6:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_he1va"]
-texture = ExtResource("9_vo0oc")
+texture = ExtResource("19_lubas")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1826,7 +1826,7 @@ texture = ExtResource("9_vo0oc")
 10:11/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yb0hi"]
-texture = ExtResource("10_aal5r")
+texture = ExtResource("20_2o5sp")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1899,7 +1899,7 @@ texture = ExtResource("10_aal5r")
 9:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xj5x0"]
-texture = ExtResource("7_ogjvx")
+texture = ExtResource("21_sx66n")
 0:1/0 = 0
 1:1/0 = 0
 0:2/0 = 0
@@ -1946,15 +1946,15 @@ size = Vector2(36, 10)
 
 [node name="world" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_ogjvx")
+script = ExtResource("1_ihqeo")
 
-[node name="player 2" parent="." instance=ExtResource("1_5r0kg")]
+[node name="player 2" parent="." instance=ExtResource("2_spbpa")]
 position = Vector2(0, 2)
 
-[node name="enemy" parent="." instance=ExtResource("3_wpilt")]
+[node name="enemy" parent="." instance=ExtResource("3_xseqv")]
 position = Vector2(502, -277)
 
-[node name="npc" parent="." instance=ExtResource("1_wpilt")]
+[node name="npc" parent="." instance=ExtResource("4_6316l")]
 position = Vector2(-399, -46)
 
 [node name="colliosions" type="StaticBody2D" parent="."]
