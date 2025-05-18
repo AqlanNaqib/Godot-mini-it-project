@@ -150,3 +150,6 @@ func _on_regen_timer_timeout():
 			health = 100
 		if health <= 0:
 			health = 0
+
+func player():
+	pass
