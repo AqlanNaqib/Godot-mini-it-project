@@ -1,11 +1,10 @@
-[gd_scene load_steps=41 format=3 uid="uid://bw13dhhfw1n7d"]
+[gd_scene load_steps=40 format=3 uid="uid://bw13dhhfw1n7d"]
 
 [ext_resource type="Texture2D" uid="uid://dplodr6fbfn61" path="res://npc/sprites/NecromancerDownIdle.png" id="1_bc6q4"]
 [ext_resource type="Texture2D" uid="uid://u1wrxh8vd2xu" path="res://npc/sprites/NecromancerDownRun.png" id="2_mcvl2"]
 [ext_resource type="Texture2D" uid="uid://ra7v4yoy0llu" path="res://npc/sprites/NecromancerLeftRun.png" id="3_d61ma"]
 [ext_resource type="Texture2D" uid="uid://5crcakosokhe" path="res://npc/sprites/NecromancerRightRun.png" id="4_slxoh"]
 [ext_resource type="Texture2D" uid="uid://2xeayxtnyvji" path="res://npc/sprites/NecromancerUpRun.png" id="5_l64hl"]
-[ext_resource type="PackedScene" uid="uid://cs867uifxtbuj" path="res://SCENES/dialogue.tscn" id="6_mcvl2"]
 
 [sub_resource type="GDScript" id="GDScript_215dd"]
 script/source = "extends CharacterBody2D
@@ -356,13 +355,6 @@ shape = SubResource("CircleShape2D_h78dd")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="Dialogue" parent="." instance=ExtResource("6_mcvl2")]
-offset_left = -145.0
-offset_top = -140.0
-offset_right = -145.0
-offset_bottom = -140.0
-
 [connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
 [connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]
