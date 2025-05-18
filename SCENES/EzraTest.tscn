@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8ihw16jh31go"]
+
+[ext_resource type="Script" uid="uid://ch3aqxjlglqjc" path="res://coding/character_body_2d.gd" id="1_llmfc"]
+[ext_resource type="Texture2D" uid="uid://te2xx0n0rplw" path="res://player 2/art/Idle.png" id="2_v6svs"]
+[ext_resource type="PackedScene" uid="uid://ba845y1h3i25l" path="res://SCENES/gun.tscn" id="3_v6svs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c0l82"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_llmfc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_c0l82")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_v6svs")
+hframes = 8
+vframes = 6
+
+[node name="Gun" parent="CharacterBody2D" instance=ExtResource("3_v6svs")]
+position = Vector2(0, 3)
+scale = Vector2(1e-05, 1e-05)
