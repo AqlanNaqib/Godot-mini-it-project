@@ -1,7 +1,7 @@
 extends Node
 
-const ItemClass = preload("res://item.gd")
-const SlotClass = preload("res://slot.gd")
+const ItemClass = preload("res://Inventory/script/item.gd")
+const SlotClass = preload("res://Inventory/script/slot.gd")
 const NUM_INVENTORY_SLOTS = 12
 
 var inventory = {

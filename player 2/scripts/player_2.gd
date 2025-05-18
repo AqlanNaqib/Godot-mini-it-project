@@ -150,3 +150,10 @@ func _on_regen_timer_timeout():
 			health = 100
 		if health <= 0:
 			health = 0
+			
+func _input(event):
+	if event.is_action_pressed("pickup"):
+		if $PickupZone.items_in_range.size() > 0:
+			var pickup_items = $PickupZone.items_in_range.values()[0]
+			pickup_items.pick_up_item(self)
+			$PickupZone.items_in_range.erase(pickup_items)

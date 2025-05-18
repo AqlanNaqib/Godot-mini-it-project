@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ccr6y8hscndhv"]
 
-[ext_resource type="Script" uid="uid://db7jxggtf600a" path="res://ItemDrop.gd" id="1_dbq2y"]
+[ext_resource type="Script" uid="uid://db7jxggtf600a" path="res://Inventory/script/ItemDrop.gd" id="1_dbq2y"]
 [ext_resource type="Texture2D" uid="uid://bdiod2hto5256" path="res://Inventory/items/Apple.png" id="1_q8iqi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbq2y"]
