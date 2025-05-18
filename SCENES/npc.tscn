@@ -18,9 +18,9 @@ var start_pos
 var is_roaming = true
 var is_chatting = false
 
+var player_in_area = false 
 
-var player
-var player_in_chat_zone = false
+
 enum{
 	IDLE,
 	NEW_DIR,
@@ -31,7 +31,12 @@ func _ready():
 	randomize()
 	start_pos = position
 	
+	
+	
 func _process(delta):
+	if player_in_area:
+		if Input.is_action_just_pressed(\"f\"):
+			run_dialogue(\"wizardGiving\")
 	if current_state == 0 or  current_state == 1:
 		$AnimatedSprite2D.play(\"idle\")
 	elif current_state == 2 and !is_chatting:
@@ -54,6 +59,14 @@ func _process(delta):
 				move(delta)
 	
 
+func run_dialogue(dialogue_string):
+	is_chatting = true 
+	is_roaming = false
+	
+	Dialogic.start(dialogue_string)
+
+
+
 func choose(array):
 	array.shuffle()
 	return array.front()
@@ -63,18 +76,6 @@ func move(delta):
 		position += dir * speed * delta
 		
 
-
-func _on_chat_detection_area_body_entered(body: Node2D) -> void:
-	if body.has_method(\"player\"):
-		player = body
-		player_in_chat_zone = true
-
-
-
-
-func _on_chat_detection_area_body_exited(body: Node2D) -> void:
-	if body.has_method(\"player\"):
-		player_in_chat_zone = false
 
 
 
@@ -86,6 +87,16 @@ func _on_timer_timeout():
 func _on_dialogue_dialogue_finished():
 	is_chatting = false
 	is_roaming = true 
+
+
+func _on_chat_detection_body_entered(body: Node2D) -> void:
+	if body.has_method(\"player\"):
+		player_in_area = true
+
+
+func _on_chat_detection_body_exited(body: Node2D) -> void:
+	if body.has_method(\"player\"):
+		player_in_area = false
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p5bpe"]
@@ -329,8 +340,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_qbf2e"]
 radius = 7.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h78dd"]
-radius = 41.6293
+[sub_resource type="CircleShape2D" id="CircleShape2D_7kbcn"]
+radius = 45.0999
 
 [node name="npc" type="CharacterBody2D"]
 script = SubResource("GDScript_215dd")
@@ -346,15 +357,14 @@ visibility_layer = 0
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_qbf2e")
 
-[node name="chat_detection_area" type="Area2D" parent="."]
+[node name="chatDetection" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
-visibility_layer = 0
-shape = SubResource("CircleShape2D_h78dd")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chatDetection"]
+shape = SubResource("CircleShape2D_7kbcn")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
-[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
+[connection signal="body_entered" from="chatDetection" to="." method="_on_chat_detection_body_entered"]
+[connection signal="body_exited" from="chatDetection" to="." method="_on_chat_detection_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
