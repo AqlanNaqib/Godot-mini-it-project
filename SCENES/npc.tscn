@@ -349,8 +349,7 @@ script = SubResource("GDScript_215dd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_34tsv")
-animation = &"walk down"
-frame_progress = 0.183601
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 show_behind_parent = true

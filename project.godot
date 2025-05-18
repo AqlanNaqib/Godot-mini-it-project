@@ -23,9 +23,11 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"cat": "res://npc/cat.dch",
 "wizard": "res://npc/wizard.dch"
 }
 directories/dtl_directory={
+"catGiving": "res://npc/sprites #2/catGiving.dtl",
 "wizardGiving": "res://npc/sprites/wizardGiving.dtl"
 }
 layout/style_directory={}

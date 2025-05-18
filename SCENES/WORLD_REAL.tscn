@@ -1,10 +1,11 @@
-[gd_scene load_steps=46 format=3 uid="uid://ca4o8plimbenm"]
+[gd_scene load_steps=47 format=3 uid="uid://ca4o8plimbenm"]
 
 [ext_resource type="Script" uid="uid://buwqfuei7y0oe" path="res://coding/world.gd" id="1_ihqeo"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="2_spbpa"]
 [ext_resource type="PackedScene" uid="uid://bvjmoy5v70emv" path="res://SCENES/enemy.tscn" id="3_xseqv"]
 [ext_resource type="PackedScene" uid="uid://bw13dhhfw1n7d" path="res://SCENES/npc.tscn" id="4_6316l"]
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="5_38x0x"]
+[ext_resource type="PackedScene" uid="uid://d1p6172gslafm" path="res://npc_cat.tscn" id="5_ep8es"]
 [ext_resource type="Texture2D" uid="uid://c2vedv3ygugq0" path="res://Tile Maps/Sprites/Grass.png" id="6_uc4n6"]
 [ext_resource type="Texture2D" uid="uid://dyrtdw1r5lfje" path="res://Tile Maps/Sprites/Paths.png" id="7_7dvhg"]
 [ext_resource type="Texture2D" uid="uid://rixhfrqq1s2g" path="res://Tile Maps/Sprites/Resources.png" id="8_7fw85"]
@@ -3201,6 +3202,9 @@ position = Vector2(502, -277)
 
 [node name="npc" parent="." instance=ExtResource("4_6316l")]
 position = Vector2(-399, -46)
+
+[node name="cat npc" parent="." instance=ExtResource("5_ep8es")]
+position = Vector2(177, 28)
 
 [node name="colliosions" type="StaticBody2D" parent="."]
 
