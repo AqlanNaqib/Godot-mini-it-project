@@ -12,7 +12,7 @@ func _ready():
 		elif global.going_right:
 			$"player 2".position.x = global.player_exit_rightpath_posx
 			$"player 2".position.y = global.player_exit_rightpath_posy
-		elif global.going_down:
+		elif global.going_secret:
 			$"player 2".position.x = global.player_exit_secret_posx
 			$"player 2".position.y = global.player_exit_secret_posy
 
@@ -40,7 +40,8 @@ func _on_secret_transition_point_body_entered(body: PhysicsBody2D):
 	if body.name == "player 2":
 		global.going_left = false
 		global.going_right = false
-		global.going_down = true
+		global.going_down = false
+		global.going_secret = true
 		global.transition_scene = true
 		global.game_first_loadin = false
 		global.finish_changescenes()
