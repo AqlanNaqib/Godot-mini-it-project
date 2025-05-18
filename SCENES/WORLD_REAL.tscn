@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://ca4o8plimbenm"]
+[gd_scene load_steps=46 format=3 uid="uid://ca4o8plimbenm"]
 
 [ext_resource type="Script" uid="uid://buwqfuei7y0oe" path="res://coding/world.gd" id="1_ihqeo"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="2_spbpa"]
@@ -22,12 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://kshiixig2mum" path="res://Tile Maps/Sprites/Tilled_Dirt_v2.png" id="20_2o5sp"]
 [ext_resource type="Texture2D" uid="uid://dpn2fwebeomnn" path="res://Tile Maps/Sprites/exterior.png" id="20_e2nm1"]
 [ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="21_sx66n"]
-[ext_resource type="Script" uid="uid://dv8t24hho7prf" path="res://Inventory/script/interface.gd" id="23_edghx"]
-[ext_resource type="PackedScene" uid="uid://ltsnsbftbqux" path="res://Inventory/scene/inventory.tscn" id="23_ep8es"]
-[ext_resource type="PackedScene" uid="uid://ccr6y8hscndhv" path="res://Inventory/scene/ItemDrop.tscn" id="25_1u6xn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1u6xn"]
-size = Vector2(49, 2)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tspm"]
 texture = ExtResource("5_38x0x")
@@ -3213,10 +3207,6 @@ position = Vector2(-399, -46)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="colliosions"]
 polygon = PackedVector2Array(-240, -144, 97, -144, 97, -70, 101, -65, 240, -64, 240, 48, 265, 48, 265, 79, 240, 79, 240, 143, -240, 144, -240, -48, -268, -48, -268, -81, -240, -80, -240, -140, -287, -138, -287, -45, -284, 166, 255, 160, 312, 157, 308, 43, 292, -187, -99, -184, -274, -180)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="colliosions"]
-position = Vector2(89.5, -14)
-shape = SubResource("RectangleShape2D_1u6xn")
-
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
 tile_set = SubResource("TileSet_yd56u")
@@ -3248,21 +3238,6 @@ shape = SubResource("RectangleShape2D_2tspm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="secret_transition_point"]
 position = Vector2(160, 139)
 shape = SubResource("RectangleShape2D_f8fgu")
-
-[node name="interface" type="CanvasLayer" parent="."]
-layer = 0
-script = ExtResource("23_edghx")
-
-[node name="Inventory" parent="interface" instance=ExtResource("23_ep8es")]
-visible = false
-position = Vector2(0, 1)
-
-[node name="ItemDrop" parent="." instance=ExtResource("25_1u6xn")]
-position = Vector2(69, -56)
-
-[node name="ItemDrop2" parent="." instance=ExtResource("25_1u6xn")]
-position = Vector2(103, -40)
-collision_layer = 0
 
 [connection signal="body_entered" from="leftpath_transition_point" to="." method="_on_leftpath_transition_point_body_entered"]
 [connection signal="body_entered" from="rightpath_transition_point" to="." method="_on_rightpath_transition_point_body_entered"]

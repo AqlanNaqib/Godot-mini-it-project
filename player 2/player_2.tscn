@@ -1,4 +1,4 @@
-[gd_scene load_steps=293 format=3 uid="uid://ddu4kmdy5xthe"]
+[gd_scene load_steps=291 format=3 uid="uid://ddu4kmdy5xthe"]
 
 [ext_resource type="Script" uid="uid://cnelf67nv5hwk" path="res://player 2/scripts/player_2.gd" id="1_eykoa"]
 [ext_resource type="Texture2D" uid="uid://hodjxwnol3tl" path="res://player 2/art/Idle_Gun_Up.png" id="2_la1qn"]
@@ -31,7 +31,6 @@
 [ext_resource type="Texture2D" uid="uid://b3rhp4rr7rm7s" path="res://player 2/art/Run_Gun_Right_Up.png" id="29_jf6sy"]
 [ext_resource type="Texture2D" uid="uid://bgfqxb23iligv" path="res://player 2/art/Run_Gun_Up.png" id="30_6x7kc"]
 [ext_resource type="PackedScene" uid="uid://dqnr7ucrovusk" path="res://SCENES/healthbar.tscn" id="31_la1qn"]
-[ext_resource type="Script" uid="uid://hopthltqnsax" path="res://player 2/pickup_zone.gd" id="33_sqehb"]
 [ext_resource type="PackedScene" uid="uid://ba845y1h3i25l" path="res://SCENES/gun.tscn" id="33_ul2c3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_su2g6"]
@@ -1972,9 +1971,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_dipqy"]
 radius = 6.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sveab"]
-radius = 10.0499
-
 [node name="player_with_gun" type="CharacterBody2D"]
 y_sort_enabled = true
 position = Vector2(0, -1)
@@ -2021,14 +2017,4 @@ rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="PickupZone" type="Area2D" parent="."]
-collision_layer = 0
-script = ExtResource("33_sqehb")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupZone"]
-position = Vector2(0, -3)
-shape = SubResource("CircleShape2D_sveab")
-
 [connection signal="timeout" from="regen_timer" to="." method="_on_regen_timer_timeout"]
-[connection signal="body_entered" from="PickupZone" to="PickupZone" method="_on_body_entered"]
-[connection signal="body_exited" from="PickupZone" to="PickupZone" method="_on_body_exited"]
