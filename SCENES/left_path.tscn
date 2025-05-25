@@ -1617,4 +1617,6 @@ shape = SubResource("RectangleShape2D_83ltd")
 [node name="slime" parent="." instance=ExtResource("19_nfipc")]
 position = Vector2(99, -77)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [connection signal="body_entered" from="leftpath_exit_point" to="." method="_on_leftpath_exit_point_body_entered"]
