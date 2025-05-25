@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://ca4o8plimbenm"]
+[gd_scene load_steps=49 format=3 uid="uid://ca4o8plimbenm"]
 
 [ext_resource type="Script" uid="uid://buwqfuei7y0oe" path="res://coding/world.gd" id="1_ihqeo"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="2_spbpa"]
@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://kshiixig2mum" path="res://Tile Maps/Sprites/Tilled_Dirt_v2.png" id="20_2o5sp"]
 [ext_resource type="Texture2D" uid="uid://dpn2fwebeomnn" path="res://Tile Maps/Sprites/exterior.png" id="20_e2nm1"]
 [ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="21_sx66n"]
+[ext_resource type="Script" uid="uid://qhfcxib66yg8" path="res://SCENES/UserInterface.gd" id="24_1u6xn"]
+[ext_resource type="PackedScene" uid="uid://cfb7n622we237" path="res://SCENES/inventory.tscn" id="24_edghx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tspm"]
 texture = ExtResource("5_38x0x")
@@ -3242,6 +3244,14 @@ shape = SubResource("RectangleShape2D_2tspm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="secret_transition_point"]
 position = Vector2(160, 139)
 shape = SubResource("RectangleShape2D_f8fgu")
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+scale = Vector2(1.5, 1.5)
+transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
+script = ExtResource("24_1u6xn")
+
+[node name="Inventory" parent="UserInterface" instance=ExtResource("24_edghx")]
+position = Vector2(202, 122.667)
 
 [connection signal="body_entered" from="leftpath_transition_point" to="." method="_on_leftpath_transition_point_body_entered"]
 [connection signal="body_entered" from="rightpath_transition_point" to="." method="_on_rightpath_transition_point_body_entered"]
