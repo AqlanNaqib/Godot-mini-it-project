@@ -3251,6 +3251,7 @@ transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
 script = ExtResource("24_1u6xn")
 
 [node name="Inventory" parent="UserInterface" instance=ExtResource("24_edghx")]
+visible = false
 position = Vector2(202, 122.667)
 
 [connection signal="body_entered" from="leftpath_transition_point" to="." method="_on_leftpath_transition_point_body_entered"]

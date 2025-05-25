@@ -2,6 +2,7 @@ extends Panel
 
 var ItemClass = preload("res://SCENES/Item.tscn")
 var item = null
+var slot_index
 
 func _ready():
 	'''
