@@ -8,16 +8,22 @@ extends Control
 @onready var margin_container = $MarginContainer as MarginContainer
 @onready var sfx_click: AudioStreamPlayer2D = $sfx_click
 @onready var menu_music: AudioStreamPlayer = $"menu music"
-
+@onready var start_level = preload("res://SCENES/WORLD_REAL.tscn")
  
 
 
 func _ready():
 	handle_connecting_signals()
 	menu_music.play()
+	start_button.button_down.connect(on_start_pressed)
+	exit_button.button_down.connect(on_exit_pressed)
 
+func on_button_down() -> void:
+	pass
+	
 
 func on_start_pressed() -> void:
+	get_tree().change_scene_to_packed(start_level)
 	sfx_click.play()
 	pass
 
