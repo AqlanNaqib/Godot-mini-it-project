@@ -1,0 +1,116 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfbfghvvliob6"]
+
+[ext_resource type="Texture2D" uid="uid://b2x0r6trbqo6h" path="res://assets/game background.jpg" id="1_cok42"]
+[ext_resource type="Script" uid="uid://4smxjlewrubu" path="res://main menu/main_menu.gd" id="1_m48o8"]
+[ext_resource type="AudioStream" uid="uid://r5vq88lasn1s" path="res://assets/offworld-323074.mp3" id="2_6fy38"]
+[ext_resource type="FontFile" uid="uid://xgab11b7pv77" path="res://assets/Early GameBoy.ttf" id="2_8f8xy"]
+[ext_resource type="PackedScene" uid="uid://clpsiy2vfs0h8" path="res://options menu/options_menu.tscn" id="4_ra13p"]
+[ext_resource type="AudioStream" uid="uid://censkjbj28mat" path="res://assets/Mouse Click Sound Effect.mp3" id="5_45qoi"]
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = -960.0
+offset_bottom = -540.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_m48o8")
+
+[node name="menu music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6fy38")
+volume_db = -3.467
+autoplay = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -956.0
+offset_top = -541.0
+offset_right = 959.0
+offset_bottom = 538.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cok42")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_left = -956.0
+offset_top = -535.0
+offset_right = 957.0
+offset_bottom = 536.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 186
+
+[node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="game title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_constants/paragraph_spacing = 0
+theme_override_constants/shadow_offset_x = 27
+theme_override_constants/outline_size = 23
+theme_override_fonts/font = ExtResource("2_8f8xy")
+theme_override_font_sizes/font_size = 75
+text = "The Jungle
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 34
+alignment = 1
+
+[node name="Seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Start_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8f8xy")
+theme_override_font_sizes/font_size = 50
+text = "START"
+
+[node name="Options_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8f8xy")
+theme_override_font_sizes/font_size = 50
+text = "OPTION
+"
+
+[node name="Exit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8f8xy")
+theme_override_font_sizes/font_size = 50
+text = "exit
+"
+
+[node name="Options_Menu" parent="." instance=ExtResource("4_ra13p")]
+visible = false
+layout_mode = 1
+
+[node name="sfx_click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_45qoi")
+volume_db = 12.011
