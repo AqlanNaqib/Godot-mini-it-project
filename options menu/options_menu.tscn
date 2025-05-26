@@ -42,3 +42,5 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 8
 text = "EXIT"
+
+[node name="Node" type="Node" parent="."]
