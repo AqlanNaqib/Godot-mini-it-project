@@ -2017,6 +2017,16 @@ shape = SubResource("CircleShape2D_ul2c3")
 [node name="attack_cooldown" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+zoom = Vector2(3, 3)
+limit_left = -239
+limit_top = -143
+limit_right = 239
+limit_bottom = 144
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
 [connection signal="timeout" from="regen_timer" to="." method="_on_regen_timer_timeout"]
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
