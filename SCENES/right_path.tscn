@@ -1879,9 +1879,6 @@ layer_2/tile_data = PackedInt32Array(-65534, 3, 0, -131069, 3, 0, -196604, 3, 0,
 [node name="enemy" parent="." instance=ExtResource("22_j8gyd")]
 position = Vector2(-20, -53)
 
-[node name="player 2" parent="." instance=ExtResource("21_ofyxt")]
-position = Vector2(-230, 68)
-
 [node name="collisions" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
@@ -1895,5 +1892,8 @@ shape = SubResource("RectangleShape2D_y0x5g")
 
 [node name="slime" parent="." instance=ExtResource("26_5oc41")]
 position = Vector2(81, 9)
+
+[node name="player" parent="." instance=ExtResource("21_ofyxt")]
+position = Vector2(-229, 69)
 
 [connection signal="body_entered" from="rightpath_exit_point" to="." method="_on_rightpath_exit_point_body_entered"]

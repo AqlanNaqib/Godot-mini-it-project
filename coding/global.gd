@@ -17,10 +17,10 @@ var player_exit_rightpath_posx = 231
 var player_exit_rightpath_posy = 72
 var player_exit_secret_posx = 160
 var player_exit_secret_posy = 131
-var player_exit_down_posx = 17
-var player_exit_down_posy = 121
-var player_exit_dungeon_posx = 0
-var player_exit_dungeon_posy = 0
+var player_exit_down_posx = 25
+var player_exit_down_posy = 139
+var player_exit_dungeon_posx = -225
+var player_exit_dungeon_posy = 21
 var player_exit_overworld_posx = 0
 var player_exit_overworld_posy = 0
 var player_start_posx = 0
@@ -46,6 +46,12 @@ func finish_changescenes():
 		elif current_scene == "down_path" and going_down:
 			current_scene = "secret"
 			get_tree().change_scene_to_file("res://SCENES/secret.tscn")
+		elif current_scene == "down_path" and going_dungeon:
+			current_scene = "dungeon"
+			get_tree().change_scene_to_file("res://SCENES/dungeon.tscn")
+		elif current_scene == "dungeon" and going_dungeon:
+			current_scene = "down_path"
+			get_tree().change_scene_to_file("res://SCENES/down_path.tscn")
 		else:
 			current_scene = "world"
 			get_tree().change_scene_to_file("res://WORLD.tscn")

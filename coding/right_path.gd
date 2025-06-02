@@ -4,7 +4,7 @@ func _process(delta):
 	change_scene()
 
 func _on_rightpath_exit_point_body_entered(body: PhysicsBody2D):
-	if body.name == "player 2":
+	if body.name == "player":
 		global.going_right = true
 		global.going_left = false
 		global.going_down = false

@@ -1605,9 +1605,6 @@ position = Vector2(116, 6)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="colliosion"]
 polygon = PackedVector2Array(239, -145, 240, -98, 271, -97, 271, -64, 240, -64, 240, 144, -240, 144, -241, -145, 236, -145, 231, -168, -269, -174, -284, 149, -126, 182, 303, 163, 295, -177, 239, -155)
 
-[node name="player 2" parent="." instance=ExtResource("17_83ltd")]
-position = Vector2(228, -73)
-
 [node name="leftpath_exit_point" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="leftpath_exit_point"]
@@ -1617,6 +1614,7 @@ shape = SubResource("RectangleShape2D_83ltd")
 [node name="slime" parent="." instance=ExtResource("19_nfipc")]
 position = Vector2(99, -77)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="player" parent="." instance=ExtResource("17_83ltd")]
+position = Vector2(227, -77)
 
 [connection signal="body_entered" from="leftpath_exit_point" to="." method="_on_leftpath_exit_point_body_entered"]

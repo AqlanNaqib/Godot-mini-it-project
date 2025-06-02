@@ -6,7 +6,7 @@ func _process(delta):
 
 
 func _on_leftpath_exit_point_body_entered(body: PhysicsBody2D):
-	if body.name == "player 2":
+	if body.name == "player":
 		global.going_right = false
 		global.going_left = true
 		global.going_down = false

@@ -3196,9 +3196,6 @@ size = Vector2(36, 10)
 y_sort_enabled = true
 script = ExtResource("1_ihqeo")
 
-[node name="player 2" parent="." instance=ExtResource("2_spbpa")]
-position = Vector2(0, 2)
-
 [node name="enemy" parent="." instance=ExtResource("3_xseqv")]
 position = Vector2(502, -277)
 
@@ -3253,6 +3250,8 @@ script = ExtResource("24_1u6xn")
 [node name="Inventory" parent="UserInterface" instance=ExtResource("24_edghx")]
 visible = false
 position = Vector2(202, 122.667)
+
+[node name="player" parent="." instance=ExtResource("2_spbpa")]
 
 [connection signal="body_entered" from="leftpath_transition_point" to="." method="_on_leftpath_transition_point_body_entered"]
 [connection signal="body_entered" from="rightpath_transition_point" to="." method="_on_rightpath_transition_point_body_entered"]

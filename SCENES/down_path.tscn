@@ -8453,9 +8453,6 @@ size = Vector2(20, 32)
 [node name="down_path" type="Node2D"]
 script = ExtResource("1_5r42g")
 
-[node name="player 2" parent="." instance=ExtResource("2_ahcua")]
-position = Vector2(15, -122)
-
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
 tile_set = SubResource("TileSet_3rg0s")
@@ -8497,4 +8494,8 @@ polygon = PackedVector2Array(-236, -127, -3, -127, -1, -160, 33, -162, 34, -127,
 position = Vector2(144, -117)
 shape = SubResource("RectangleShape2D_n8x2n")
 
+[node name="player" parent="." instance=ExtResource("2_ahcua")]
+position = Vector2(15, -122)
+
 [connection signal="body_entered" from="down_exit_point" to="." method="_on_down_exit_point_body_entered"]
+[connection signal="body_entered" from="dungeon_transition_point" to="." method="_on_dungeon_transition_point_body_entered"]

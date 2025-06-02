@@ -1,6 +1,7 @@
-[gd_scene load_steps=67 format=3 uid="uid://crgxwiclx0l7k"]
+[gd_scene load_steps=69 format=3 uid="uid://crgxwiclx0l7k"]
 
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="1_gus3p"]
+[ext_resource type="Script" uid="uid://iro5ycg5vobw" path="res://coding/dungeon.gd" id="1_v3ms4"]
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="2_gx2s0"]
 [ext_resource type="Texture2D" uid="uid://c2vedv3ygugq0" path="res://Tile Maps/Sprites/Grass.png" id="3_720ou"]
 [ext_resource type="Texture2D" uid="uid://dyrtdw1r5lfje" path="res://Tile Maps/Sprites/Paths.png" id="4_r86jo"]
@@ -10140,10 +10141,11 @@ sources/24 = SubResource("TileSetAtlasSource_5rrb7")
 sources/25 = SubResource("TileSetAtlasSource_wpbp8")
 sources/26 = SubResource("TileSetAtlasSource_720ou")
 
-[node name="dungeon" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32kyn"]
+size = Vector2(20, 33)
 
-[node name="player" parent="." instance=ExtResource("1_gus3p")]
-position = Vector2(222, 16)
+[node name="dungeon" type="Node2D"]
+script = ExtResource("1_v3ms4")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -10158,3 +10160,17 @@ layer_1/tile_data = PackedInt32Array(-65522, 917524, 2, -65523, 917524, 2, -6552
 layer_2/name = "Ysort"
 layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(-524286, 327700, 18, -458750, 327700, 19, -393214, 327700, 20, -589822, 327700, 17, -655358, 327700, 17, -524280, 393236, 18, -458744, 393236, 19, -393208, 393236, 20, -589816, 393236, 16, -655352, 393236, 16, -524285, 65556, 18, -458749, 65556, 19, -393213, 65556, 20, -524284, 65556, 18, -458748, 65556, 19, -393212, 65556, 20, -524283, 65556, 18, -458747, 65556, 19, -393211, 65556, 20, -524282, 393236, 25, -524281, 458772, 25, -458746, 393236, 26, -393210, 393236, 27, -458745, 458772, 26, -393209, 458772, 27)
+
+[node name="dungeon_exit_point" type="Area2D" parent="."]
+light_mask = 3
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dungeon_exit_point"]
+position = Vector2(246, 15)
+shape = SubResource("RectangleShape2D_32kyn")
+
+[node name="player" parent="." instance=ExtResource("1_gus3p")]
+position = Vector2(225, 20)
+
+[connection signal="body_entered" from="dungeon_exit_point" to="." method="_on_dungeon_exit_point_body_entered"]

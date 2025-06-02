@@ -2,13 +2,13 @@ extends Node2D
 
 func _ready():
 	if global.going_down:
-		$"player 2".position.x = global.player_exit_down_posx
-		$"player 2".position.y = global.player_exit_down_posy
+		$"player".position.x = global.player_exit_down_posx
+		$"player".position.y = global.player_exit_down_posy
 func _process(delta):
 	change_scene()
 
 func _on_secret_exit_point_body_entered(body: PhysicsBody2D):
-	if body.name == "player 2":
+	if body.name == "player":
 		global.going_down = false
 		global.going_left = false
 		global.going_right = false
@@ -26,7 +26,7 @@ func change_scene():
 
 
 func _on_down_transition_point_body_entered(body: Node2D) -> void:
-	if body.name == "player 2":
+	if body.name == "player":
 		global.going_down = true
 		global.going_left = false
 		global.going_right = false
