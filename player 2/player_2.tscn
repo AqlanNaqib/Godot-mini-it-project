@@ -2018,12 +2018,12 @@ shape = SubResource("CircleShape2D_ul2c3")
 wait_time = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-ignore_rotation = false
-zoom = Vector2(3, 3)
-limit_left = -239
-limit_top = -143
-limit_right = 239
-limit_bottom = 144
+position = Vector2(5, 0)
+zoom = Vector2(2.5, 2.5)
+limit_left = -240
+limit_top = -142
+limit_right = 240
+limit_bottom = 142
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
