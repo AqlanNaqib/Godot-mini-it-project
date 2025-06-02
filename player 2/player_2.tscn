@@ -1,4 +1,4 @@
-[gd_scene load_steps=292 format=3 uid="uid://ddu4kmdy5xthe"]
+[gd_scene load_steps=291 format=3 uid="uid://ddu4kmdy5xthe"]
 
 [ext_resource type="Script" uid="uid://cnelf67nv5hwk" path="res://player 2/scripts/player_2.gd" id="1_eykoa"]
 [ext_resource type="Texture2D" uid="uid://hodjxwnol3tl" path="res://player 2/art/Idle_Gun_Up.png" id="2_la1qn"]
@@ -30,7 +30,6 @@
 [ext_resource type="Texture2D" uid="uid://hlua2mu46t1i" path="res://player 2/art/Run_Gun_Right_Down.png" id="28_k5jpu"]
 [ext_resource type="Texture2D" uid="uid://b3rhp4rr7rm7s" path="res://player 2/art/Run_Gun_Right_Up.png" id="29_jf6sy"]
 [ext_resource type="Texture2D" uid="uid://bgfqxb23iligv" path="res://player 2/art/Run_Gun_Up.png" id="30_6x7kc"]
-[ext_resource type="PackedScene" uid="uid://dqnr7ucrovusk" path="res://SCENES/healthbar.tscn" id="31_la1qn"]
 [ext_resource type="PackedScene" uid="uid://ba845y1h3i25l" path="res://SCENES/gun.tscn" id="33_ul2c3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_su2g6"]
@@ -1985,17 +1984,6 @@ sprite_frames = SubResource("SpriteFrames_mt8yd")
 animation = &"se-idle"
 offset = Vector2(0, -10)
 
-[node name="healthbar" parent="." instance=ExtResource("31_la1qn")]
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 19.0
-offset_bottom = -17.0
-metadata/_edit_use_anchors_ = true
-
-[node name="regen_timer" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
-
 [node name="StateMachine" type="Node" parent="."]
 
 [node name="Gun" parent="." instance=ExtResource("33_ul2c3")]
@@ -2027,7 +2015,6 @@ limit_bottom = 142
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[connection signal="timeout" from="regen_timer" to="." method="_on_regen_timer_timeout"]
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

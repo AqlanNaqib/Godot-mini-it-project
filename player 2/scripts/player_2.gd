@@ -3,13 +3,14 @@ extends CharacterBody2D
 class_name Player
 
 @onready var gun = $Gun
-@onready var healthbar: ProgressBar = $healthbar
+
 @onready var bullet_spawn_point = $CenterMarker
 
 
 var bow_equipped = false
 var bow_cooldown = true
 var arrow = preload("res://SCENES/arrow.tscn")
+signal healthChanged
 
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
@@ -27,14 +28,14 @@ func _ready():
 func _physics_process(delta):
 	mouse_loc_from_player = get_global_mouse_position() - self.position
 	player_movement(delta)
-	#update_health()
+	
 	enemy_attack()
 	
 	if health <= 0:
-		player_alive = false
+		#player_alive = false
 		health = 0
 		print("player has been killed")
-		self.queue_free()
+		#self.queue_free()
 
 
 	if Input.is_action_pressed("attack"):
@@ -155,16 +156,7 @@ func play_anim(movement):
 		elif dir.x < -0.5 and dir.y < -0.5:
 			anim.play("nw-walk")
 
-#func update_health():
-	healthbar.value = health
 
-#func _on_regen_timer_timeout():
-	if health < 100:
-		health += 20
-		if health > 100:
-			health = 100
-		if health <= 0:
-			health = 0
 
 func player():
 	pass
@@ -178,13 +170,14 @@ func _on_player_hitbox_body_exited(body):
 		enemy_inattack_range = false
 
 func enemy_attack():
-	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health = health - 50
+	if enemy_inattack_range and enemy_attack_cooldown:
+		health -= 20
+		health = max(0, health)  # Prevent negative health
+		healthChanged.emit()  # Emit after changing health
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		print(health)
-			
-			
+
 
 
 func _on_attack_cooldown_timeout() -> void:
