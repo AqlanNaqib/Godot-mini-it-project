@@ -8,6 +8,8 @@ var going_left = false
 var going_right = false 
 var going_down = false
 var going_secret = false
+var going_dungeon = false
+var going_overworld = false
 
 var player_exit_leftpath_posx = -233
 var player_exit_leftpath_posy = -59
@@ -17,6 +19,10 @@ var player_exit_secret_posx = 160
 var player_exit_secret_posy = 131
 var player_exit_down_posx = 17
 var player_exit_down_posy = 121
+var player_exit_dungeon_posx = 0
+var player_exit_dungeon_posy = 0
+var player_exit_overworld_posx = 0
+var player_exit_overworld_posy = 0
 var player_start_posx = 0
 var player_start_posy = -1
 
