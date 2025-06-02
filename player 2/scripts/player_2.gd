@@ -156,15 +156,15 @@ func play_anim(movement):
 			anim.play("nw-walk")
 
 #func update_health():
-	#healthbar.value = health
+	healthbar.value = health
 
 #func _on_regen_timer_timeout():
-	#if health < 100:
-	#	health += 20
-	#	if health > 100:
-	#		health = 100
-	#	if health <= 0:
-	#		health = 0
+	if health < 100:
+		health += 20
+		if health > 100:
+			health = 100
+		if health <= 0:
+			health = 0
 
 func player():
 	pass

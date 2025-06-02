@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+# Movement and stats
 var speed = 50
 var health = 100
 var dead = false
@@ -11,20 +12,21 @@ func _ready():
 	dead = false
 
 func _physics_process(delta):
-	if !dead:
-		$detection_area/CollisionShape2D.disabled = false
-		if player_in_area and player != null:
-			var direction = (player.position - position).normalized()
-			velocity = direction * speed
-			move_and_slide()
-			update_movement_animation(direction)
-			last_direction = direction
-		else:
-			play_idle_animation()
-	
 	if dead:
 		$detection_area/CollisionShape2D.disabled = true
 		play_death_animation()
+		return
+	
+	$detection_area/CollisionShape2D.disabled = false
+	
+	if player_in_area and player != null:
+		var direction = (player.position - position).normalized()
+		velocity = direction * speed
+		move_and_slide()
+		update_movement_animation(direction)
+		last_direction = direction
+	else:
+		play_idle_animation()
 
 func update_movement_animation(direction: Vector2):
 	# Determine which walking animation to play based on direction
@@ -65,7 +67,6 @@ func play_death_animation():
 		else:
 			$AnimatedSprite2D.play("back_death")
 
-# Rest of your existing functions remain the same...
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_area = true
@@ -95,5 +96,6 @@ func death():
 	
 	await get_tree().create_timer(1.0).timeout
 	queue_free()
+
 func enemy():
 	pass

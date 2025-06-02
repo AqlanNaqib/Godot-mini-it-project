@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://732rg828odbr"]
+[gd_scene load_steps=51 format=3 uid="uid://732rg828odbr"]
 
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="1_6ec7m"]
 [ext_resource type="Script" uid="uid://i2j18lriyp5j" path="res://coding/right_path.gd" id="1_6xqwn"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="20_vipho"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="21_ofyxt"]
 [ext_resource type="PackedScene" uid="uid://bvjmoy5v70emv" path="res://SCENES/enemy.tscn" id="22_j8gyd"]
+[ext_resource type="PackedScene" uid="uid://bs4hwjntff02j" path="res://SCENES/slime.tscn" id="26_5oc41"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p7d2x"]
 texture = ExtResource("1_6ec7m")
@@ -1876,7 +1877,7 @@ layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(-65534, 3, 0, -131069, 3, 0, -196604, 3, 0, -196603, 3, 0, -131066, 3, 0, -65529, 3, 0, 458738, 131081, 0, 458739, 131081, 0, 458740, 131081, 0, 458741, 131081, 0, 458742, 131081, 0, 458743, 131081, 0, 524279, 131081, 0, 524278, 131081, 0, 524277, 131081, 0, 524276, 131081, 0, 524275, 131081, 0, 524274, 131081, 0, 524280, 131081, 0, 458744, 131081, 0, 524281, 131081, 0, 524273, 131081, 0, 458737, 131081, 0, 589809, 131081, 0, 589810, 131081, 0, 589811, 131081, 0, 589812, 131081, 0, 589813, 131081, 0, 589814, 131081, 0, 589815, 131081, 0, 589816, 131081, 0, 589817, 131081, 0, 589818, 131081, 0, -393204, 11, 0, -131061, 10, 0, -131060, 10, 0, -65525, 10, 2, -65524, 10, 2, -393212, 327702, 11, -393213, 327702, 11, -458749, 327702, 11, -458748, 327702, 11, -393211, 327702, 5, -458747, 327702, 5, -458746, 327702, 5, -393210, 327702, 5, -393209, 327702, 9, -458745, 327702, 9, -196595, 65548, 9)
 
 [node name="enemy" parent="." instance=ExtResource("22_j8gyd")]
-position = Vector2(77, 11)
+position = Vector2(-20, -53)
 
 [node name="player 2" parent="." instance=ExtResource("21_ofyxt")]
 position = Vector2(-230, 68)
@@ -1891,5 +1892,8 @@ polygon = PackedVector2Array(137, -84, 135, -119, 42, -118, 42, -60, 136, -60, 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rightpath_exit_point"]
 position = Vector2(-250.5, 63)
 shape = SubResource("RectangleShape2D_y0x5g")
+
+[node name="slime" parent="." instance=ExtResource("26_5oc41")]
+position = Vector2(81, 9)
 
 [connection signal="body_entered" from="rightpath_exit_point" to="." method="_on_rightpath_exit_point_body_entered"]

@@ -1982,7 +1982,7 @@ script = ExtResource("1_eykoa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mt8yd")
-animation = &"sw-idle"
+animation = &"se-idle"
 offset = Vector2(0, -10)
 
 [node name="healthbar" parent="." instance=ExtResource("31_la1qn")]
