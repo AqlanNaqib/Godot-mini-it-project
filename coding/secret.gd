@@ -1,34 +1,34 @@
 extends Node2D
 
 func _ready():
-	if global.going_down:
-		$"player".position.x = global.player_exit_down_posx
-		$"player".position.y = global.player_exit_down_posy
+	if SceneManager.going_down:
+		$"player".position.x = SceneManager.player_exit_down_posx
+		$"player".position.y = SceneManager.player_exit_down_posy
 func _process(delta):
 	change_scene()
 
 func _on_secret_exit_point_body_entered(body: PhysicsBody2D):
 	if body.name == "player":
-		global.going_down = false
-		global.going_left = false
-		global.going_right = false
-		global.going_secret = true
-		global.transition_scene = true
+		SceneManager.going_down = false
+		SceneManager.going_left = false
+		SceneManager.going_right = false
+		SceneManager.going_secret = true
+		SceneManager.transition_scene = true
 		
 func change_scene():
-	if global.transition_scene == true:
-		if global.current_scene == "secret":
+	if SceneManager.transition_scene == true:
+		if SceneManager.current_scene == "secret":
 			get_tree().change_scene_to_file("res://SCENES/WORLD_REAL.tscn")
-			global.finish_changescenes()
-		elif global.current_scene == "secret":
+			SceneManager.finish_changescenes()
+		elif SceneManager.current_scene == "secret":
 			get_tree().change_scene_to_file("res://SCENES/down_path.tscn")
-			global.finish_changescenes()
+			SceneManager.finish_changescenes()
 
 
 func _on_down_transition_point_body_entered(body: Node2D) -> void:
 	if body.name == "player":
-		global.going_down = true
-		global.going_left = false
-		global.going_right = false
-		global.going_secret = false
-		global.transition_scene = true
+		SceneManager.going_down = true
+		SceneManager.going_left = false
+		SceneManager.going_right = false
+		SceneManager.going_secret = false
+		SceneManager.transition_scene = true

@@ -7,14 +7,14 @@ func _process(delta):
 
 func _on_leftpath_exit_point_body_entered(body: PhysicsBody2D):
 	if body.name == "player":
-		global.going_right = false
-		global.going_left = true
-		global.going_down = false
-		global.going_secret = false
-		global.transition_scene = true
+		SceneManager.going_right = false
+		SceneManager.going_left = true
+		SceneManager.going_down = false
+		SceneManager.going_secret = false
+		SceneManager.transition_scene = true
 
 func change_scene():
-	if global.transition_scene == true:
-		if global.current_scene == "left_path":
+	if SceneManager.transition_scene == true:
+		if SceneManager.current_scene == "left_path":
 			get_tree().change_scene_to_file("res://SCENES/WORLD_REAL.tscn")
-			global.finish_changescenes()
+			SceneManager.finish_changescenes()

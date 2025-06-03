@@ -17,10 +17,11 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalData="*res://coding/global.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 JsonData="*res://coding/JSONData.gd"
 PlayerInventory="*res://coding/PlayerInventory.gd"
+GlobalData="*res://globaldata.gd"
+SceneManager="*res://coding/scenemanager.gd"
 
 [dialogic]
 
