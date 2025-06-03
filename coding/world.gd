@@ -2,6 +2,9 @@ extends Node2D
 
 
 func _ready():
+	var playerCharPath = GlobalData.playerCharPath
+	var playerNode = load(playerCharPath).instantiate()
+	add_child(playerNode)
 	if global.game_first_loadin == true:
 		$"player".position.x = global.player_start_posx
 		$"player".position.y = global.player_start_posy

@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://q4c6nk0beqod"]
+
+[sub_resource type="Resource" id="Resource_x2oy0"]
+metadata/__load_path__ = "res://assets/sprites/tiny swords chars/archer single.png"
+
+[sub_resource type="Resource" id="Resource_n1ssy"]
+metadata/__load_path__ = "res://assets/sprites/tiny swords chars/pawn single.png"
+
+[sub_resource type="Resource" id="Resource_pd24t"]
+metadata/__load_path__ = "res://assets/sprites/tiny swords chars/warrior.png"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5xel"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="SelectionScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -296.0
+offset_top = -169.0
+offset_right = 344.0
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -334.0
+offset_top = -96.0
+offset_right = 126.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "CHOOSE YOUR ROLE"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+
+[node name="Character1" parent="VBoxContainer/HBoxContainer"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+layout_mode = 2
+characterPath = "res://tutorial_collection/chars/Archer/Archer_shoot_direction.tscn"
+characterTexture = SubResource("Resource_x2oy0")
+script = null
+
+[node name="Character2" parent="VBoxContainer/HBoxContainer"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+layout_mode = 2
+characterPath = "res://tutorial_collection/chop_tree/pawn.tscn"
+characterTexture = SubResource("Resource_n1ssy")
+script = null
+
+[node name="Character3" parent="VBoxContainer/HBoxContainer"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+layout_mode = 2
+characterPath = "res://tutorial_collection/player/top_down/knight.tscn"
+characterTexture = SubResource("Resource_pd24t")
+script = null
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_b5xel")
+text = "START"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
