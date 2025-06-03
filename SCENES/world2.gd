@@ -3,21 +3,21 @@ extends Node2D
 var choose_player := preload("res://character_selection.tscn")
 func _ready():
 	if SceneManager.game_first_loadin == true:
-		$"player".position.x = SceneManager.player_start_posx
-		$"player".position.y = SceneManager.player_start_posy
+		$"player_with_spear".position.x = SceneManager.player_start_posx
+		$"player_with_spear".position.y = SceneManager.player_start_posy
 	else:
 		if SceneManager.going_left:
-			$"player".position.x = SceneManager.player_exit_leftpath_posx
-			$"player".position.y = SceneManager.player_exit_leftpath_posy
+			$"player_with_spear".position.x = SceneManager.player_exit_leftpath_posx
+			$"player_with_spear".position.y = SceneManager.player_exit_leftpath_posy
 		elif SceneManager.going_right:
-			$"player".position.x = SceneManager.player_exit_rightpath_posx
-			$"player".position.y = SceneManager.player_exit_rightpath_posy
+			$"player_with_spear".position.x = SceneManager.player_exit_rightpath_posx
+			$"player_with_spear".position.y = SceneManager.player_exit_rightpath_posy
 		elif SceneManager.going_secret:
-			$"player".position.x = SceneManager.player_exit_secret_posx
-			$"player".position.y = SceneManager.player_exit_secret_posy
+			$"player_with_spear".position.x = SceneManager.player_exit_secret_posx
+			$"player_with_spear".position.y = SceneManager.player_exit_secret_posy
 		elif SceneManager.going_house1:
-			$"player".position.x = SceneManager.player_exit_house1_posx
-			$"player".position.y = SceneManager.player_exit_house1_posy
+			$"player_with_spear".position.x = SceneManager.player_exit_house1_posx
+			$"player_with_spear".position.y = SceneManager.player_exit_house1_posy
 	var Choose_player := choose_player.instantiate()
 	get_tree().current_scene.add_child(Choose_player)
 

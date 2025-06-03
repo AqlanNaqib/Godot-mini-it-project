@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://ban2y4spc0ui1"]
+
+[ext_resource type="Texture2D" uid="uid://djidkfgpl7u4e" path="res://assets/blurred bckgrnd.png" id="1_i640r"]
+[ext_resource type="FontFile" uid="uid://dvq5o4mkjn2f2" path="res://assets/Early GameBoy.ttf" id="2_pwu4o"]
+[ext_resource type="FontFile" uid="uid://gvhmvvi3ds5w" path="res://Inventory/Fonts/Juvanze-ovw9A.otf" id="2_ve3h0"]
+[ext_resource type="Texture2D" uid="uid://bq4wivxxyplim" path="res://assets/gun.png" id="3_pwu4o"]
+[ext_resource type="Texture2D" uid="uid://0eb2cc6b628" path="res://assets/spear.png" id="4_yr170"]
+
+[sub_resource type="GDScript" id="GDScript_rr1ac"]
+script/source = "extends Node2D
+
+
+var character_1 := preload(\"res://SCENES/WORLD_REAL.tscn\")
+var character_2 := preload(\"res://SCENES/WORLD_REAL2.tscn\")
+
+func _on_button_1_pressed() -> void:
+	var Character_1 := character_1.instantiate()
+	get_tree().current_scene.add_child(Character_1)
+	$CanvasLayer.queue_free()
+
+
+func _on_button_2_pressed() -> void:
+	var Character_2 := character_2.instantiate()
+	get_tree().current_scene.add_child(Character_2)
+	$CanvasLayer.queue_free()
+"
+
+[node name="character_selection" type="Node2D"]
+script = SubResource("GDScript_rr1ac")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_i640r")
+expand_mode = 2
+
+[node name="Button1" type="Button" parent="CanvasLayer"]
+offset_left = 345.0
+offset_top = 371.0
+offset_right = 500.0
+offset_bottom = 408.0
+theme_override_fonts/font = ExtResource("2_pwu4o")
+text = "Character 1"
+
+[node name="Button2" type="Button" parent="CanvasLayer"]
+offset_left = 678.0
+offset_top = 370.0
+offset_right = 833.0
+offset_bottom = 407.0
+theme_override_fonts/font = ExtResource("2_pwu4o")
+text = "Character 2"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = -203.0
+offset_right = 246.0
+offset_bottom = -153.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ve3h0")
+theme_override_font_sizes/font_size = 50
+text = "Choose your character "
+
+[node name="Sprite1" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(425, 307)
+scale = Vector2(0.938151, 0.941406)
+texture = ExtResource("3_pwu4o")
+
+[node name="Sprite2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(770, 280)
+scale = Vector2(0.959961, 0.955078)
+texture = ExtResource("4_yr170")
+
+[connection signal="pressed" from="CanvasLayer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]
