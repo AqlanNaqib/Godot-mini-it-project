@@ -9,6 +9,7 @@ var going_right = false
 var going_down = false
 var going_secret = false
 var going_dungeon = false
+var going_sec_dungeon = false
 var going_overworld = false
 
 var player_exit_leftpath_posx = -233
@@ -23,6 +24,8 @@ var player_exit_dungeon_posx = -225
 var player_exit_dungeon_posy = 21
 var player_exit_overworld_posx = 0
 var player_exit_overworld_posy = 0
+var player_exit_sec_dungeon_posx = -111
+var player_exit_sec_dungeon_posy = 82
 var player_start_posx = 0
 var player_start_posy = -1
 
@@ -51,7 +54,12 @@ func finish_changescenes():
 			get_tree().change_scene_to_file("res://SCENES/dungeon.tscn")
 		elif current_scene == "dungeon" and going_dungeon:
 			current_scene = "down_path"
-			get_tree().change_scene_to_file("res://SCENES/down_path.tscn")
+		elif current_scene == "dungeon" and going_sec_dungeon:
+			current_scene = "sec_dungeon"
+			get_tree().change_scene_to_file("res://SCENES/sec_dungeon.tscn")
+		elif current_scene == "sec_dungeon" and going_sec_dungeon:
+			current_scene = "dungeon"
+			get_tree().change_scene_to_file("res://SCENES/dungeon.tscn")
 		else:
 			current_scene = "world"
 			get_tree().change_scene_to_file("res://WORLD.tscn")
