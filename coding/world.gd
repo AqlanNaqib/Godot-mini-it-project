@@ -52,7 +52,11 @@ func _on_secret_transition_point_body_entered(body: PhysicsBody2D):
 
 func _on_house_transition_body_entered(body: PhysicsBody2D):
 	if body.name == "player":
-			global.going_house1 = true
-			global.transition_scene = true
-			global.game_first_loadin = false
-			global.finish_changescenes()
+		global.going_left = false
+		global.going_right = false
+		global.going_down = false
+		global.going_secret = false
+		global.going_house1 = true
+		global.transition_scene = true
+		global.game_first_loadin = false
+		global.finish_changescenes()

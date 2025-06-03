@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://baoeq5li0jrvr"]
+[gd_scene load_steps=16 format=3 uid="uid://baoeq5li0jrvr"]
 
-[ext_resource type="Script" uid="uid://gl4mx5inc3t0" path="res://SCENES/house_1.gd" id="1_h3tkp"]
+[ext_resource type="Script" uid="uid://gl4mx5inc3t0" path="res://coding/house_1.gd" id="1_h3tkp"]
 [ext_resource type="Texture2D" uid="uid://brth33ip3peyo" path="res://Tile Maps/Sprites/Floors.png" id="1_sodcb"]
 [ext_resource type="Texture2D" uid="uid://6pk4tdnt6ybj" path="res://Tile Maps/Sprites/Furniture.png" id="2_xgnru"]
 [ext_resource type="Texture2D" uid="uid://du04duoik8657" path="res://Tile Maps/Sprites/Interior.png" id="3_60obl"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d0gj2pxyr5p6q" path="res://Tile Maps/Sprites/Basic_Furniture.png" id="5_adpi5"]
 [ext_resource type="Texture2D" uid="uid://b7bvqiwvrgppk" path="res://Tile Maps/Sprites/Doors.png" id="6_p5cgj"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qjyp0"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h3tkp"]
 texture = ExtResource("1_sodcb")
 0:0/0 = 0
 1:0/0 = 0
@@ -21,7 +21,7 @@ texture = ExtResource("1_sodcb")
 2:2/0 = 0
 17:14/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gat2s"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_adpi5"]
 texture = ExtResource("2_xgnru")
 0:0/0 = 0
 1:0/0 = 0
@@ -437,7 +437,7 @@ texture = ExtResource("2_xgnru")
 22:41/0 = 0
 22:40/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pm6pe"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p5cgj"]
 texture = ExtResource("3_60obl")
 3:0/0 = 0
 4:0/0 = 0
@@ -684,14 +684,17 @@ texture = ExtResource("6_p5cgj")
 
 [sub_resource type="TileSet" id="TileSet_om38y"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_qjyp0")
-sources/1 = SubResource("TileSetAtlasSource_gat2s")
-sources/2 = SubResource("TileSetAtlasSource_pm6pe")
+sources/0 = SubResource("TileSetAtlasSource_h3tkp")
+sources/1 = SubResource("TileSetAtlasSource_adpi5")
+sources/2 = SubResource("TileSetAtlasSource_p5cgj")
 sources/3 = SubResource("TileSetAtlasSource_g6voq")
 sources/4 = SubResource("TileSetAtlasSource_ny8sq")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjj2x"]
 size = Vector2(14, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3tkp"]
+size = Vector2(37, 12)
 
 [node name="House1" type="Node2D"]
 script = ExtResource("1_h3tkp")
@@ -706,9 +709,9 @@ layer_0/tile_data = PackedInt32Array(327686, 65536, 2, 327685, 65536, 2, 327684,
 layer_1/name = "furniture"
 layer_1/y_sort_enabled = true
 layer_1/z_index = -1
-layer_1/tile_data = PackedInt32Array(786457, 393218, 12, 851993, 393218, 12, 786458, 393218, 12, 851994, 393218, 12, 917530, 393218, 12, 851995, 393218, 12, 917531, 393218, 12, 786456, 393218, 12, 720920, 393218, 12, 720921, 393218, 12, 720925, 393218, 12, 720926, 393218, 12, 720927, 393218, 12, 786462, 393218, 12, 786463, 393218, 12, 786464, 393218, 12, 917532, 393218, 12, 720928, 393218, 12, -196602, 524290, 1342177298, -131066, 589826, 1342177298, -65530, 655362, 1342177298, -262139, 458754, 1342177299, -196603, 524290, 1342177299, -131067, 589826, 1342177299, -65531, 655362, 1342177299, 5, 262146, 17, -262140, 458754, 1342177300, -196604, 524290, 1342177300, -131068, 589826, 1342177300, -65532, 655362, 1342177300, 4, 196610, 17, -262141, 458754, 1342177301, -196605, 524290, 1342177301, -131069, 589826, 1342177301, -65533, 655362, 1342177301, 3, 131074, 17, -196606, 524290, 1342177302, -131070, 589826, 1342177302, -65534, 655362, 1342177302, -196616, 2, 0, 327685, 262146, 22, 2, 65538, 17, 65538, 65538, 18, 131074, 65538, 19, 196610, 65538, 20, 262146, 65538, 21, 327682, 65538, 22, 65539, 131074, 18, 131075, 131074, 19, 196611, 131074, 20, 262147, 131074, 21, 327683, 131074, 22, 65540, 196610, 18, 131076, 196610, 19, 196612, 196610, 20, 262148, 196610, 21, 327684, 196610, 22, 65541, 262146, 18, 131077, 262146, 19, 196613, 262146, 20, 262149, 262146, 21, 6, 327682, 17, 65542, 327682, 18, 131078, 327682, 19, 196614, 327682, 20, 262150, 327682, 21, 327686, 327682, 22, 65537, 2, 18, 131073, 2, 19, 196609, 2, 20, 65543, 393218, 18, 131079, 393218, 19, 196615, 393218, 20, 262151, 393218, 21)
+layer_1/tile_data = PackedInt32Array(786457, 393218, 12, 851993, 393218, 12, 786458, 393218, 12, 851994, 393218, 12, 917530, 393218, 12, 851995, 393218, 12, 917531, 393218, 12, 786456, 393218, 12, 720920, 393218, 12, 720921, 393218, 12, 720925, 393218, 12, 720926, 393218, 12, 720927, 393218, 12, 786462, 393218, 12, 786463, 393218, 12, 786464, 393218, 12, 917532, 393218, 12, 720928, 393218, 12, -196602, 524290, 1342177298, -131066, 589826, 1342177298, -65530, 655362, 1342177298, -262139, 458754, 1342177299, -196603, 524290, 1342177299, -131067, 589826, 1342177299, -65531, 655362, 1342177299, 5, 262146, 17, -262140, 458754, 1342177300, -196604, 524290, 1342177300, -131068, 589826, 1342177300, -65532, 655362, 1342177300, 4, 196610, 17, -262141, 458754, 1342177301, -196605, 524290, 1342177301, -131069, 589826, 1342177301, -65533, 655362, 1342177301, 3, 131074, 17, -196606, 524290, 1342177302, -131070, 589826, 1342177302, -65534, 655362, 1342177302, 327685, 262146, 22, 2, 65538, 17, 65538, 65538, 18, 131074, 65538, 19, 196610, 65538, 20, 262146, 65538, 21, 327682, 65538, 22, 65539, 131074, 18, 131075, 131074, 19, 196611, 131074, 20, 262147, 131074, 21, 327683, 131074, 22, 65540, 196610, 18, 131076, 196610, 19, 196612, 196610, 20, 262148, 196610, 21, 327684, 196610, 22, 65541, 262146, 18, 131077, 262146, 19, 196613, 262146, 20, 262149, 262146, 21, 6, 327682, 17, 65542, 327682, 18, 131078, 327682, 19, 196614, 327682, 20, 262150, 327682, 21, 327686, 327682, 22, 65537, 2, 18, 131073, 2, 19, 196609, 2, 20, 65543, 393218, 18, 131079, 393218, 19, 196615, 393218, 20, 262151, 393218, 21)
 layer_2/name = "Ysort"
-layer_2/tile_data = PackedInt32Array(-131068, 458754, 11, -65532, 65538, 15, -131066, 2, 13, -131070, 131074, 13, -262140, 2, 15, -262145, 458754, 8, -262147, 458754, 8, -262149, 655362, 5, -327679, 655362, 5, 6, 262146, 5, 3, 262146, 5, -327674, 327682, 0, -327673, 589826, 3, -262137, 720898, 0, -131083, 196610, 3, 262134, 327682, 2, 65526, 2, 5, 327684, 4, 3, 131068, 2, 9)
+layer_2/tile_data = PackedInt32Array(-131068, 458754, 11, -65532, 65538, 15, -131066, 2, 13, -131070, 131074, 13, -262140, 2, 15, -262145, 458754, 8, -262147, 458754, 8, -262149, 655362, 5, -327679, 655362, 5, 6, 262146, 5, 3, 262146, 5, -327674, 327682, 0, -327673, 589826, 3, -262137, 720898, 0, 262134, 327682, 2, 65526, 2, 5, 327684, 4, 3, 131068, 2, 9, -196616, 2, 0)
 
 [node name="colliosion" type="StaticBody2D" parent="."]
 
@@ -722,4 +725,12 @@ position = Vector2(72, 91)
 position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_xjj2x")
 
+[node name="upper_stairs_transition" type="Area2D" parent="."]
+position = Vector2(-121, -80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="upper_stairs_transition"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_h3tkp")
+
 [connection signal="body_entered" from="house_exit" to="." method="_on_house_exit_body_entered"]
+[connection signal="body_entered" from="upper_stairs_transition" to="." method="_on_upper_stairs_transition_body_entered"]

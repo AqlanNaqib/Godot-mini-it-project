@@ -1307,12 +1307,16 @@ texture = ExtResource("14_36tom")
 17:6/0 = 0
 0:6/size_in_atlas = Vector2i(3, 3)
 0:6/0 = 0
+0:6/0/y_sort_origin = 7
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-17.8433, -0.63726, 0.637264, -4.1422, 17.2061, 0.63726, 18.8852, 18.5254, -16.2502, 18.7992)
 0:4/size_in_atlas = Vector2i(3, 2)
 0:4/0 = 0
 3:4/size_in_atlas = Vector2i(3, 2)
 3:4/0 = 0
 3:6/size_in_atlas = Vector2i(3, 3)
 3:6/0 = 0
+3:6/0/y_sort_origin = 7
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-17.8433, -0.63726, 0.637264, -4.1422, 17.2061, 0.63726, 18.8852, 18.5254, -16.2502, 18.7992)
 0:2/size_in_atlas = Vector2i(3, 2)
 0:2/0 = 0
 3:2/size_in_atlas = Vector2i(3, 2)
@@ -3216,6 +3220,9 @@ position = Vector2(177, 28)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="colliosions"]
 polygon = PackedVector2Array(-240, -144, 97, -144, 97, -70, 101, -65, 240, -64, 240, 48, 265, 48, 265, 79, 240, 79, 240, 143, -240, 144, -240, -48, -268, -48, -268, -81, -240, -80, -240, -140, -287, -138, -287, -45, -284, 166, 255, 160, 312, 157, 308, 43, 292, -187, -99, -184, -274, -180)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="colliosions"]
+polygon = PackedVector2Array(-218, 60, -141, 61, -141, 45, -115, 44, -116, 62, -101, 62, -98, -5, -134, -16, -174, -51, -189, -36, -207, -38, -206, -23, -223, -6)
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
