@@ -11,6 +11,7 @@ var going_secret = false
 var going_dungeon = false
 var going_sec_dungeon = false
 var going_overworld = false
+var going_house1 = false
 
 var player_exit_leftpath_posx = -233
 var player_exit_leftpath_posy = -59
@@ -26,6 +27,8 @@ var player_exit_overworld_posx = 0
 var player_exit_overworld_posy = 0
 var player_exit_sec_dungeon_posx = -111
 var player_exit_sec_dungeon_posy = 82
+var player_exit_house1_posx = -128
+var player_exit_house1_posy = 79
 var player_start_posx = 0
 var player_start_posy = -1
 
@@ -43,6 +46,9 @@ func finish_changescenes():
 		elif current_scene == "world" and going_secret:
 			current_scene = "secret"
 			get_tree().change_scene_to_file("res://SCENES/secret.tscn")
+		elif current_scene == "world" and going_house1:
+			current_scene = "house1"
+			get_tree().change_scene_to_file("res://SCENES/House1.tscn")
 		elif current_scene == "secret" and going_down:
 			current_scene = "down_path"
 			get_tree().change_scene_to_file("res://SCENES/down_path.tscn")

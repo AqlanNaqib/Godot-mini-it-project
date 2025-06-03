@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://ca4o8plimbenm"]
+[gd_scene load_steps=54 format=3 uid="uid://ca4o8plimbenm"]
 
 [ext_resource type="Script" uid="uid://buwqfuei7y0oe" path="res://coding/world.gd" id="1_ihqeo"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="2_spbpa"]
@@ -3196,6 +3196,9 @@ size = Vector2(20, 34)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8fgu"]
 size = Vector2(36, 10)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf4fn"]
+size = Vector2(21, 16)
+
 [node name="world" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ihqeo")
@@ -3280,6 +3283,14 @@ player = NodePath("../../player")
 [node name="slime" parent="." instance=ExtResource("27_17ncv")]
 position = Vector2(-23, 50)
 
+[node name="house_transition" type="Area2D" parent="."]
+position = Vector2(-128, 61)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="house_transition"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_mf4fn")
+
 [connection signal="body_entered" from="leftpath_transition_point" to="." method="_on_leftpath_transition_point_body_entered"]
 [connection signal="body_entered" from="rightpath_transition_point" to="." method="_on_rightpath_transition_point_body_entered"]
 [connection signal="body_entered" from="secret_transition_point" to="." method="_on_secret_transition_point_body_entered"]
+[connection signal="body_entered" from="house_transition" to="." method="_on_house_transition_body_entered"]
