@@ -18,6 +18,9 @@ func _ready():
 		elif global.going_secret:
 			$"player".position.x = global.player_exit_secret_posx
 			$"player".position.y = global.player_exit_secret_posy
+		elif global.going_house1:
+			$"player".position.x = global.player_exit_house1_posx
+			$"player".position.y = global.player_exit_house1_posy
 
 func _process(delta):
 	pass
@@ -48,3 +51,11 @@ func _on_secret_transition_point_body_entered(body: PhysicsBody2D):
 		global.transition_scene = true
 		global.game_first_loadin = false
 		global.finish_changescenes()
+
+
+func _on_house_transition_body_entered(body: PhysicsBody2D):
+	if body.name == "player":
+			global.going_house1 = true
+			global.transition_scene = true
+			global.game_first_loadin = false
+			global.finish_changescenes()

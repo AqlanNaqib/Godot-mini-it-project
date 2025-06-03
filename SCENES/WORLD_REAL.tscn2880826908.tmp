@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://ca4o8plimbenm"]
+[gd_scene load_steps=50 format=3 uid="uid://ca4o8plimbenm"]
 
 [ext_resource type="Script" uid="uid://buwqfuei7y0oe" path="res://coding/world.gd" id="1_ihqeo"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="2_spbpa"]
@@ -25,10 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="21_sx66n"]
 [ext_resource type="Script" uid="uid://qhfcxib66yg8" path="res://SCENES/UserInterface.gd" id="24_1u6xn"]
 [ext_resource type="PackedScene" uid="uid://cfb7n622we237" path="res://SCENES/inventory.tscn" id="24_edghx"]
-[ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="26_mf4fn"]
-[ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="26_tsqhg"]
-[ext_resource type="PackedScene" uid="uid://bs4hwjntff02j" path="res://SCENES/slime.tscn" id="27_17ncv"]
-[ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="27_di7fi"]
+[ext_resource type="PackedScene" uid="uid://c2tur70gfys5f" path="res://health.tscn" id="26_tsqhg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tspm"]
 texture = ExtResource("5_38x0x")
@@ -3196,9 +3193,6 @@ size = Vector2(20, 34)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8fgu"]
 size = Vector2(36, 10)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf4fn"]
-size = Vector2(21, 16)
-
 [node name="world" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ihqeo")
@@ -3260,37 +3254,8 @@ position = Vector2(202, 122.667)
 
 [node name="player" parent="." instance=ExtResource("2_spbpa")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
-visible = false
-offset_left = 1100.0
-offset_top = 3.0
-offset_right = 1146.0
-offset_bottom = 30.0
-value = 100.0
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
-offset_left = 1082.0
-offset_top = 3.0
-offset_right = 1146.0
-offset_bottom = 14.0
-texture_under = ExtResource("26_mf4fn")
-texture_progress = ExtResource("27_di7fi")
-script = ExtResource("26_tsqhg")
-player = NodePath("../../player")
-
-[node name="slime" parent="." instance=ExtResource("27_17ncv")]
-position = Vector2(-23, 50)
-
-[node name="house_transition" type="Area2D" parent="."]
-position = Vector2(-128, 61)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="house_transition"]
-position = Vector2(-1, 0)
-shape = SubResource("RectangleShape2D_mf4fn")
+[node name="UI" parent="player" instance=ExtResource("26_tsqhg")]
 
 [connection signal="body_entered" from="leftpath_transition_point" to="." method="_on_leftpath_transition_point_body_entered"]
 [connection signal="body_entered" from="rightpath_transition_point" to="." method="_on_rightpath_transition_point_body_entered"]
 [connection signal="body_entered" from="secret_transition_point" to="." method="_on_secret_transition_point_body_entered"]
-[connection signal="body_entered" from="house_transition" to="." method="_on_house_transition_body_entered"]

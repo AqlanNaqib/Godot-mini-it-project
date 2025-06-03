@@ -8442,13 +8442,13 @@ sources/20 = SubResource("TileSetAtlasSource_f3mry")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8lt0u"]
 size = Vector2(33, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_04wc1"]
-size = Vector2(14, 27)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxpvy"]
 size = Vector2(20, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8x2n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gp7p"]
+size = Vector2(20, 29)
 
 [node name="down_path" type="Node2D"]
 script = ExtResource("1_5r42g")
@@ -8473,12 +8473,6 @@ layer_2/tile_data = PackedInt32Array(-196617, 720911, 0, -327692, 589839, 3, -32
 position = Vector2(16.5, -144)
 shape = SubResource("RectangleShape2D_8lt0u")
 
-[node name="dungeon_transition_point" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="dungeon_transition_point"]
-position = Vector2(-247, 16.5)
-shape = SubResource("RectangleShape2D_04wc1")
-
 [node name="overworld_transition_point" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="overworld_transition_point"]
@@ -8496,6 +8490,13 @@ shape = SubResource("RectangleShape2D_n8x2n")
 
 [node name="player" parent="." instance=ExtResource("2_ahcua")]
 position = Vector2(15, -122)
+
+[node name="dungeon_transition_point" type="Area2D" parent="."]
+position = Vector2(-244, 17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dungeon_transition_point"]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_0gp7p")
 
 [connection signal="body_entered" from="down_exit_point" to="." method="_on_down_exit_point_body_entered"]
 [connection signal="body_entered" from="dungeon_transition_point" to="." method="_on_dungeon_transition_point_body_entered"]

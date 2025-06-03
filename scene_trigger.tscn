@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcjutf0xdusvy"]
+
+[sub_resource type="GDScript" id="GDScript_c7evu"]
+script/source = "extends Area2D
+
+class_name SceneTrigger
+
+@export var connected_scene: String
+var scene_folder = \"res://SCENES/\"
+
+func _on_body_entered(body: PhysicsBody2D):
+	var full_path = scene_folder + connected_scene + \".tscn\"
+	var scene_tree = get_tree()
+	scene_tree.change_scene_to_file(full_path)
+"
+
+[node name="SceneTrigger" type="Area2D"]
+script = SubResource("GDScript_c7evu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

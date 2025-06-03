@@ -10,6 +10,7 @@ func _process(delta):
 
 func _on_down_exit_point_body_entered(body: PhysicsBody2D):
 	if body.name == "player":
+		global.going_secret = false
 		global.going_down = true
 		global.going_dungeon = false
 		global.transition_scene = true
@@ -26,6 +27,7 @@ func change_scene():
 
 func _on_dungeon_transition_point_body_entered(body: PhysicsBody2D):
 	if body.name == "player":
+		global.going_secret = false
 		global.going_down = false
 		global.going_dungeon = true
 		global.transition_scene = true
