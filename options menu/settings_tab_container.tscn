@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://4883rayf7ti7"]
 
-[ext_resource type="FontFile" uid="uid://xgab11b7pv77" path="res://assets/Early GameBoy.ttf" id="1_efxv5"]
+[ext_resource type="FontFile" uid="uid://dvq5o4mkjn2f2" path="res://assets/Early GameBoy.ttf" id="1_efxv5"]
 [ext_resource type="PackedScene" uid="uid://dyyvll57ee7at" path="res://hotkey_rebind_button.tscn" id="2_vr7dw"]
 [ext_resource type="PackedScene" uid="uid://cu4xwm3akjwbf" path="res://sound slider.tscn" id="2_xd2c3"]
 [ext_resource type="PackedScene" uid="uid://dk73ox326mlob" path="res://window_mode_button.tscn" id="3_ygodd"]

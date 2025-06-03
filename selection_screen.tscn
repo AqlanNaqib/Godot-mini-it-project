@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://cho7olkfk1c4u"]
+
+[ext_resource type="Script" uid="uid://q4wyo10v1yhp" path="res://selection_screen.gd" id="1_02ils"]
+[ext_resource type="Texture2D" uid="uid://djidkfgpl7u4e" path="res://assets/blurred bckgrnd.png" id="1_t8mf8"]
+[ext_resource type="FontFile" uid="uid://dvq5o4mkjn2f2" path="res://assets/Early GameBoy.ttf" id="2_nf7ud"]
+[ext_resource type="PackedScene" uid="uid://drad2t6pvgvje" path="res://characterSlot.tscn" id="3_yfmej"]
+[ext_resource type="Texture2D" uid="uid://bq4wivxxyplim" path="res://assets/gun.png" id="5_yvk22"]
+[ext_resource type="Texture2D" uid="uid://0eb2cc6b628" path="res://assets/spear.png" id="6_k1fcs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvcmt"]
+bg_color = Color(0.277528, 0.277528, 0.277528, 1)
+
+[node name="SelectionScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_02ils")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_t8mf8")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -1.0
+offset_top = 222.0
+offset_right = -1.0
+offset_bottom = 292.0
+grow_horizontal = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_nf7ud")
+theme_override_font_sizes/font_size = 30
+text = "choose your character"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Character 1" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_yfmej")]
+layout_mode = 2
+characterPath = "res://player 2/player_2.tscn"
+characterTexture = ExtResource("5_yvk22")
+
+[node name="Character 2" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_yfmej")]
+layout_mode = 2
+characterPath = "res://SCENES/player.tscn"
+characterTexture = ExtResource("6_k1fcs")
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_nf7ud")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_hvcmt")
+text = "START"
