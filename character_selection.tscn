@@ -72,13 +72,13 @@ theme_override_font_sizes/font_size = 50
 text = "Choose your character "
 
 [node name="Sprite1" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(425, 307)
+position = Vector2(428, 309)
 scale = Vector2(0.938151, 0.941406)
 texture = ExtResource("3_pwu4o")
 
 [node name="Sprite2" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(770, 280)
-scale = Vector2(0.959961, 0.955078)
+position = Vector2(787.375, 287)
+scale = Vector2(0.94222, 0.923828)
 texture = ExtResource("4_yr170")
 
 [connection signal="pressed" from="CanvasLayer/Button1" to="." method="_on_button_1_pressed"]
