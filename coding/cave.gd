@@ -11,6 +11,7 @@ func _process(delta):
 func _on_cave_exit_body_entered(body: PhysicsBody2D):
 	if body.name == "player":
 		SceneManager.going_cave = true
+		SceneManager.going_sec_cave = false
 		SceneManager.transition_scene = true
 
 func change_scene():
@@ -22,7 +23,7 @@ func change_scene():
 			get_tree().change_scene_to_file("res://SCENES/sec_cave.tscn")
 
 
-func _on_sec_cave_body_entered(body: Node2D) -> void:
+func _on_sec_cave_body_entered(body: PhysicsBody2D):
 	if body.name == "player":
 		SceneManager.going_sec_cave = true
 		SceneManager.going_cave = false
