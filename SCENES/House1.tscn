@@ -732,5 +732,10 @@ position = Vector2(-121, -80)
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_h3tkp")
 
+[node name="collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collision"]
+polygon = PackedVector2Array(-191, -79, -141, -79, -141, -94, -100, -94, -100, -80, 128, -79, 128, 96, 80, 96, 80, 107, 64, 108, 64, 96, -190, 96, -191, -76, -200, -75, -198, 118, 137, 113, 136, -105, -191, -102)
+
 [connection signal="body_entered" from="house_exit" to="." method="_on_house_exit_body_entered"]
 [connection signal="body_entered" from="upper_stairs_transition" to="." method="_on_upper_stairs_transition_body_entered"]

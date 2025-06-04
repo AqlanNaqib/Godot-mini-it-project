@@ -12,6 +12,9 @@ var going_dungeon = false
 var going_sec_dungeon = false
 var going_overworld = false
 var going_house1 = false
+var going_house2 = false
+var going_cave = false
+var going_sec_cave = false
 var going_upper_stairs = false
 
 var player_exit_leftpath_posx = -233
@@ -30,8 +33,14 @@ var player_exit_sec_dungeon_posx = -111
 var player_exit_sec_dungeon_posy = 82
 var player_exit_house1_posx = -128
 var player_exit_house1_posy = 79
+var player_exit_house2_posx = 188
+var player_exit_house2_posy = -28
 var player_exit_upper_stairs_posx = -121
 var player_exit_upper_stairs_posy = -34
+var player_exit_cave_posx = -127
+var player_exit_cave_posy = -35
+var player_exit_sec_cave_posx = 208
+var player_exit_sec_cave_posy = 93
 var player_start_posx = 0
 var player_start_posy = -1
 
@@ -46,6 +55,24 @@ func finish_changescenes():
 		elif current_scene == "world" and going_right:
 			current_scene = "right_path"
 			get_tree().change_scene_to_file("res://SCENES/right_path.tscn")
+		elif current_scene == "right_path" and going_house2:
+			current_scene = "house2"
+			get_tree().change_scene_to_file("res://SCENES/House2.tscn")
+		elif current_scene == "house2" and going_house2:
+			current_scene = "right_path"
+			get_tree().change_scene_to_file("res://SCENES/right_path.tscn")
+		elif current_scene == "house2" and going_cave:
+			current_scene = "cave"
+			get_tree().change_scene_to_file("res://SCENES/cave.tscn")
+		elif current_scene == "cave" and going_cave:
+			current_scene = "house2"
+			get_tree().change_scene_to_file("res://SCENES/House2.tscn")
+		elif current_scene == "cave" and going_sec_cave:
+			current_scene = "sec_cave"
+			get_tree().change_scene_to_file("res://SCENES/sec_cave.tscn")
+		elif current_scene == "sec_cave" and going_sec_cave:
+			current_scene = "cave"
+			get_tree().change_scene_to_file("res://SCENES/cave.tscn")
 		elif current_scene == "world" and going_secret:
 			current_scene = "secret"
 			get_tree().change_scene_to_file("res://SCENES/secret.tscn")

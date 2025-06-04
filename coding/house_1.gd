@@ -24,7 +24,7 @@ func change_scene():
 			SceneManager.finish_changescenes()
 
 
-func _on_upper_stairs_transition_body_entered(body: Node2D) -> void:
+func _on_upper_stairs_transition_body_entered(body: PhysicsBody2D):
 	if body.name == "player":
 		SceneManager. going_house1 = false
 		SceneManager.going_upper_stairs = true

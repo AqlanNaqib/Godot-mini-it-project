@@ -26,7 +26,7 @@
 [ext_resource type="Script" uid="uid://qhfcxib66yg8" path="res://SCENES/UserInterface.gd" id="24_1u6xn"]
 [ext_resource type="PackedScene" uid="uid://cfb7n622we237" path="res://SCENES/inventory.tscn" id="24_edghx"]
 [ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="26_mf4fn"]
-[ext_resource type="Script" path="res://SCENES/healtBar.gd" id="26_tsqhg"]
+[ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="26_tsqhg"]
 [ext_resource type="PackedScene" uid="uid://bs4hwjntff02j" path="res://SCENES/slime.tscn" id="27_17ncv"]
 [ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="27_di7fi"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://732rg828odbr"]
+[gd_scene load_steps=52 format=3 uid="uid://732rg828odbr"]
 
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="1_6ec7m"]
 [ext_resource type="Script" uid="uid://i2j18lriyp5j" path="res://coding/right_path.gd" id="1_6xqwn"]
@@ -123,7 +123,6 @@ texture = ExtResource("4_guqrc")
 0:0/size_in_atlas = Vector2i(5, 7)
 0:0/0 = 0
 0:0/0/y_sort_origin = 20
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28.2237, 14.1118, -0.564476, -8, 28.7882, 14.1118, 29.9171, 49.1092, -25.9658, 48.5448)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s7yok"]
 texture = ExtResource("5_y0x5g")
@@ -1858,6 +1857,9 @@ sources/23 = SubResource("TileSetAtlasSource_xashb")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0x5g"]
 size = Vector2(21, 34)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5oc41"]
+size = Vector2(18, 17)
+
 [node name="right_path" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_6xqwn")
@@ -1884,6 +1886,9 @@ position = Vector2(-20, -53)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
 polygon = PackedVector2Array(137, -84, 135, -119, 42, -118, 42, -60, 136, -60, 136, -55, 37, -55, 40, -124, 137, -124)
 
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="collisions"]
+polygon = PackedVector2Array(-240, -144, -240, 45, -264, 45, -264, 80, -239, 80, -241, 143, -39, 143, -39, 133, -56, 133, -54, 118, -72, 118, -72, 102, -104, 102, -103, 86, -122, 87, 9, 85, 9, 104, 26, 102, 25, 119, 24, 144, 241, 144, 241, -144, -41, -143, -39, -122, -56, -122, -56, -105, -71, -106, -71, -89, -87, -89, -87, -73, -105, -73, -104, -40, -87, -41, -88, -26, -70, -25, -71, -9, -54, -8, -56, 23, -39, 22, -40, 37, -136, 37, -135, 6, -152, 5, -152, -12, -168, -11, -168, -29, -183, -27, -184, -91, -167, -90, -167, -108, -154, -106, -152, -124, -136, -123, -135, -139, -120, -138, -120, -144, -236, -144, -232, -166, 306, -169, 280, 179, -257, 184, -297, -8)
+
 [node name="rightpath_exit_point" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rightpath_exit_point"]
@@ -1896,4 +1901,12 @@ position = Vector2(81, 9)
 [node name="player" parent="." instance=ExtResource("21_ofyxt")]
 position = Vector2(-229, 69)
 
+[node name="house2_transition" type="Area2D" parent="."]
+position = Vector2(187, -48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="house2_transition"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_5oc41")
+
 [connection signal="body_entered" from="rightpath_exit_point" to="." method="_on_rightpath_exit_point_body_entered"]
+[connection signal="body_entered" from="house2_transition" to="." method="_on_house_2_transition_body_entered"]
