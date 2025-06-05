@@ -1,6 +1,6 @@
 [gd_scene load_steps=64 format=3 uid="uid://hhm8l6olrl0s"]
 
-[ext_resource type="Script" uid="uid://dwajkyvkie02g" path="res://building.gd" id="1_cx74j"]
+[ext_resource type="Script" uid="uid://dwajkyvkie02g" path="res://coding/building.gd" id="1_cx74j"]
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="2_11n8w"]
 [ext_resource type="Texture2D" uid="uid://c2vedv3ygugq0" path="res://Tile Maps/Sprites/Grass.png" id="3_f5tnx"]
 [ext_resource type="Texture2D" uid="uid://dyrtdw1r5lfje" path="res://Tile Maps/Sprites/Paths.png" id="4_qudcx"]

@@ -183,3 +183,9 @@ func enemy_attack():
 func _on_attack_cooldown_timeout() -> void:
 	enemy_attack_cooldown = true
 	
+func _input(event):
+	if event.is_action_pressed("interact"):
+		if $PickupZone.items_in_range.size() > 0:
+			var pickup_item = $PickupZone.items_in_range.values()[0]
+			pickup_item.pick_up_item(self)
+			$PickupZone.items_in_range.erase(pickup_item)

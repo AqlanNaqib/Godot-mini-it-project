@@ -1,6 +1,6 @@
 [gd_scene load_steps=50 format=3 uid="uid://dj5a3w2sgci7w"]
 
-[ext_resource type="Script" uid="uid://bgt6mkb7u2dtg" path="res://SCENES/world2.gd" id="1_rauwk"]
+[ext_resource type="Script" uid="uid://bgt6mkb7u2dtg" path="res://coding/world2.gd" id="1_rauwk"]
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="5_eqdom"]
 [ext_resource type="Texture2D" uid="uid://c2vedv3ygugq0" path="res://Tile Maps/Sprites/Grass.png" id="6_8jw5j"]
 [ext_resource type="Texture2D" uid="uid://dyrtdw1r5lfje" path="res://Tile Maps/Sprites/Paths.png" id="7_hvejj"]
@@ -19,11 +19,11 @@
 [ext_resource type="Texture2D" uid="uid://dpn2fwebeomnn" path="res://Tile Maps/Sprites/exterior.png" id="20_ro801"]
 [ext_resource type="Texture2D" uid="uid://kshiixig2mum" path="res://Tile Maps/Sprites/Tilled_Dirt_v2.png" id="21_cj8vc"]
 [ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="22_6cr6b"]
-[ext_resource type="Script" uid="uid://qhfcxib66yg8" path="res://SCENES/UserInterface.gd" id="23_lbdxv"]
+[ext_resource type="Script" uid="uid://qhfcxib66yg8" path="res://coding/UserInterface.gd" id="23_lbdxv"]
 [ext_resource type="PackedScene" uid="uid://cfb7n622we237" path="res://SCENES/inventory.tscn" id="24_if8iu"]
 [ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="26_8a5rh"]
 [ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="27_dblrq"]
-[ext_resource type="Script" path="res://SCENES/healtBar.gd" id="28_7dk8c"]
+[ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="28_7dk8c"]
 [ext_resource type="PackedScene" uid="uid://l46bgqfjeya7" path="res://SCENES/player.tscn" id="29_dvosc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tspm"]

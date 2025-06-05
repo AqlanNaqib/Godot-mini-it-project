@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://ja67gf3eb44j"]
 
 [ext_resource type="Texture2D" uid="uid://brth33ip3peyo" path="res://Tile Maps/Sprites/Floors.png" id="1_pp884"]
-[ext_resource type="Script" uid="uid://cstj5l8ivupem" path="res://SCENES/upper_stairs.gd" id="1_rpi30"]
+[ext_resource type="Script" uid="uid://cstj5l8ivupem" path="res://coding/upper_stairs.gd" id="1_rpi30"]
 [ext_resource type="Texture2D" uid="uid://6pk4tdnt6ybj" path="res://Tile Maps/Sprites/Furniture.png" id="2_rpi30"]
 [ext_resource type="Texture2D" uid="uid://du04duoik8657" path="res://Tile Maps/Sprites/Interior.png" id="3_07wey"]
 [ext_resource type="Texture2D" uid="uid://d0gj2pxyr5p6q" path="res://Tile Maps/Sprites/Basic_Furniture.png" id="4_j5akf"]

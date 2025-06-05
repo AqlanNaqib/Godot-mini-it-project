@@ -5,11 +5,7 @@ var item = null
 var slot_index
 
 func _ready():
-	'''
-	if randi() % 2 == 0:
-		item = ItemClass.instantiate()
-		add_child(item)
-		'''
+	pass
 
 func pickFromSlot():
 	remove_child(item)
