@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://ca4o8plimbenm"]
+[gd_scene load_steps=55 format=3 uid="uid://ca4o8plimbenm"]
 
 [ext_resource type="Script" uid="uid://buwqfuei7y0oe" path="res://coding/world.gd" id="1_ihqeo"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="2_spbpa"]
@@ -26,9 +26,10 @@
 [ext_resource type="Script" uid="uid://qhfcxib66yg8" path="res://SCENES/UserInterface.gd" id="24_1u6xn"]
 [ext_resource type="PackedScene" uid="uid://cfb7n622we237" path="res://SCENES/inventory.tscn" id="24_edghx"]
 [ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="26_mf4fn"]
-[ext_resource type="Script" path="res://SCENES/healtBar.gd" id="26_tsqhg"]
+[ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="26_tsqhg"]
 [ext_resource type="PackedScene" uid="uid://bs4hwjntff02j" path="res://SCENES/slime.tscn" id="27_17ncv"]
 [ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="27_di7fi"]
+[ext_resource type="PackedScene" uid="uid://cxjb1yo87bdcs" path="res://ArrowHUD.tscn" id="30_di7fi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tspm"]
 texture = ExtResource("5_38x0x")
@@ -3237,7 +3238,10 @@ position = Vector2(-128, 61)
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_mf4fn")
 
+[node name="CanvasLayer2" parent="." instance=ExtResource("30_di7fi")]
+
 [connection signal="body_entered" from="leftpath_transition_point" to="." method="_on_leftpath_transition_point_body_entered"]
 [connection signal="body_entered" from="rightpath_transition_point" to="." method="_on_rightpath_transition_point_body_entered"]
 [connection signal="body_entered" from="secret_transition_point" to="." method="_on_secret_transition_point_body_entered"]
+[connection signal="arrowsChanged" from="player" to="CanvasLayer2" method="update_arrow_count"]
 [connection signal="body_entered" from="house_transition" to="." method="_on_house_transition_body_entered"]
