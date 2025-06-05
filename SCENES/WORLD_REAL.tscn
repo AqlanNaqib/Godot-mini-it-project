@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://ca4o8plimbenm"]
+[gd_scene load_steps=57 format=3 uid="uid://ca4o8plimbenm"]
 
 [ext_resource type="Script" uid="uid://buwqfuei7y0oe" path="res://coding/world.gd" id="1_ihqeo"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="2_spbpa"]
@@ -25,8 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://kshiixig2mum" path="res://Tile Maps/Sprites/Tilled_Dirt_v2.png" id="20_2o5sp"]
 [ext_resource type="Texture2D" uid="uid://dpn2fwebeomnn" path="res://Tile Maps/Sprites/exterior.png" id="20_e2nm1"]
 [ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="21_sx66n"]
-[ext_resource type="Script" uid="uid://qhfcxib66yg8" path="res://coding/UserInterface.gd" id="24_1u6xn"]
-[ext_resource type="PackedScene" uid="uid://cfb7n622we237" path="res://SCENES/inventory.tscn" id="24_edghx"]
 [ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="26_mf4fn"]
 [ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="26_tsqhg"]
 [ext_resource type="PackedScene" uid="uid://bs4hwjntff02j" path="res://SCENES/slime.tscn" id="27_17ncv"]
@@ -3260,15 +3258,6 @@ shape = SubResource("RectangleShape2D_2tspm")
 position = Vector2(160, 139)
 shape = SubResource("RectangleShape2D_f8fgu")
 
-[node name="UserInterface" type="CanvasLayer" parent="."]
-scale = Vector2(1.5, 1.5)
-transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
-script = ExtResource("24_1u6xn")
-
-[node name="Inventory" parent="UserInterface" instance=ExtResource("24_edghx")]
-visible = false
-position = Vector2(202, 122.667)
-
 [node name="player" parent="." instance=ExtResource("2_spbpa")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -3303,6 +3292,9 @@ shape = SubResource("RectangleShape2D_mf4fn")
 
 [node name="apple_tree" parent="." instance=ExtResource("32_0odp6")]
 position = Vector2(-35, -98)
+
+[node name="apple_tree2" parent="." instance=ExtResource("32_0odp6")]
+position = Vector2(177, -36)
 
 [connection signal="body_entered" from="leftpath_transition_point" to="." method="_on_leftpath_transition_point_body_entered"]
 [connection signal="body_entered" from="rightpath_transition_point" to="." method="_on_rightpath_transition_point_body_entered"]

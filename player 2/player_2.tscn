@@ -1,6 +1,7 @@
 [gd_scene load_steps=293 format=3 uid="uid://ddu4kmdy5xthe"]
 
 [ext_resource type="Script" uid="uid://cnelf67nv5hwk" path="res://player 2/scripts/player_2.gd" id="1_eykoa"]
+[ext_resource type="Resource" uid="uid://7t1phakshht" path="res://Inventory/playerInventory.tres" id="2_dipqy"]
 [ext_resource type="Texture2D" uid="uid://hodjxwnol3tl" path="res://player 2/art/Idle_Gun_Up.png" id="2_la1qn"]
 [ext_resource type="Texture2D" uid="uid://cqxu1276h5rxi" path="res://player 2/art/death_Gun_Down.png" id="3_dipqy"]
 [ext_resource type="Texture2D" uid="uid://534hpncvg1ei" path="res://player 2/art/death_Gun_Left_Down.png" id="4_ul2c3"]
@@ -30,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://hlua2mu46t1i" path="res://player 2/art/Run_Gun_Right_Down.png" id="28_k5jpu"]
 [ext_resource type="Texture2D" uid="uid://b3rhp4rr7rm7s" path="res://player 2/art/Run_Gun_Right_Up.png" id="29_jf6sy"]
 [ext_resource type="Texture2D" uid="uid://bgfqxb23iligv" path="res://player 2/art/Run_Gun_Up.png" id="30_6x7kc"]
-[ext_resource type="Script" uid="uid://btw8vi85slx4b" path="res://player 2/PickupZone.gd" id="32_dipqy"]
+[ext_resource type="PackedScene" uid="uid://d28pggwulmyxl" path="res://Inventory/inv_ui.tscn" id="33_sqehb"]
 [ext_resource type="PackedScene" uid="uid://ba845y1h3i25l" path="res://SCENES/gun.tscn" id="33_ul2c3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_su2g6"]
@@ -1974,14 +1975,12 @@ radius = 6.08276
 [sub_resource type="CircleShape2D" id="CircleShape2D_ul2c3"]
 radius = 28.4429
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sqehb"]
-radius = 21.0238
-
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
 position = Vector2(0, -1)
 collision_layer = 3
 script = ExtResource("1_eykoa")
+inv = ExtResource("2_dipqy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mt8yd")
@@ -2019,15 +2018,13 @@ limit_bottom = 142
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="PickupZone" type="Area2D" parent="."]
-script = ExtResource("32_dipqy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupZone"]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_sqehb")
+[node name="Inv_UI" parent="." instance=ExtResource("33_sqehb")]
+z_index = 1
+offset_left = -53.0
+offset_top = -96.0
+offset_right = 53.0
+offset_bottom = -28.0
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
-[connection signal="body_entered" from="PickupZone" to="PickupZone" method="_on_body_entered"]
-[connection signal="body_exited" from="PickupZone" to="PickupZone" method="_on_body_exited"]
