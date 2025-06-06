@@ -17,10 +17,29 @@ layout_mode = 0
 offset_left = -22.0
 offset_top = -14.0
 offset_right = 106.0
-offset_bottom = 68.0
+offset_bottom = 70.0
 texture = ExtResource("2_actet")
 patch_margin_left = 6
 patch_margin_top = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect"]
+layout_mode = 2
+offset_left = 38.0
+offset_top = 19.0
+offset_right = 114.0
+offset_bottom = 35.0
+
+[node name="inv_UI_slot1" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_ltxgc")]
+layout_mode = 2
+
+[node name="inv_UI_slot2" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_ltxgc")]
+layout_mode = 2
+
+[node name="inv_UI_slot3" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_ltxgc")]
+layout_mode = 2
+
+[node name="inv_UI_slot4" parent="NinePatchRect/HBoxContainer" instance=ExtResource("3_ltxgc")]
+layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
 layout_mode = 1
@@ -30,24 +49,12 @@ anchor_top = 0.585
 anchor_right = 0.594
 anchor_bottom = 0.585
 offset_left = -38.032
-offset_top = -27.97
+offset_top = -8.14
 offset_right = 37.968
-offset_bottom = 28.03
+offset_bottom = 27.86
 grow_horizontal = 2
 grow_vertical = 2
 columns = 4
-
-[node name="inv_UI_slot1" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ltxgc")]
-layout_mode = 2
-
-[node name="inv_UI_slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ltxgc")]
-layout_mode = 2
-
-[node name="inv_UI_slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ltxgc")]
-layout_mode = 2
-
-[node name="inv_UI_slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ltxgc")]
-layout_mode = 2
 
 [node name="inv_UI_slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("3_ltxgc")]
 layout_mode = 2

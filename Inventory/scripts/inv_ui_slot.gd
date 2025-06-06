@@ -20,6 +20,8 @@ func insert(isg: ItemStackUi):
 func takeItem():
 	var item = itemStackUi
 	
+	inv.removeSlot(itemStackUi.invSlot)
+	
 	container.remove_child(itemStackUi)
 	itemStackUi = null
 

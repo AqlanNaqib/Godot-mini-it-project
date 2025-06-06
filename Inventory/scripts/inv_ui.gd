@@ -2,11 +2,13 @@ extends Control
 
 @onready var ItemStackUiClass = preload("res://Inventory/item_stack_ui.tscn")
 @onready var inv: Inv = preload("res://Inventory/playerInventory.tres")
-@onready var slots: Array = $NinePatchRect/GridContainer.get_children()
+@onready var hotbar_slots: Array = $NinePatchRect/HBoxContainer.get_children()
+@onready var slots: Array = hotbar_slots + $NinePatchRect/GridContainer.get_children()
 
 var itemInHand: ItemStackUi
 
 var is_open: bool = false
+
 
 func _ready():
 	connect_slots()
