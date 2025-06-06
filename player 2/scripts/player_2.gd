@@ -29,15 +29,15 @@ func _ready():
 	$AnimatedSprite2D.play("front idle")
 
 func _physics_process(delta):
+	if health <= 0 and player_alive:
+		player_death()
+		return
+		
 	mouse_loc_from_player = get_global_mouse_position() - self.position
 	player_movement(delta)
 	
 	enemy_attack()
 	
-	if health <= 0:
-		health = 0
-		print("player has been killed")
-
 	if Input.is_action_pressed("attack"):
 		gun.setup_direction(get_shooting_direction())
 		gun.shoot()
@@ -50,6 +50,12 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("left_mouse") and bow_equipped and bow_cooldown and current_arrows > 0:
 		shoot_arrow()
+
+func player_death():
+	player_alive = false
+	$AnimatedSprite2D.play("death_animation")  # Make sure you have a death animation
+	await get_tree().create_timer(1.0).timeout
+	get_tree().reload_current_scene()
 
 func shoot_arrow():
 	bow_cooldown = false
