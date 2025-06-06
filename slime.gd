@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # Movement and stats
 var speed = 50
-var health = 100
+var health = 130
 var dead = false
 var player_in_area = false
 var player = null
@@ -81,6 +81,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.has_method("arrow_deal_damage"):
 		var damage = area.arrow_deal_damage()
 		take_damage(damage)
+		area.queue_free()  # This will make the arrow disappear when it hits the enemy
 
 func take_damage(damage):
 	health -= damage

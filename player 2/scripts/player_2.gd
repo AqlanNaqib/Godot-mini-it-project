@@ -2,16 +2,18 @@ extends CharacterBody2D
 
 class_name Player
 
-@export var inv: Inv
 @onready var gun = $Gun
-
 @onready var bullet_spawn_point = $CenterMarker
-
 
 var bow_equipped = false
 var bow_cooldown = true
 var arrow = preload("res://SCENES/arrow.tscn")
 signal healthChanged
+
+# Arrow system
+var max_arrows = 5
+var current_arrows = 5
+signal arrowsChanged(count: int)
 
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
@@ -33,11 +35,8 @@ func _physics_process(delta):
 	enemy_attack()
 	
 	if health <= 0:
-		#player_alive = false
 		health = 0
 		print("player has been killed")
-		#self.queue_free()
-
 
 	if Input.is_action_pressed("attack"):
 		gun.setup_direction(get_shooting_direction())
@@ -49,14 +48,25 @@ func _physics_process(delta):
 	var mouse_pos = get_global_mouse_position()
 	$Marker2D.look_at(mouse_pos)
 
-	if Input.is_action_just_pressed("left_mouse") and bow_equipped and bow_cooldown:
-		bow_cooldown = false
-		var arrow_instance = arrow.instantiate()
-		arrow_instance.rotation = $Marker2D.rotation
-		arrow_instance.global_position = $Marker2D.global_position
-		add_child(arrow_instance)
-		await get_tree().create_timer(0.4).timeout
-		bow_cooldown = true
+	if Input.is_action_just_pressed("left_mouse") and bow_equipped and bow_cooldown and current_arrows > 0:
+		shoot_arrow()
+
+func shoot_arrow():
+	bow_cooldown = false
+	current_arrows -= 1
+	arrowsChanged.emit(current_arrows)  # Update HUD
+	# ... rest of your shooting code ...
+	var arrow_instance = arrow.instantiate()
+	arrow_instance.rotation = $Marker2D.rotation
+	arrow_instance.global_position = $Marker2D.global_position
+	add_child(arrow_instance)
+	await get_tree().create_timer(0.4).timeout
+	bow_cooldown = true
+
+func add_arrows(amount: int):
+	current_arrows = min(current_arrows + amount, max_arrows)
+	arrowsChanged.emit(current_arrows)  # Update HUD
+	print("Arrows replenished. Total: ", current_arrows)
 
 func get_shooting_direction() -> Vector2:
 	match current_dir:
@@ -74,7 +84,6 @@ func get_shooting_direction() -> Vector2:
 func player_movement(delta):
 	var input_vector = Vector2.ZERO
 	
-	# Using your custom input actions
 	input_vector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	input_vector.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	input_vector = input_vector.normalized()
@@ -82,7 +91,6 @@ func player_movement(delta):
 	if input_vector != Vector2.ZERO:
 		player_state = "walking"
 		
-		# Update direction based on input
 		if abs(input_vector.x) > abs(input_vector.y):
 			current_dir = "right" if input_vector.x > 0 else "left"
 		else:
@@ -95,8 +103,6 @@ func player_movement(delta):
 	
 	play_anim(1 if input_vector != Vector2.ZERO else 0)
 	move_and_slide()
-	
-	
 
 func play_anim(movement):
 	var dir = current_dir
@@ -105,60 +111,52 @@ func play_anim(movement):
 	if !bow_equipped:
 		speed = 80
 		if player_state == "idle":
-		# Directional idle animations
 			match dir:
 				"up":
-					anim.play("back-idle")
+					anim.play("n_idle")
 				"down":
-					anim.play("front-idle")
+					anim.play("s_idle")
 				"right":
-					anim.play("se-idle")  # Make sure you have this animation
+					anim.play("se_idle")
 				"left":
-					anim.play("sw-idle")   # Make sure you have this animation
-	if bow_equipped:
+					anim.play("sw_idle")
+	else:
 		speed = 0
 		
-	
 		if mouse_loc_from_player.x >= -25 and mouse_loc_from_player.x <= 25 and mouse_loc_from_player.y <= 0:
-			$AnimatedSprite2D.play("n-attack")
-		if mouse_loc_from_player.y >= -25 and mouse_loc_from_player.y <= 25 and mouse_loc_from_player.x > 0:
-			$AnimatedSprite2D.play("e-attack")
-		if mouse_loc_from_player.x >= -25 and mouse_loc_from_player.x <= 25 and mouse_loc_from_player.y > 0:
-			$AnimatedSprite2D.play("s-attack")
-		if mouse_loc_from_player.y >= -25 and mouse_loc_from_player.y <= 25 and mouse_loc_from_player.x < 0:
-			$AnimatedSprite2D.play("w-attack")
-		if mouse_loc_from_player.x >= 25 and mouse_loc_from_player.y <= -25:
-			$AnimatedSprite2D.play("me-attack")
-		if mouse_loc_from_player.x >= 0.5 and mouse_loc_from_player.y >= 25:
-			$AnimatedSprite2D.play("se-attack")
-		if mouse_loc_from_player.x <= -0.5 and mouse_loc_from_player.y >= 25:
-			$AnimatedSprite2D.play("sw-attack")
-		if mouse_loc_from_player.x <= -25 and mouse_loc_from_player.y <= -25:
-			$AnimatedSprite2D.play("mw-attack")
-
-
-		
-	elif player_state == "walking":
-		# Directional walk animations
+			anim.play("n_shoot")
+		elif mouse_loc_from_player.y >= -25 and mouse_loc_from_player.y <= 25 and mouse_loc_from_player.x > 0:
+			anim.play("e_shoot")
+		elif mouse_loc_from_player.x >= -25 and mouse_loc_from_player.x <= 25 and mouse_loc_from_player.y > 0:
+			anim.play("s_shoot")
+		elif mouse_loc_from_player.y >= -25 and mouse_loc_from_player.y <= 25 and mouse_loc_from_player.x < 0:
+			anim.play("w_shoot")
+		elif mouse_loc_from_player.x >= 25 and mouse_loc_from_player.y <= -25:
+			anim.play("ne_shoot")
+		elif mouse_loc_from_player.x >= 0.5 and mouse_loc_from_player.y >= 25:
+			anim.play("se_shoot")
+		elif mouse_loc_from_player.x <= -0.5 and mouse_loc_from_player.y >= 25:
+			anim.play("sw_shoot")
+		elif mouse_loc_from_player.x <= -25 and mouse_loc_from_player.y <= -25:
+			anim.play("nw_shoot")
+	
+	if player_state == "walking" and not bow_equipped:
 		if dir == "up":
-			anim.play("n-walk")
+			anim.play("n_walk")
 		elif dir == "right":
-			anim.play("e-walk")
+			anim.play("e_walk")
 		elif dir == "down":
-			anim.play("s-walk")
+			anim.play("s_walk")
 		elif dir == "left":
-			anim.play("w-walk")
+			anim.play("w_walk")
 		elif dir.x > 0.5 and dir.y < -0.5:
-			anim.play("ne-walk")
+			anim.play("ne_walk")
 		elif dir.x > 0.5 and dir.y > 0.5:
-			anim.play("se-walk")
+			anim.play("se_walk")
 		elif dir.x < -0.5 and dir.y > 0.5:
-			anim.play("sw-walk")
+			anim.play("sw_walk")
 		elif dir.x < -0.5 and dir.y < -0.5:
-			anim.play("nw-walk")
-
-
-
+			anim.play("nw_walk")
 func player():
 	pass
 
@@ -173,22 +171,11 @@ func _on_player_hitbox_body_exited(body):
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown:
 		health -= 20
-		health = max(0, health)  # Prevent negative health
-		healthChanged.emit()  # Emit after changing health
+		health = max(0, health)
+		healthChanged.emit()
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		print(health)
 
-
-
 func _on_attack_cooldown_timeout() -> void:
 	enemy_attack_cooldown = true
-	
-func collect(item):
-	inv.insert(item)
-	
-
-func _on_player_hitbox_area_entered(area):
-	if area.has_method("collect"):
-		print("collected")
-		area.collect(inv)
