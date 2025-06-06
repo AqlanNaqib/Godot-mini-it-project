@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://ca4o8plimbenm"]
+[gd_scene load_steps=61 format=3 uid="uid://ca4o8plimbenm"]
 
 [ext_resource type="Script" uid="uid://buwqfuei7y0oe" path="res://coding/world.gd" id="1_ihqeo"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="2_spbpa"]
@@ -12,7 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://uton7de6i1jy" path="res://Tile Maps/Sprites/Basic_Plants.png" id="8_g3hnk"]
 [ext_resource type="Texture2D" uid="uid://bsaa3lyokjlvl" path="res://Tile Maps/Sprites/Outdoor_Decor_Free.png" id="9_dqpp0"]
 [ext_resource type="Texture2D" uid="uid://du04duoik8657" path="res://Tile Maps/Sprites/Interior.png" id="10_35k7y"]
+[ext_resource type="PackedScene" uid="uid://bh007oiawak24" path="res://Inventory/items/meat.tscn" id="10_sqp4t"]
 [ext_resource type="Texture2D" uid="uid://6pk4tdnt6ybj" path="res://Tile Maps/Sprites/Furniture.png" id="11_anige"]
+[ext_resource type="PackedScene" uid="uid://bkwq4k1nbu2a" path="res://Inventory/items/chicken.tscn" id="11_g3hnk"]
+[ext_resource type="PackedScene" uid="uid://bkuisc43de55d" path="res://Inventory/items/apple.tscn" id="12_haglt"]
 [ext_resource type="Texture2D" uid="uid://c7da84ydyjdgw" path="res://Tile Maps/Sprites/Hills.png" id="12_ijkqb"]
 [ext_resource type="Texture2D" uid="uid://xkjrvyyi3jv3" path="res://Tile Maps/Sprites/house_details.png" id="13_i1gee"]
 [ext_resource type="Texture2D" uid="uid://c11nhw2dbql5w" path="res://Tile Maps/Sprites/Vegetation.png" id="14_36tom"]
@@ -195,6 +198,12 @@ texture = ExtResource("8_7fw85")
 9:12/0 = 0
 1:5/0 = 0
 2:5/0 = 0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_g3hnk"]
+resource_name = "collectables"
+scenes/5/scene = ExtResource("12_haglt")
+scenes/6/scene = ExtResource("11_g3hnk")
+scenes/7/scene = ExtResource("10_sqp4t")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fvo4x"]
 texture = ExtResource("9_dqpp0")
@@ -3192,6 +3201,7 @@ sources/6 = SubResource("TileSetAtlasSource_ep8es")
 sources/8 = SubResource("TileSetAtlasSource_edghx")
 sources/11 = SubResource("TileSetAtlasSource_2cw4h")
 sources/21 = SubResource("TileSetAtlasSource_tfg73")
+sources/13 = SubResource("TileSetScenesCollectionSource_g3hnk")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqxxj"]
 size = Vector2(20, 34)
@@ -3239,6 +3249,8 @@ layer_1/tile_data = PackedInt32Array(-65537, 10, 0, -1, 10, 1, 65535, 10, 2, 0, 
 layer_2/name = "Ysort"
 layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(262139, 131081, 0, 131069, 131081, 0, -65542, 131081, 0, -458764, 3, 0, 131067, 14, 2, -524280, 3, 0, -65528, 131081, 0, -524281, 3, 0, -524279, 3, 0, -524278, 3, 0, -524277, 3, 0, -524276, 3, 0, -524275, 3, 0, -458739, 3, 0, -458740, 3, 0, -458741, 3, 0, -458742, 3, 0, -458743, 3, 0, -458744, 3, 0, -458745, 3, 0, -458738, 3, 0, -524274, 3, 0, -393213, 3, 0, -131073, 65540, 1, 458757, 196631, 6, 458759, 196631, 6, 458764, 196631, 6, 458765, 196631, 6, 393229, 196631, 6, 393228, 196631, 6, 393223, 196631, 6, 393222, 196631, 6, 393221, 196631, 6, 458758, 196631, 6, 458766, 196631, 6, 393230, 196631, 6, -262139, 262152, 20, 65525, 6, 0)
+layer_3/name = "Colllectable"
+layer_3/tile_data = PackedInt32Array(65531, 13, 65536, 196610, 13, 458752, 262147, 13, 458752, 6, 13, 327680, 327674, 13, 131072, 393217, 13, 393216, 393219, 13, 393216)
 
 [node name="leftpath_transition_point" type="Area2D" parent="."]
 
@@ -3281,7 +3293,7 @@ script = ExtResource("26_tsqhg")
 player = NodePath("../../player")
 
 [node name="slime" parent="." instance=ExtResource("27_17ncv")]
-position = Vector2(-23, 50)
+position = Vector2(77, -138)
 
 [node name="house_transition" type="Area2D" parent="."]
 position = Vector2(-128, 61)
@@ -3295,6 +3307,9 @@ position = Vector2(-35, -98)
 
 [node name="apple_tree2" parent="." instance=ExtResource("32_0odp6")]
 position = Vector2(177, -36)
+
+[node name="apple" parent="." instance=ExtResource("12_haglt")]
+position = Vector2(-23, 50)
 
 [connection signal="body_entered" from="leftpath_transition_point" to="." method="_on_leftpath_transition_point_body_entered"]
 [connection signal="body_entered" from="rightpath_transition_point" to="." method="_on_rightpath_transition_point_body_entered"]

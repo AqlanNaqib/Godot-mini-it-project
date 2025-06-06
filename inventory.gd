@@ -16,3 +16,11 @@ func insert(item: InvItem):
 			emptyslots[0].item = item
 			emptyslots[0].amount = 1
 	update.emit()
+
+func removeItemAtIndex(index: int):
+	slots[index] = InvSlot.new()
+	
+func insertSlot(index: int, invSlot: InvSlot):
+	var oldIndex: int = slots.find(invSlot)
+	
+	slots[index] = invSlot

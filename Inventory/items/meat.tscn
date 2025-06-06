@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh007oiawak24"]
+
+[ext_resource type="PackedScene" uid="uid://vwkfuhx2dq53" path="res://SCENES/collectable.tscn" id="1_dkclx"]
+[ext_resource type="Resource" uid="uid://dcw6vrgum8yk6" path="res://Inventory/items/meat.tres" id="2_lnhge"]
+[ext_resource type="Texture2D" uid="uid://daowvhwhy27gn" path="res://Inventory/tools/beef.png" id="2_yq87i"]
+
+[node name="meat" instance=ExtResource("1_dkclx")]
+itemRes = ExtResource("2_lnhge")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_yq87i")

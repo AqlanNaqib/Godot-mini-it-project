@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkuisc43de55d"]
+
+[ext_resource type="PackedScene" uid="uid://vwkfuhx2dq53" path="res://SCENES/collectable.tscn" id="1_8bufc"]
+[ext_resource type="Resource" uid="uid://dwdpb7muaqxbt" path="res://Inventory/items/apple.tres" id="2_0ty6y"]
+[ext_resource type="Texture2D" uid="uid://sfgh41kud6t1" path="res://Inventory/tools/Apple.png" id="2_cji4b"]
+
+[node name="apple" instance=ExtResource("1_8bufc")]
+itemRes = ExtResource("2_0ty6y")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_cji4b")

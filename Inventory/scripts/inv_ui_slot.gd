@@ -1,15 +1,29 @@
-extends Panel
+extends Button
 
-@onready var item_visual: Sprite2D = $CenterContainer/Panel/item_display
-@onready var amount_text: Label = $CenterContainer/Panel/Label
+@onready var container: CenterContainer = $CenterContainer
 
-func update(slot:InvSlot):
-	if !slot.item:
-		item_visual.visible = false
-		amount_text.visible = false
-	else:
-		item_visual.visible = true
-		item_visual.texture = slot.item.texture
-		if slot.amount > 1:
-			amount_text.visible = true
-			amount_text.text = str(slot.amount)
+@onready var inv = preload("res://Inventory/playerInventory.tres")
+
+var itemStackUi: ItemStackUi
+var index: int
+
+
+func insert(isg: ItemStackUi):
+	itemStackUi = isg
+	container.add_child(itemStackUi)
+	
+	if !itemStackUi.invSlot || inv.slots[index] == itemStackUi.invSlot:
+		return
+	
+	inv.insertSlot(index, itemStackUi.invSlot)
+	
+func takeItem():
+	var item = itemStackUi
+	
+	container.remove_child(itemStackUi)
+	itemStackUi = null
+
+	return item
+
+func isEmpty():
+	return !itemStackUi
