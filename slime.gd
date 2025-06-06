@@ -7,6 +7,8 @@ var dead = false
 var player_in_area = false
 var player = null
 var last_direction = Vector2.DOWN  # Track last movement direction for idle animations
+var is_attacking = false
+var attack_cooldown = false
 
 func _ready():
 	dead = false
@@ -21,14 +23,43 @@ func _physics_process(delta):
 	
 	if player_in_area and player != null:
 		var direction = (player.position - position).normalized()
-		velocity = direction * speed
-		move_and_slide()
-		update_movement_animation(direction)
-		last_direction = direction
+		
+		# Check if player is in attack range
+		if position.distance_to(player.position) < 30 and !attack_cooldown:
+			is_attacking = true
+			play_attack_animation(direction)
+			attack_cooldown = true
+			await get_tree().create_timer(1.0).timeout  # Attack duration
+			is_attacking = false
+			await get_tree().create_timer(0.5).timeout  # Cooldown before next attack
+			attack_cooldown = false
+		elif !is_attacking:
+			velocity = direction * speed
+			move_and_slide()
+			update_movement_animation(direction)
+			last_direction = direction
 	else:
 		play_idle_animation()
 
+func play_attack_animation(direction: Vector2):
+	# Determine which attack animation to play based on direction
+	if abs(direction.x) > abs(direction.y):
+		if direction.x > 0:
+			$AnimatedSprite2D.play("right_attack")
+		else:
+			$AnimatedSprite2D.play("left_attack")
+	else:
+		if direction.y > 0:
+			$AnimatedSprite2D.play("front_attack")
+		else:
+			$AnimatedSprite2D.play("back_attack")
+	
+	# Store the last direction for when attack finishes
+	last_direction = direction
+
 func update_movement_animation(direction: Vector2):
+	if is_attacking:
+		return
 	# Determine which walking animation to play based on direction
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
@@ -42,6 +73,8 @@ func update_movement_animation(direction: Vector2):
 			$AnimatedSprite2D.play("back_walk")
 
 func play_idle_animation():
+	if is_attacking:
+		return
 	# Play idle animation based on last movement direction
 	if abs(last_direction.x) > abs(last_direction.y):
 		if last_direction.x > 0:
