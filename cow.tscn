@@ -470,5 +470,4 @@ shape = SubResource("CircleShape2D_363vg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mjho7")
-animation = &"sleep_right"
-frame_progress = 0.891139
+animation = &"idle_front"

@@ -3,7 +3,7 @@ extends CharacterBody2D
 enum State { IDLE, WALK, SLEEP }
 enum Direction { FRONT, BACK, LEFT, RIGHT }
 
-@export var move_speed: float = 80.0
+@export var move_speed: float = 35.0
 @export var energy_drain_rate: float = 0.2
 @export var energy_regen_rate: float = 1.5
 @export var direction_change_chance: float = 0.01  # 1% chance per frame

@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://ca4o8plimbenm"]
+[gd_scene load_steps=63 format=3 uid="uid://ca4o8plimbenm"]
 
 [ext_resource type="Script" uid="uid://buwqfuei7y0oe" path="res://coding/world.gd" id="1_ihqeo"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="2_spbpa"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://cocgmximdcdfu" path="res://SCENES/apple_tree.tscn" id="32_0odp6"]
 [ext_resource type="PackedScene" uid="uid://1cof3x55p05h" path="res://Inventory/hotbar.tscn" id="34_0odp6"]
 [ext_resource type="PackedScene" uid="uid://cxjb1yo87bdcs" path="res://ArrowHUD.tscn" id="34_2cw4h"]
+[ext_resource type="PackedScene" uid="uid://cr2gjsxkmfqsm" path="res://cow.tscn" id="35_2cw4h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tspm"]
 texture = ExtResource("5_38x0x")
@@ -3304,7 +3305,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="slime" parent="." instance=ExtResource("27_17ncv")]
-position = Vector2(-126, -82)
+position = Vector2(-175, -79)
 
 [node name="house_transition" type="Area2D" parent="."]
 position = Vector2(-128, 61)
@@ -3323,6 +3324,9 @@ position = Vector2(177, -36)
 position = Vector2(-23, 50)
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("34_2cw4h")]
+
+[node name="cow" parent="." instance=ExtResource("35_2cw4h")]
+position = Vector2(-182, 95)
 
 [connection signal="body_entered" from="leftpath_transition_point" to="." method="_on_leftpath_transition_point_body_entered"]
 [connection signal="body_entered" from="rightpath_transition_point" to="." method="_on_rightpath_transition_point_body_entered"]
