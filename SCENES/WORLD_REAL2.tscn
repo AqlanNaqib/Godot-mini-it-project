@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dj5a3w2sgci7w"]
+[gd_scene load_steps=48 format=3 uid="uid://dj5a3w2sgci7w"]
 
 [ext_resource type="Script" uid="uid://bgt6mkb7u2dtg" path="res://coding/world2.gd" id="1_rauwk"]
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="5_eqdom"]
@@ -19,11 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://dpn2fwebeomnn" path="res://Tile Maps/Sprites/exterior.png" id="20_ro801"]
 [ext_resource type="Texture2D" uid="uid://kshiixig2mum" path="res://Tile Maps/Sprites/Tilled_Dirt_v2.png" id="21_cj8vc"]
 [ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="22_6cr6b"]
-[ext_resource type="Script" uid="uid://qhfcxib66yg8" path="res://coding/UserInterface.gd" id="23_lbdxv"]
-[ext_resource type="PackedScene" uid="uid://cfb7n622we237" path="res://SCENES/inventory.tscn" id="24_if8iu"]
 [ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="26_8a5rh"]
 [ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="27_dblrq"]
-[ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="28_7dk8c"]
+[ext_resource type="Script" path="res://SCENES/healtBar.gd" id="28_7dk8c"]
 [ext_resource type="PackedScene" uid="uid://l46bgqfjeya7" path="res://SCENES/player.tscn" id="29_dvosc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tspm"]
@@ -3246,11 +3244,20 @@ shape = SubResource("RectangleShape2D_f8fgu")
 [node name="UserInterface" type="CanvasLayer" parent="."]
 scale = Vector2(1.5, 1.5)
 transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
-script = ExtResource("23_lbdxv")
 
-[node name="Inventory" parent="UserInterface" instance=ExtResource("24_if8iu")]
+[node name="Inventory" parent="UserInterface"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 visible = false
 position = Vector2(202, 122.667)
+script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

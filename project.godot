@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Godot game project"
-run/main_scene="uid://ca4o8plimbenm"
+run/main_scene="uid://cfbfghvvliob6"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -40,6 +40,8 @@ variables={}
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/mode=3
 window/size/window_width_override=1920
 window/size/window_height_override=1080

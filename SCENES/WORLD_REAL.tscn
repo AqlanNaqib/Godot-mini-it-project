@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://dpn2fwebeomnn" path="res://Tile Maps/Sprites/exterior.png" id="20_e2nm1"]
 [ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="21_sx66n"]
 [ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="26_mf4fn"]
-[ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="26_tsqhg"]
+[ext_resource type="Script" path="res://SCENES/healtBar.gd" id="26_tsqhg"]
 [ext_resource type="PackedScene" uid="uid://bs4hwjntff02j" path="res://SCENES/slime.tscn" id="27_17ncv"]
 [ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="27_di7fi"]
 [ext_resource type="PackedScene" uid="uid://cocgmximdcdfu" path="res://SCENES/apple_tree.tscn" id="32_0odp6"]
