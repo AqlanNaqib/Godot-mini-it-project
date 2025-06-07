@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://dpn2fwebeomnn" path="res://Tile Maps/Sprites/exterior.png" id="20_e2nm1"]
 [ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="21_sx66n"]
 [ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="26_mf4fn"]
-[ext_resource type="Script" path="res://SCENES/healtBar.gd" id="26_tsqhg"]
+[ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="26_tsqhg"]
 [ext_resource type="PackedScene" uid="uid://bs4hwjntff02j" path="res://SCENES/slime.tscn" id="27_17ncv"]
 [ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="27_di7fi"]
 [ext_resource type="PackedScene" uid="uid://cocgmximdcdfu" path="res://SCENES/apple_tree.tscn" id="32_0odp6"]
@@ -3281,10 +3281,10 @@ offset_bottom = 30.0
 value = 100.0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
-offset_left = 1082.0
-offset_top = 3.0
-offset_right = 1146.0
-offset_bottom = 14.0
+offset_left = 1849.0
+offset_top = 2.0
+offset_right = 1913.0
+offset_bottom = 12.0
 texture_under = ExtResource("26_mf4fn")
 texture_progress = ExtResource("27_di7fi")
 script = ExtResource("26_tsqhg")
@@ -3329,3 +3329,5 @@ position = Vector2(-23, 50)
 [connection signal="body_entered" from="secret_transition_point" to="." method="_on_secret_transition_point_body_entered"]
 [connection signal="arrowsChanged" from="player" to="CanvasLayer2" method="update_arrow_count"]
 [connection signal="body_entered" from="house_transition" to="." method="_on_house_transition_body_entered"]
+
+[editable path="CanvasLayer2"]

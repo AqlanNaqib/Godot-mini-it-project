@@ -1636,22 +1636,21 @@ shape = SubResource("CircleShape2D_ul2c3")
 [node name="attack_cooldown" type="Timer" parent="."]
 wait_time = 2.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(5, 0)
-zoom = Vector2(2.5, 2.5)
-limit_left = -240
-limit_top = -142
-limit_right = 240
-limit_bottom = 142
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-
 [node name="Inv_UI" parent="." instance=ExtResource("33_sqehb")]
 z_index = 1
 offset_left = -53.0
 offset_top = -104.0
 offset_right = 53.0
 offset_bottom = -36.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4.5, 4.5)
+limit_left = -240
+limit_top = -144
+limit_right = 240
+limit_bottom = 144
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
