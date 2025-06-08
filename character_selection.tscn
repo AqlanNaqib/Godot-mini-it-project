@@ -13,7 +13,7 @@ script/source = "extends Node2D
 @onready var sfx_click: AudioStreamPlayer2D = $sfx_click
 
 var character_1 := preload(\"res://SCENES/WORLD_REAL.tscn\")
-var character_2 := preload(\"res://SCENES/WORLD_REAL2.tscn\")
+var character_2 := preload(\"res://SCENES/WORLD_REAL2.1.tscn\")
 
 
 
