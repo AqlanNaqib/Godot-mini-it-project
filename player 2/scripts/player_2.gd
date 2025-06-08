@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
+@export var inv: Inv
+
 @onready var gun = $Gun
 @onready var bullet_spawn_point = $CenterMarker
 
@@ -185,3 +187,11 @@ func enemy_attack():
 
 func _on_attack_cooldown_timeout() -> void:
 	enemy_attack_cooldown = true
+
+func collect(item):
+	inv.insert(item)
+
+
+func _on_pickable_area_area_entered(area):
+	if area.has_method("collect"):
+		area.collect(inv)

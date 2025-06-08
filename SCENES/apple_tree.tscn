@@ -40,7 +40,7 @@ item = ExtResource("2_hdjlq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hvlb6")
-animation = &"apples"
+animation = &"no_apples"
 
 [node name="pickable_area" type="Area2D" parent="."]
 

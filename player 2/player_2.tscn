@@ -1,6 +1,7 @@
-[gd_scene load_steps=238 format=3 uid="uid://ddu4kmdy5xthe"]
+[gd_scene load_steps=240 format=3 uid="uid://ddu4kmdy5xthe"]
 
 [ext_resource type="Script" uid="uid://cnelf67nv5hwk" path="res://player 2/scripts/player_2.gd" id="1_eykoa"]
+[ext_resource type="Resource" uid="uid://7t1phakshht" path="res://Inventory/playerInventory.tres" id="2_gbb43"]
 [ext_resource type="Texture2D" uid="uid://hodjxwnol3tl" path="res://player 2/art/Idle_Gun_Up.png" id="2_la1qn"]
 [ext_resource type="Texture2D" uid="uid://byep2f6wkpy1h" path="res://player 2/art/Idle_Gun_Down.png" id="9_kjauk"]
 [ext_resource type="Texture2D" uid="uid://bi517avp365hu" path="res://player 2/art/Idle_Gun_Left_Down.png" id="10_dg1gp"]
@@ -1602,11 +1603,15 @@ radius = 6.08276
 [sub_resource type="CircleShape2D" id="CircleShape2D_ul2c3"]
 radius = 22.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6pdss"]
+radius = 12.0
+
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
 position = Vector2(0, -1)
 collision_layer = 3
 script = ExtResource("1_eykoa")
+inv = ExtResource("2_gbb43")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mt8yd")
@@ -1637,6 +1642,7 @@ shape = SubResource("CircleShape2D_ul2c3")
 wait_time = 2.0
 
 [node name="Inv_UI" parent="." instance=ExtResource("33_sqehb")]
+visible = false
 z_index = 1
 offset_left = -53.0
 offset_top = -104.0
@@ -1652,7 +1658,14 @@ limit_bottom = 144
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_6pdss")
+
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="area_entered" from="pickable_area" to="." method="_on_pickable_area_area_entered"]

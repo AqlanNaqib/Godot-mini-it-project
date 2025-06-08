@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://omuebenq0o75"]
+
+[ext_resource type="Script" uid="uid://dtuu2opwqjgwy" path="res://Inventory/scripts/inventory_item.gd" id="1_xcdsw"]
+[ext_resource type="Texture2D" uid="uid://mn8sjkx8uu0t" path="res://player 2/art/03.png" id="2_lbx14"]
+
+[resource]
+script = ExtResource("1_xcdsw")
+name = "bullet"
+texture = ExtResource("2_lbx14")
+maxAmountPerStack = 64
+metadata/_custom_type_script = "uid://dtuu2opwqjgwy"

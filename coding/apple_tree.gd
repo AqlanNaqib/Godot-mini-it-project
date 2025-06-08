@@ -37,10 +37,10 @@ func _on_growth_timer_timeout():
 
 func drop_apple():
 	await get_tree().create_timer(0.0).timeout
-	var apple_intance = apple.instantiate()
-	apple_intance.rotation = rotation
-	apple_intance.global_position = $Marker2D.global_position
-	get_parent().add_child(apple_intance)
+	var apple_instance = apple.instantiate()
+	apple_instance.rotation = rotation
+	apple_instance.global_position = $Marker2D.global_position
+	get_parent().add_child(apple_instance)
 	player.collect(item)
 	await get_tree().create_timer(3).timeout
 	$growth_timer.start()
