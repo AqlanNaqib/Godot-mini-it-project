@@ -10,6 +10,9 @@ var last_direction = Vector2.DOWN  # Track last movement direction for idle anim
 var is_attacking = false
 var attack_cooldown = false
 
+@onready var slime = $slime_collectable
+@export var itemRes: InvItem
+
 func _ready():
 	dead = false
 
@@ -129,7 +132,27 @@ func death():
 	# Death animation is now handled in play_death_animation()
 	
 	await get_tree().create_timer(1.0).timeout
+	drop_meat()
+	
+	$AnimatedSprite2D.visible = false
+	$hitbox/CollisionShape2D.disabled = true
+	$detection_area/CollisionShape2D.disabled = true
+	
+func drop_meat():
+	slime.visible = true
+	$meat_collect_area/CollisionShape2D.disabled = false
+	meat_collect()
+	
+func meat_collect():
+	await get_tree().create_timer(1.5).timeout
+	slime.visible = false
+	player.collect(itemRes)
 	queue_free()
 
 func enemy():
 	pass
+
+
+func _on_meat_collect_area_body_entered(body: PhysicsBody2D):
+	if body.has_method("player"):
+		player = body
