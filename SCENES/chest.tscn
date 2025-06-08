@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://8leoy6vt3724"]
+[gd_scene load_steps=9 format=3 uid="uid://8leoy6vt3724"]
 
 [ext_resource type="Script" uid="uid://b8ep6c18373ft" path="res://coding/chest.gd" id="1_t8lu1"]
 [ext_resource type="Texture2D" uid="uid://6pk4tdnt6ybj" path="res://Tile Maps/Sprites/Furniture.png" id="1_wxrak"]
-[ext_resource type="PackedScene" uid="uid://cmklu1w5syxg6" path="res://SCENES/chest_collectable.tscn" id="2_5sv88"]
-[ext_resource type="Resource" uid="uid://omuebenq0o75" path="res://Inventory/items/arrow.tres" id="2_6umk8"]
-[ext_resource type="Resource" uid="uid://dcw6vrgum8yk6" path="res://Inventory/items/meat.tres" id="3_5sv88"]
+[ext_resource type="Resource" uid="uid://dlbg5cdnp1q7r" path="res://Inventory/items/arrow.tres" id="2_6umk8"]
+[ext_resource type="Resource" uid="uid://dw2vni14m2cmi" path="res://Inventory/items/beef.tres" id="3_6umk8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t8lu1"]
 atlas = ExtResource("1_wxrak")
@@ -38,9 +37,8 @@ radius = 20.0
 
 [node name="chest" type="Node2D"]
 script = ExtResource("1_t8lu1")
-pickup_scene = ExtResource("2_5sv88")
-first_item = ExtResource("2_6umk8")
-sec_item = ExtResource("3_5sv88")
+item1 = ExtResource("2_6umk8")
+item2 = ExtResource("3_6umk8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_a0uq4")

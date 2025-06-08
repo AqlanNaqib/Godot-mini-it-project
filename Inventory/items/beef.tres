@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dw2vni14m2cmi"]
+
+[ext_resource type="Script" uid="uid://dtuu2opwqjgwy" path="res://Inventory/scripts/inventory_item.gd" id="1_vg001"]
+[ext_resource type="Texture2D" uid="uid://daowvhwhy27gn" path="res://Inventory/tools/beef.png" id="2_d0s60"]
+
+[resource]
+script = ExtResource("1_vg001")
+name = "beef"
+texture = ExtResource("2_d0s60")
+maxAmountPerStack = 64
+metadata/_custom_type_script = "uid://dtuu2opwqjgwy"
