@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://2htovucnueuq"]
+
+[ext_resource type="Script" uid="uid://v3ldun4w28dl" path="res://Inventory/scripts/hotbar_slot.gd" id="1_kcsa5"]
+[ext_resource type="Texture2D" uid="uid://b0rnobkkgsnaf" path="res://Inventory/UI/inventory-slot.png" id="2_kcsa5"]
+[ext_resource type="PackedScene" uid="uid://uhl60urdlsml" path="res://Inventory/hotbar_item_stack.tscn" id="3_kcsa5"]
+
+[node name="hotbar_slot" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+offset_right = 31.0
+offset_bottom = 28.0
+script = ExtResource("1_kcsa5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.9, 1.748)
+texture = ExtResource("2_kcsa5")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 11.0
+offset_right = 29.0
+offset_bottom = 27.0
+
+[node name="Panel" parent="CenterContainer" instance=ExtResource("3_kcsa5")]
+layout_mode = 2

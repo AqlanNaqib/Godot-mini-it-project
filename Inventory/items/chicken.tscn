@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkwq4k1nbu2a"]
+
+[ext_resource type="PackedScene" uid="uid://vwkfuhx2dq53" path="res://SCENES/collectable.tscn" id="1_r7y1v"]
+[ext_resource type="Texture2D" uid="uid://ccfq708oo1gtf" path="res://Inventory/tools/chicken.png" id="2_2r3by"]
+[ext_resource type="Resource" uid="uid://crsmu3bbhvp15" path="res://Inventory/items/chicken.tres" id="2_jyfko"]
+
+[node name="chicken" instance=ExtResource("1_r7y1v")]
+itemRes = ExtResource("2_jyfko")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_2r3by")

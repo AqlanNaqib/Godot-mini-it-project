@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://bg2epomyvict4"]
+
+[ext_resource type="Script" uid="uid://7s3v0wb77kir" path="res://campfire.gd" id="1_esbbj"]
+[ext_resource type="Texture2D" uid="uid://gxdyljwhwq2q" path="res://Tile Maps/Sprites/campfire/CampFire.png" id="2_wa6cq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mi7m"]
+atlas = ExtResource("2_wa6cq")
+region = Rect2(50, 0, 50, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq35l"]
+atlas = ExtResource("2_wa6cq")
+region = Rect2(100, 0, 50, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahmco"]
+atlas = ExtResource("2_wa6cq")
+region = Rect2(150, 0, 50, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1hk2"]
+atlas = ExtResource("2_wa6cq")
+region = Rect2(200, 0, 50, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg5qa"]
+atlas = ExtResource("2_wa6cq")
+region = Rect2(250, 0, 50, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg5xs"]
+atlas = ExtResource("2_wa6cq")
+region = Rect2(300, 0, 50, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbjtn"]
+atlas = ExtResource("2_wa6cq")
+region = Rect2(350, 0, 50, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi7lk"]
+atlas = ExtResource("2_wa6cq")
+region = Rect2(400, 0, 50, 86)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0alhq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mi7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hq35l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahmco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1hk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg5qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg5xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbjtn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi7lk")
+}],
+"loop": true,
+"name": &"campfire",
+"speed": 10.0
+}]
+
+[node name="campfire" type="Node2D"]
+script = ExtResource("1_esbbj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0alhq")
+animation = &"campfire"
+frame_progress = 0.908219

@@ -1,0 +1,13 @@
+{
+   "Axe":{
+	"ItemCategory": " Weapon",
+	"StackSize": 1,
+	"Description": "Chopping down trees are easier"
+  },
+  "Apple":{
+	"ItemCategory": "Resource"
+	"AddHealth": 5,
+	"StackSize: 99,
+	"Description": "An apple a day keeps the doctor away"
+  }
+}

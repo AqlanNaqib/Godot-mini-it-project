@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://uhl60urdlsml"]
+
+[ext_resource type="Script" uid="uid://dnml1g6me4e8d" path="res://Inventory/item_stack_ui.gd" id="1_q7s7y"]
+[ext_resource type="FontFile" uid="uid://gvhmvvi3ds5w" path="res://Inventory/Fonts/Juvanze-ovw9A.otf" id="2_boehd"]
+
+[node name="Panel" type="Panel"]
+script = ExtResource("1_q7s7y")
+
+[node name="item_display" type="Sprite2D" parent="."]
+position = Vector2(-5, -4)
+scale = Vector2(1.375, 1.3125)
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(16, 17)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 15.0
+offset_bottom = 18.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_boehd")
+text = "99"
+horizontal_alignment = 2

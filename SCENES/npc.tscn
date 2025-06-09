@@ -1,0 +1,370 @@
+[gd_scene load_steps=40 format=3 uid="uid://bw13dhhfw1n7d"]
+
+[ext_resource type="Texture2D" uid="uid://dplodr6fbfn61" path="res://npc/sprites/NecromancerDownIdle.png" id="1_bc6q4"]
+[ext_resource type="Texture2D" uid="uid://u1wrxh8vd2xu" path="res://npc/sprites/NecromancerDownRun.png" id="2_mcvl2"]
+[ext_resource type="Texture2D" uid="uid://ra7v4yoy0llu" path="res://npc/sprites/NecromancerLeftRun.png" id="3_d61ma"]
+[ext_resource type="Texture2D" uid="uid://5crcakosokhe" path="res://npc/sprites/NecromancerRightRun.png" id="4_slxoh"]
+[ext_resource type="Texture2D" uid="uid://2xeayxtnyvji" path="res://npc/sprites/NecromancerUpRun.png" id="5_l64hl"]
+
+[sub_resource type="GDScript" id="GDScript_215dd"]
+script/source = "extends CharacterBody2D
+
+const speed = 30
+var current_state = IDLE
+
+var dir = Vector2.RIGHT
+var start_pos
+
+var is_roaming = true
+var is_chatting = false
+
+var player_in_area = false
+
+var player
+var player_in_chat_zone = false
+enum{
+	IDLE,
+	NEW_DIR,
+	MOVE
+}
+
+func _ready():
+	randomize()
+	start_pos = position
+	
+func _process(delta):
+	if player_in_area:
+		if Input.is_action_just_pressed(\"f\"):
+			run_dialogue(\"wizardGiving\")
+	if current_state == 0 or  current_state == 1:
+		$AnimatedSprite2D.play(\"idle\")
+	elif current_state == 2 and !is_chatting:
+		if dir.x == -1:
+			$AnimatedSprite2D.play(\"walk left\")
+		if dir.x == 1:
+			$AnimatedSprite2D.play(\"walk right\")
+		if dir.y == -1:
+			$AnimatedSprite2D.play(\"walk up\")
+		if dir.y == 1:
+			$AnimatedSprite2D.play(\"walk down\")
+			
+	if is_roaming:
+		match current_state:
+			IDLE:
+				pass
+			NEW_DIR:
+				dir = choose([Vector2.RIGHT, Vector2.UP, Vector2.LEFT, Vector2.DOWN])
+			MOVE:
+				move(delta)
+	
+
+
+func run_dialogue(dialogue_string):
+	is_chatting = true
+	is_roaming = false
+	
+	Dialogic.start(dialogue_string)
+
+
+
+func choose(array):
+	array.shuffle()
+	return array.front()
+	
+func move(delta):
+	if !is_chatting:
+		position += dir * speed * delta
+		
+
+
+
+
+
+func _on_timer_timeout():
+	$Timer.wait_time = choose([0.5,1,1.5])
+	current_state =choose([IDLE, NEW_DIR, MOVE])
+
+
+func _on_dialogue_dialogue_finished():
+	is_chatting = false
+	is_roaming = true 
+
+
+func _on_chat_detection_body_entered(body: Node2D) -> void:
+	if body.has_method(\"player\"):
+		player_in_area = true
+
+
+func _on_chat_detection_body_exited(body: Node2D) -> void:
+	if body.has_method(\"player\"):
+		player_in_area = false
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5bpe"]
+atlas = ExtResource("1_bc6q4")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upjdb"]
+atlas = ExtResource("1_bc6q4")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u41a8"]
+atlas = ExtResource("1_bc6q4")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgete"]
+atlas = ExtResource("1_bc6q4")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu3sj"]
+atlas = ExtResource("1_bc6q4")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytjd8"]
+atlas = ExtResource("1_bc6q4")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hivs1"]
+atlas = ExtResource("2_mcvl2")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_faxwa"]
+atlas = ExtResource("2_mcvl2")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwlqr"]
+atlas = ExtResource("2_mcvl2")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnt0c"]
+atlas = ExtResource("2_mcvl2")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur8k0"]
+atlas = ExtResource("2_mcvl2")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlw2c"]
+atlas = ExtResource("2_mcvl2")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvame"]
+atlas = ExtResource("3_d61ma")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mjj1"]
+atlas = ExtResource("3_d61ma")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb20n"]
+atlas = ExtResource("3_d61ma")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d7p2"]
+atlas = ExtResource("3_d61ma")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swplc"]
+atlas = ExtResource("3_d61ma")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujo46"]
+atlas = ExtResource("3_d61ma")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdsq1"]
+atlas = ExtResource("4_slxoh")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37qyk"]
+atlas = ExtResource("4_slxoh")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4neo"]
+atlas = ExtResource("4_slxoh")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0tg3"]
+atlas = ExtResource("4_slxoh")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2dnk"]
+atlas = ExtResource("4_slxoh")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a7ac"]
+atlas = ExtResource("4_slxoh")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54jp2"]
+atlas = ExtResource("5_l64hl")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qland"]
+atlas = ExtResource("5_l64hl")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ca2q"]
+atlas = ExtResource("5_l64hl")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m76c1"]
+atlas = ExtResource("5_l64hl")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4y1uw"]
+atlas = ExtResource("5_l64hl")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fx3vs"]
+atlas = ExtResource("5_l64hl")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_34tsv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5bpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upjdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u41a8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgete")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu3sj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytjd8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hivs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_faxwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwlqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnt0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur8k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlw2c")
+}],
+"loop": true,
+"name": &"walk down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvame")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mjj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bb20n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d7p2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swplc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujo46")
+}],
+"loop": true,
+"name": &"walk left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdsq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37qyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4neo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0tg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2dnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2a7ac")
+}],
+"loop": true,
+"name": &"walk right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54jp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qland")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ca2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m76c1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4y1uw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fx3vs")
+}],
+"loop": true,
+"name": &"walk up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qbf2e"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7kbcn"]
+radius = 29.0
+
+[node name="npc" type="CharacterBody2D"]
+script = SubResource("GDScript_215dd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_34tsv")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+show_behind_parent = true
+visibility_layer = 0
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_qbf2e")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="chatDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chatDetection"]
+shape = SubResource("CircleShape2D_7kbcn")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="chatDetection" to="." method="_on_chat_detection_body_entered"]
+[connection signal="body_exited" from="chatDetection" to="." method="_on_chat_detection_body_exited"]
