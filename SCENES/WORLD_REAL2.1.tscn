@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://3wygm06n582f"]
+[gd_scene load_steps=67 format=3 uid="uid://3wygm06n582f"]
 
 [ext_resource type="Script" uid="uid://dih1qeustg2c3" path="res://SCENES/world_real_2.1.gd" id="1_l5pd7"]
 [ext_resource type="PackedScene" uid="uid://bw13dhhfw1n7d" path="res://SCENES/npc.tscn" id="2_0pjea"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://cr2gjsxkmfqsm" path="res://cow.tscn" id="36_8hon1"]
 [ext_resource type="PackedScene" uid="uid://8leoy6vt3724" path="res://SCENES/chest.tscn" id="37_kru1o"]
 [ext_resource type="PackedScene" uid="uid://l46bgqfjeya7" path="res://SCENES/player.tscn" id="37_l5pd7"]
+[ext_resource type="PackedScene" uid="uid://cnshyksbhqavd" path="res://pause_menu.tscn" id="38_0pjea"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tspm"]
 texture = ExtResource("4_4diey")
@@ -3749,7 +3750,7 @@ offset_right = 1146.0
 offset_bottom = 30.0
 value = 100.0
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
 offset_left = 1849.0
 offset_top = 2.0
 offset_right = 1913.0
@@ -3757,7 +3758,6 @@ offset_bottom = 12.0
 texture_under = ExtResource("29_nls53")
 texture_progress = ExtResource("30_byxks")
 script = ExtResource("31_1rfsg")
-player = NodePath("")
 
 [node name="hotbar" parent="CanvasLayer" instance=ExtResource("32_72byi")]
 anchors_preset = 7
@@ -3801,6 +3801,12 @@ position = Vector2(-8, -44)
 
 [node name="player_with_spear" parent="." instance=ExtResource("37_l5pd7")]
 position = Vector2(2, -1)
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer3" instance=ExtResource("38_0pjea")]
+offset_left = -306.0
+offset_top = -205.0
 
 [connection signal="body_entered" from="leftpath_transition_point" to="." method="_on_leftpath_transition_point_body_entered"]
 [connection signal="body_entered" from="rightpath_transition_point" to="." method="_on_rightpath_transition_point_body_entered"]
