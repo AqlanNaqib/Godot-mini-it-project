@@ -29,7 +29,9 @@ func update_slots():
 	for i in range(min(inv.slots.size(), slots.size())):
 		var invSlot: InvSlot = inv.slots[i]
 		
-		if !invSlot.item: continue
+		if !invSlot.item: 
+			slots[i].clear()
+			continue
 		
 		var itemStackUi: ItemStackUi = slots[i].itemStackUi
 		if !itemStackUi:

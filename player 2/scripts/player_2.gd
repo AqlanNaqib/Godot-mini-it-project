@@ -19,6 +19,7 @@ signal arrowsChanged(count: int)
 
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
+var maxHealth = 100
 var health = 100
 var player_alive = true
 var speed = 80
@@ -28,6 +29,7 @@ var mouse_loc_from_player = null
 var player_state = "idle"
 
 func _ready():
+	inv.use_item.connect(use_item)
 	$AnimatedSprite2D.play("front idle")
 
 func _physics_process(delta):
@@ -195,3 +197,14 @@ func collect(item):
 func _on_pickable_area_area_entered(area):
 	if area.has_method("collect"):
 		area.collect(inv)
+
+func increase_health(amount: int):
+	health += amount
+	health = min(maxHealth, health)
+
+	print(health)
+	
+	healthChanged.emit(health)
+
+func use_item(item: InvItem):
+	item.use(self)
