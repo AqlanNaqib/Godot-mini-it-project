@@ -38,7 +38,7 @@ func update_slots():
 			itemStackUi = ItemStackUiClass.instantiate()
 			slots[i].insert(itemStackUi)
 		itemStackUi.invSlot = invSlot
-		itemStackUi.update()
+		itemStackUi.call_deferred("update")
 		
 func _process(delta):
 	if Input.is_action_just_pressed("Inventory"):

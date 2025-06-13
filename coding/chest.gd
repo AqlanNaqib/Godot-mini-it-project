@@ -7,10 +7,7 @@ var items = preload("res://SCENES/chest_collectable.tscn")
 
 @export var item1: InvItem
 @export var item2: InvItem
-@export var item3: InvItem
-@export var item4: InvItem
-@export var item5: InvItem
-@export var item6: InvItem
+
 var player = null
 
 func _ready():
@@ -40,7 +37,7 @@ func _on_pickable_area_body_exited(body: PhysicsBody2D):
 	
 		
 func drop_items():
-	for i in range(5):
+	for i in range(3):
 		await get_tree().create_timer(0.0).timeout
 		var item1_instance = items.instantiate()
 		item1_instance.rotation = rotation

@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://crgxwiclx0l7k"]
+[gd_scene load_steps=76 format=3 uid="uid://crgxwiclx0l7k"]
 
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="1_gus3p"]
 [ext_resource type="Script" uid="uid://iro5ycg5vobw" path="res://coding/dungeon.gd" id="1_v3ms4"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://kshiixig2mum" path="res://Tile Maps/Sprites/Tilled_Dirt_v2.png" id="30_uljs8"]
 [ext_resource type="Texture2D" uid="uid://c6ph44np1oat4" path="res://Tile Maps/Sprites/Dungeon_Tiles.png" id="31_kex5j"]
 [ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="32_plqls"]
+[ext_resource type="PackedScene" uid="uid://1cof3x55p05h" path="res://Inventory/hotbar.tscn" id="37_2pcr7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrhfs"]
 texture = ExtResource("2_gx2s0")
@@ -10739,6 +10740,21 @@ polygon = PackedVector2Array(121, -54, 195, -53, 196, -8, 233, -7, 233, -19, 199
 
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="collisions"]
 polygon = PackedVector2Array(-103, 1, -93, 1, -93, -47, -13, -48, -13, -128, 0, -128, 0, -136, 5, -136, 6, -124, -10, -124, -10, -44, -90, -44, -90, 3, -103, 4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("37_2pcr7")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = -59.0
+offset_right = 133.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [connection signal="body_entered" from="dungeon_exit_point" to="." method="_on_dungeon_exit_point_body_entered"]
 [connection signal="body_entered" from="sec_dungeon" to="." method="_on_sec_dungeon_body_entered"]

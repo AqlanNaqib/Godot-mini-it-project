@@ -22,8 +22,6 @@ func takeItem():
 	
 	inv.removeSlot(itemStackUi.invSlot)
 	
-	
-	
 	return item
 
 func isEmpty():

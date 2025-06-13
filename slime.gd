@@ -153,6 +153,6 @@ func enemy():
 	pass
 
 
-func _on_meat_collect_area_body_entered(body: PhysicsBody2D):
+func _on_meat_collect_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player = body
