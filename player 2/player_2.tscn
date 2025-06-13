@@ -22,7 +22,11 @@
 [ext_resource type="Texture2D" uid="uid://igtw22hllwek" path="res://player 2/art/Run_Gun_Left_Down.png" id="25_xmni7"]
 [ext_resource type="Texture2D" uid="uid://cvl5pr2vohdmg" path="res://player 2/art/Run_Gun_Left_Up.png" id="26_5fjea"]
 [ext_resource type="Texture2D" uid="uid://dlrc314o2rq48" path="res://player 2/art/Run_Gun_Right.png" id="27_cd5q1"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://cnshyksbhqavd" path="res://pause_menu.tscn" id="28_hv18e"]
+=======
+[ext_resource type="PackedScene" uid="uid://cxjb1yo87bdcs" path="res://ArrowHUD.tscn" id="28_hv18e"]
+>>>>>>> 34087af2b0cb555edab8a55d2bf489e0fb36148f
 [ext_resource type="Texture2D" uid="uid://hlua2mu46t1i" path="res://player 2/art/Run_Gun_Right_Down.png" id="28_k5jpu"]
 [ext_resource type="Texture2D" uid="uid://b3rhp4rr7rm7s" path="res://player 2/art/Run_Gun_Right_Up.png" id="29_jf6sy"]
 [ext_resource type="Texture2D" uid="uid://bgfqxb23iligv" path="res://player 2/art/Run_Gun_Up.png" id="30_6x7kc"]
@@ -1665,9 +1669,14 @@ drag_vertical_enabled = true
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_6pdss")
 
+<<<<<<< HEAD
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("28_hv18e")]
+=======
+[node name="CanvasLayer" parent="." instance=ExtResource("28_hv18e")]
+visible = false
+>>>>>>> 34087af2b0cb555edab8a55d2bf489e0fb36148f
 
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
