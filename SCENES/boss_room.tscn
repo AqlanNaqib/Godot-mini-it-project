@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn8vepmpumohf"]
+
+[ext_resource type="PackedScene" uid="uid://buoet8c17rxpo" path="res://SCENES/skeleton_boss.tscn" id="1_pckvx"]
+[ext_resource type="PackedScene" uid="uid://bedhmq0k03ne2" path="res://SCENES/player_boss.tscn" id="2_1ldns"]
+
+[node name="BossRoom" type="Node2D"]
+
+[node name="SkeletonBoss" parent="." instance=ExtResource("1_pckvx")]
+position = Vector2(219, 91)
+
+[node name="player" parent="." instance=ExtResource("2_1ldns")]
+position = Vector2(320, 107)

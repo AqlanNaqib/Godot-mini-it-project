@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bedhmq0k03ne2"]
+
+[ext_resource type="Script" uid="uid://bthiohwuxdeuq" path="res://SCENES/player_boss.gd" id="1_k351o"]
+[ext_resource type="PackedScene" uid="uid://dme8r8gicainc" path="res://SCENES/peluru.tscn" id="2_tuqwa"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yt2c3"]
+size = Vector2(20, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuqwa"]
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_k351o")
+bullet_node = ExtResource("2_tuqwa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_yt2c3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tuqwa")
