@@ -13,7 +13,7 @@ var arrow = preload("res://SCENES/arrow.tscn")
 signal healthChanged
 
 # Arrow system
-var max_arrows = 5
+var max_arrows = 10
 var current_arrows = 5
 signal arrowsChanged(count: int)
 

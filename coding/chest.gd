@@ -40,12 +40,13 @@ func _on_pickable_area_body_exited(body: PhysicsBody2D):
 	
 		
 func drop_items():
-	await get_tree().create_timer(0.0).timeout
-	var item1_instance = items.instantiate()
-	item1_instance.rotation = rotation
-	item1_instance.global_position = $Marker2D.global_position
-	get_parent().add_child(item1_instance)
-	player.collect(item1)
+	for i in range(5):
+		await get_tree().create_timer(0.0).timeout
+		var item1_instance = items.instantiate()
+		item1_instance.rotation = rotation
+		item1_instance.global_position = $Marker2D.global_position
+		get_parent().add_child(item1_instance)
+		player.collect(item1)
 	
 	await get_tree().create_timer(0.0).timeout
 	var item2_instance = items.instantiate()
@@ -54,30 +55,3 @@ func drop_items():
 	get_parent().add_child(item2_instance)
 	player.collect(item2)
 	
-	await get_tree().create_timer(0.0).timeout
-	var item3_instance = items.instantiate()
-	item3_instance.rotation = rotation
-	item3_instance.global_position = $Marker2D.global_position
-	get_parent().add_child(item3_instance)
-	player.collect(item3)
-	
-	await get_tree().create_timer(0.0).timeout
-	var item4_instance = items.instantiate()
-	item4_instance = rotation
-	item4_instance.global_position = $Marker2D.global_position
-	get_parent().add_child(item4_instance)
-	player.collect(item4)
-	
-	await get_tree().create_timer(0.0).timeout
-	var item5_instance = items.instantiate()
-	item5_instance = rotation
-	item5_instance.global_position = $Marker2D.global_position
-	get_parent().add_child(item5_instance)
-	player.collect(item5)
-	
-	await get_tree().create_timer(0.0).timeout
-	var item6_instance = items.instantiate()
-	item6_instance = rotation
-	item6_instance.global_position = $Marker2D.global_position
-	get_parent().add_child(item6_instance)
-	player.collect(item6)

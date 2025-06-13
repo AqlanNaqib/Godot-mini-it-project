@@ -12,6 +12,7 @@ offset_bottom = 56.0
 script = ExtResource("1_wpwbq")
 
 [node name="Container" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_right = 133.0
 offset_bottom = 30.0
 scale = Vector2(2, 2)

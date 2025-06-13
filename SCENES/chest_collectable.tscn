@@ -15,7 +15,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_pq4uf")
 }],
 "loop": true,
-"name": &"bullets",
+"name": &"arrow1",
 "speed": 0.0
 }]
 
@@ -27,7 +27,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("bullet:position")
+tracks/0/path = NodePath("arrow:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -39,7 +39,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("bullet:rotation")
+tracks/1/path = NodePath("arrow:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -51,7 +51,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("bullet:self_modulate")
+tracks/2/path = NodePath("arrow:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -67,7 +67,7 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("bullet:position")
+tracks/0/path = NodePath("arrow:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -79,7 +79,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("bullet:rotation")
+tracks/1/path = NodePath("arrow:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -91,7 +91,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("bullet:self_modulate")
+tracks/2/path = NodePath("arrow:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -107,7 +107,7 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("bullet:position")
+tracks/0/path = NodePath("arrow:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -119,7 +119,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("bullet:rotation")
+tracks/1/path = NodePath("arrow:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -131,7 +131,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("bullet:self_modulate")
+tracks/2/path = NodePath("arrow:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -294,12 +294,12 @@ _data = {
 [node name="chest_collectable" type="StaticBody2D"]
 script = ExtResource("1_s0pir")
 
-[node name="bullet" type="AnimatedSprite2D" parent="."]
+[node name="arrow" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.47619, 0.5)
 sprite_frames = SubResource("SpriteFrames_i810h")
-animation = &"bullets"
+animation = &"arrow1"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arrow"]
 shape = SubResource("CircleShape2D_s0pir")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -308,7 +308,6 @@ libraries = {
 }
 
 [node name="meat" type="AnimatedSprite2D" parent="."]
-visible = false
 sprite_frames = SubResource("SpriteFrames_3ugnv")
 animation = &"meat"
 frame_progress = 0.793009
@@ -321,35 +320,3 @@ root_node = NodePath("../meat")
 libraries = {
 &"": SubResource("AnimationLibrary_mudl8")
 }
-
-[node name="bullet2" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.47619, 0.5)
-sprite_frames = SubResource("SpriteFrames_i810h")
-animation = &"bullets"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet2"]
-shape = SubResource("CircleShape2D_s0pir")
-
-[node name="bullet3" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.47619, 0.5)
-sprite_frames = SubResource("SpriteFrames_i810h")
-animation = &"bullets"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet3"]
-shape = SubResource("CircleShape2D_s0pir")
-
-[node name="bullet4" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.47619, 0.5)
-sprite_frames = SubResource("SpriteFrames_i810h")
-animation = &"bullets"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet4"]
-shape = SubResource("CircleShape2D_s0pir")
-
-[node name="bullet5" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.47619, 0.5)
-sprite_frames = SubResource("SpriteFrames_i810h")
-animation = &"bullets"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet5"]
-shape = SubResource("CircleShape2D_s0pir")
