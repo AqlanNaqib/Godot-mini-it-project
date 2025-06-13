@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://buwqfuei7y0oe" path="res://coding/world.gd" id="1_ihqeo"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="2_spbpa"]
-[ext_resource type="PackedScene" uid="uid://bw13dhhfw1n7d" path="res://SCENES/npc.tscn" id="4_6316l"]
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="5_38x0x"]
 [ext_resource type="PackedScene" uid="uid://d1p6172gslafm" path="res://npc_cat.tscn" id="5_ep8es"]
 [ext_resource type="Texture2D" uid="uid://c2vedv3ygugq0" path="res://Tile Maps/Sprites/Grass.png" id="6_uc4n6"]
@@ -3691,9 +3690,6 @@ size = Vector2(21, 16)
 y_sort_enabled = true
 script = ExtResource("1_ihqeo")
 
-[node name="npc" parent="." instance=ExtResource("4_6316l")]
-position = Vector2(-399, -46)
-
 [node name="cat npc" parent="." instance=ExtResource("5_ep8es")]
 position = Vector2(177, 28)
 
@@ -3704,6 +3700,12 @@ polygon = PackedVector2Array(-240, -144, 97, -144, 97, -70, 101, -65, 240, -64, 
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="colliosions"]
 polygon = PackedVector2Array(-216, -4, -216, 66, -140, 67, -140, 49, -116, 50, -117, 66, -99, 67, -98, -5)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="colliosions"]
+polygon = PackedVector2Array(-44, -73, -38, -81, -47.7763, -86.4313, -55, -99, -10, -97, -19, -88, -30, -82, -25, -71, -37, -68, -43, -69)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="colliosions"]
+polygon = PackedVector2Array(177, -36, 153, -33, 169, -18, 168, -12, 167, -7, 171, -5, 184, -5, 185, -10, 182, -14, 202, -34)
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -3719,7 +3721,7 @@ layer_2/name = "Ysort"
 layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(262139, 131081, 0, 131069, 131081, 0, -65542, 131081, 0, -458764, 3, 0, 131067, 14, 2, -524280, 3, 0, -65528, 131081, 0, -524279, 3, 0, -524278, 3, 0, -524277, 3, 0, -524276, 3, 0, -524275, 3, 0, -458739, 3, 0, -458740, 3, 0, -458741, 3, 0, -458742, 3, 0, -458743, 3, 0, -458744, 3, 0, -458738, 3, 0, -524274, 3, 0, -393213, 3, 0, 458757, 196631, 6, 458759, 196631, 6, 458764, 196631, 6, 458765, 196631, 6, 393229, 196631, 6, 393228, 196631, 6, 393223, 196631, 6, 393222, 196631, 6, 393221, 196631, 6, 458758, 196631, 6, 458766, 196631, 6, 393230, 196631, 6, -262139, 262152, 20, 65525, 6, 0, -458745, 3, 0, -524281, 3, 0)
 layer_3/name = "Colllectable"
-layer_3/tile_data = PackedInt32Array(65531, 13, 65536, 196610, 13, 458752, 262147, 13, 458752, 6, 13, 327680, 327674, 13, 131072, 393217, 13, 393216, 393219, 13, 393216)
+layer_3/tile_data = PackedInt32Array(65531, 13, 65536, 327674, 13, 131072)
 
 [node name="leftpath_transition_point" type="Area2D" parent="."]
 
@@ -3789,9 +3791,6 @@ position = Vector2(-35, -98)
 
 [node name="apple_tree2" parent="." instance=ExtResource("32_0odp6")]
 position = Vector2(177, -36)
-
-[node name="apple" parent="." instance=ExtResource("12_haglt")]
-position = Vector2(-23, 50)
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("34_2cw4h")]
 

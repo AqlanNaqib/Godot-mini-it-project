@@ -1,26 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://1cof3x55p05h"]
+[gd_scene load_steps=4 format=3 uid="uid://1cof3x55p05h"]
 
 [ext_resource type="Script" uid="uid://v0p05h7oy78b" path="res://Inventory/hotbar.gd" id="1_wpwbq"]
 [ext_resource type="PackedScene" uid="uid://2htovucnueuq" path="res://Inventory/hotbar_slot.tscn" id="2_wpwbq"]
+[ext_resource type="Texture2D" uid="uid://bqpt2y4ek0cok" path="res://Inventory/UI/hotbar_selector.png" id="3_n3nlf"]
 
-[node name="hotbar" type="HBoxContainer"]
+[node name="Hotbar" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 136.0
+offset_right = 401.0
+offset_bottom = 56.0
+script = ExtResource("1_wpwbq")
+
+[node name="Container" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_right = 133.0
 offset_bottom = 30.0
 scale = Vector2(2, 2)
-script = ExtResource("1_wpwbq")
 
-[node name="hotbar_slot" parent="." instance=ExtResource("2_wpwbq")]
+[node name="hotbar_slot" parent="Container" instance=ExtResource("2_wpwbq")]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 
-[node name="hotbar_slot2" parent="." instance=ExtResource("2_wpwbq")]
+[node name="hotbar_slot2" parent="Container" instance=ExtResource("2_wpwbq")]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 
-[node name="hotbar_slot3" parent="." instance=ExtResource("2_wpwbq")]
+[node name="hotbar_slot3" parent="Container" instance=ExtResource("2_wpwbq")]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 
-[node name="hotbar_slot4" parent="." instance=ExtResource("2_wpwbq")]
+[node name="hotbar_slot4" parent="Container" instance=ExtResource("2_wpwbq")]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
+
+[node name="Selector" type="Sprite2D" parent="."]
+position = Vector2(-1.04904e-05, 0)
+scale = Vector2(3.05, 2.8)
+texture = ExtResource("3_n3nlf")
+centered = false

@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dwdpb7muaqxbt"]
+[gd_resource type="Resource" script_class="HealthItem" load_steps=3 format=3 uid="uid://dwdpb7muaqxbt"]
 
-[ext_resource type="Script" uid="uid://dtuu2opwqjgwy" path="res://Inventory/scripts/inventory_item.gd" id="1_dh0gf"]
+[ext_resource type="Script" uid="uid://be86cppwclr0o" path="res://Inventory/items/health_item.gd" id="1_dh0gf"]
 [ext_resource type="Texture2D" uid="uid://sfgh41kud6t1" path="res://Inventory/tools/Apple.png" id="2_elno7"]
 
 [resource]
 script = ExtResource("1_dh0gf")
+health_increase = 5
 name = "apple"
 texture = ExtResource("2_elno7")
+maxAmountPerStack = 10
 metadata/_custom_type_script = "uid://dtuu2opwqjgwy"

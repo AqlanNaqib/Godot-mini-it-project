@@ -7,6 +7,7 @@ var items = preload("res://SCENES/chest_collectable.tscn")
 
 @export var item1: InvItem
 @export var item2: InvItem
+
 var player = null
 
 func _ready():
@@ -36,16 +37,18 @@ func _on_pickable_area_body_exited(body: PhysicsBody2D):
 	
 		
 func drop_items():
-	await get_tree().create_timer(0.0).timeout
-	var item1_instance = items.instantiate()
-	item1_instance.rotation = rotation
-	item1_instance.global_position = $Marker2D.global_position
-	get_parent().add_child(item1_instance)
-	player.collect(item1)
+	for i in range(3):
+		await get_tree().create_timer(0.0).timeout
+		var item1_instance = items.instantiate()
+		item1_instance.rotation = rotation
+		item1_instance.global_position = $Marker2D.global_position
+		get_parent().add_child(item1_instance)
+		player.collect(item1)
 	
 	await get_tree().create_timer(0.0).timeout
 	var item2_instance = items.instantiate()
 	item2_instance.rotation = rotation
 	item2_instance.global_position = $Marker2D.global_position
-	get_parent().add_child(item1_instance)
+	get_parent().add_child(item2_instance)
 	player.collect(item2)
+	
