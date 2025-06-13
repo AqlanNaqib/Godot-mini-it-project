@@ -29,16 +29,14 @@ func update_slots():
 	for i in range(min(inv.slots.size(), slots.size())):
 		var invSlot: InvSlot = inv.slots[i]
 		
-		if !invSlot.item: 
-			slots[i].clear()
-			continue
+		if !invSlot.item: continue
 		
 		var itemStackUi: ItemStackUi = slots[i].itemStackUi
 		if !itemStackUi:
 			itemStackUi = ItemStackUiClass.instantiate()
 			slots[i].insert(itemStackUi)
 		itemStackUi.invSlot = invSlot
-		itemStackUi.call_deferred("update")
+		itemStackUi.update()
 		
 func _process(delta):
 	if Input.is_action_just_pressed("Inventory"):

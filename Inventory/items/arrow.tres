@@ -1,14 +1,11 @@
-[gd_resource type="Resource" script_class="WeaponItem" load_steps=4 format=3 uid="uid://dlbg5cdnp1q7r"]
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dlbg5cdnp1q7r"]
 
-[ext_resource type="Script" uid="uid://1pi7p6oa34qj" path="res://Inventory/items/weopon.gd" id="1_lbx14"]
-[ext_resource type="Texture2D" uid="uid://bdxguxfh3voeu" path="res://Inventory/tools/03.png" id="2_xcdsw"]
-[ext_resource type="PackedScene" uid="uid://voe6cdbxvm32" path="res://SCENES/arrow.tscn" id="3_mnjsr"]
+[ext_resource type="Script" uid="uid://dtuu2opwqjgwy" path="res://Inventory/scripts/inventory_item.gd" id="1_xcdsw"]
+[ext_resource type="Texture2D" uid="uid://mn8sjkx8uu0t" path="res://player 2/art/03.png" id="2_lbx14"]
 
 [resource]
-script = ExtResource("1_lbx14")
-weapon_class = ExtResource("3_mnjsr")
-arrow_amount = 1
+script = ExtResource("1_xcdsw")
 name = "arrow"
-texture = ExtResource("2_xcdsw")
-maxAmountPerStack = 10
+texture = ExtResource("2_lbx14")
+maxAmountPerStack = 64
 metadata/_custom_type_script = "uid://dtuu2opwqjgwy"

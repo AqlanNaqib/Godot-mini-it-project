@@ -22,12 +22,10 @@ func takeItem():
 	
 	inv.removeSlot(itemStackUi.invSlot)
 	
+	container.remove_child(itemStackUi)
+	itemStackUi = null
+
 	return item
 
 func isEmpty():
 	return !itemStackUi
-
-func clear():
-	if itemStackUi:
-		container.remove_child(itemStackUi)
-		itemStackUi = null

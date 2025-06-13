@@ -3,7 +3,6 @@ extends Resource
 class_name Inv
 
 signal update
-signal use_item
 
 @export var slots: Array[InvSlot]
 
@@ -23,26 +22,8 @@ func removeSlot(invSlot: InvSlot):
 	var index = slots.find(invSlot)
 	if index < 0:
 		return
-		
-	remove_atIndex(index)
-
-func remove_atIndex(index: int):
 	slots[index] = InvSlot.new()
 	update.emit()
-	
 func insertSlot(index: int, invSlot: InvSlot):
 	slots[index] = invSlot
 	update.emit()
-
-func use_item_atIndex(index: int):
-	if index < 0 || index >= slots.size() || !slots[index].item: 
-		return
-		
-	var slot = slots[index]
-	use_item.emit(slot.item)
-	if slot.amount > 1:
-		slot.amount -= 1
-		update.emit()
-		return
-	
-	remove_atIndex(index)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://bvvfk106t5faw"]
+[gd_scene load_steps=77 format=3 uid="uid://bvvfk106t5faw"]
 
 [ext_resource type="Script" uid="uid://difo007grjl55" path="res://coding/cave.gd" id="1_c32yf"]
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="2_o38tc"]
@@ -37,8 +37,6 @@
 [ext_resource type="Texture2D" uid="uid://c6ph44np1oat4" path="res://Tile Maps/Sprites/Dungeon_Tiles.png" id="35_sea2j"]
 [ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="36_8h66k"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="37_1ql7m"]
-[ext_resource type="PackedScene" uid="uid://1cof3x55p05h" path="res://Inventory/hotbar.tscn" id="38_87uaw"]
-[ext_resource type="PackedScene" uid="uid://8leoy6vt3724" path="res://SCENES/chest.tscn" id="39_b05b1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c32yf"]
 texture = ExtResource("2_o38tc")
@@ -10820,9 +10818,6 @@ size = Vector2(30, 14)
 [sub_resource type="CircleShape2D" id="CircleShape2D_c32yf"]
 radius = 13.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ckm1"]
-size = Vector2(14, 14)
-
 [node name="cave" type="Node2D"]
 script = ExtResource("1_c32yf")
 
@@ -10870,29 +10865,6 @@ polygon = PackedVector2Array(73, -6, 74, 47, 57, 56, 57, 116, 81, 117, 88, 134, 
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="collision"]
 polygon = PackedVector2Array(-182, -21, -202, -22, -201, -73, -138, -73, -137, -23, -155, -22, -147, -40, -150, -57, -186, -57, -188, -45)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="collision"]
-position = Vector2(219, -124)
-shape = SubResource("RectangleShape2D_3ckm1")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("38_87uaw")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -132.0
-offset_top = -59.0
-offset_right = 133.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="chest" parent="." instance=ExtResource("39_b05b1")]
-z_index = -1
-position = Vector2(220, -131)
 
 [connection signal="body_entered" from="cave_exit" to="." method="_on_cave_exit_body_entered"]
 [connection signal="body_entered" from="sec_cave" to="." method="_on_sec_cave_body_entered"]

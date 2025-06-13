@@ -1,9 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://cpvxr62i8gmrf"]
 
-[ext_resource type="Texture2D" uid="uid://bdxguxfh3voeu" path="res://Inventory/tools/03.png" id="1_2n15p"]
+[ext_resource type="Texture2D" uid="uid://daowvhwhy27gn" path="res://Inventory/tools/beef.png" id="1_2n15p"]
 
 [node name="slime_collectable" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.477, 0.477)
 texture = ExtResource("1_2n15p")

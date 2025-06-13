@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dseotriiare3y"]
+[gd_scene load_steps=42 format=3 uid="uid://dseotriiare3y"]
 
 [ext_resource type="Script" uid="uid://cw4rlsmsplkmb" path="res://coding/left_path.gd" id="1_ca0fl"]
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="1_ipemq"]
@@ -22,7 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://gxdyljwhwq2q" path="res://Tile Maps/Sprites/campfire/CampFire.png" id="17_w6hx0"]
 [ext_resource type="PackedScene" uid="uid://bs4hwjntff02j" path="res://SCENES/slime.tscn" id="19_nfipc"]
 [ext_resource type="PackedScene" uid="uid://bg2epomyvict4" path="res://SCENES/campfire.tscn" id="22_w6hx0"]
-[ext_resource type="PackedScene" uid="uid://1cof3x55p05h" path="res://Inventory/hotbar.tscn" id="23_4re7f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ph87p"]
 texture = ExtResource("1_ipemq")
@@ -2189,20 +2188,5 @@ position = Vector2(227, -77)
 
 [node name="campfire" parent="." instance=ExtResource("22_w6hx0")]
 position = Vector2(-32, 8)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("23_4re7f")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -132.0
-offset_top = -59.0
-offset_right = 133.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 0
 
 [connection signal="body_entered" from="leftpath_exit_point" to="." method="_on_leftpath_exit_point_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://732rg828odbr"]
+[gd_scene load_steps=54 format=3 uid="uid://732rg828odbr"]
 
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="1_6ec7m"]
 [ext_resource type="Script" uid="uid://i2j18lriyp5j" path="res://coding/right_path.gd" id="1_6xqwn"]
@@ -27,7 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="21_ofyxt"]
 [ext_resource type="PackedScene" uid="uid://bvjmoy5v70emv" path="res://SCENES/enemy.tscn" id="22_j8gyd"]
 [ext_resource type="PackedScene" uid="uid://bs4hwjntff02j" path="res://SCENES/slime.tscn" id="26_5oc41"]
-[ext_resource type="PackedScene" uid="uid://1cof3x55p05h" path="res://Inventory/hotbar.tscn" id="28_jmcjb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p7d2x"]
 texture = ExtResource("1_6ec7m")
@@ -2380,21 +2379,6 @@ position = Vector2(187, -48)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="house2_transition"]
 position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_5oc41")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("28_jmcjb")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -132.0
-offset_top = -59.0
-offset_right = 133.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 0
 
 [connection signal="body_entered" from="rightpath_exit_point" to="." method="_on_rightpath_exit_point_body_entered"]
 [connection signal="body_entered" from="house2_transition" to="." method="_on_house_2_transition_body_entered"]

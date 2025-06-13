@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://dwbxb23ypdcaq"]
+[gd_scene load_steps=66 format=3 uid="uid://dwbxb23ypdcaq"]
 
 [ext_resource type="Script" uid="uid://crmq5rvmiaqxg" path="res://coding/down_path.gd" id="1_5r42g"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="2_ahcua"]
@@ -31,7 +31,6 @@
 [ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="23_d3bd7"]
 [ext_resource type="Texture2D" uid="uid://dqcdcuf3i0ayk" path="res://Tile Maps/Sprites/Floors_Tiles.png" id="23_weqj4"]
 [ext_resource type="Texture2D" uid="uid://brth33ip3peyo" path="res://Tile Maps/Sprites/Floors.png" id="24_n8x2n"]
-[ext_resource type="PackedScene" uid="uid://1cof3x55p05h" path="res://Inventory/hotbar.tscn" id="32_0gp7p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n8x2n"]
 texture = ExtResource("3_7t3mb")
@@ -8497,21 +8496,6 @@ position = Vector2(-244, 17)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dungeon_transition_point"]
 position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_0gp7p")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("32_0gp7p")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -132.0
-offset_top = -59.0
-offset_right = 133.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 0
 
 [connection signal="body_entered" from="down_exit_point" to="." method="_on_down_exit_point_body_entered"]
 [connection signal="body_entered" from="overworld_transition_point" to="." method="_on_overworld_transition_point_body_entered"]

@@ -35,7 +35,6 @@ animations = [{
 radius = 44.0
 
 [node name="apple_tree" type="Node2D"]
-y_sort_enabled = true
 script = ExtResource("1_0lioh")
 item = ExtResource("2_hdjlq")
 

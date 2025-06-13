@@ -21,7 +21,3 @@ func _on_area_entered(area):
 	# Check if the area we hit is an enemy's hitbox
 	if area.is_in_group("enemy_hitbox"):
 		queue_free()  # Make arrow disappear when hitting enemy
-	
-func add_arrow(new_arrow):
-	pass
-	

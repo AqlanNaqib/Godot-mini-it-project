@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cwts8r5agfokb"]
+[gd_scene load_steps=24 format=3 uid="uid://cwts8r5agfokb"]
 
 [ext_resource type="Texture2D" uid="uid://brth33ip3peyo" path="res://Tile Maps/Sprites/Floors.png" id="1_cakuc"]
 [ext_resource type="Script" uid="uid://dmi5x1lic7qp6" path="res://coding/house_2.gd" id="1_eaiu3"]
@@ -10,8 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dpn2fwebeomnn" path="res://Tile Maps/Sprites/exterior.png" id="7_dfl8p"]
 [ext_resource type="Texture2D" uid="uid://bqdsbt7nwvwhb" path="res://Tile Maps/Sprites/Tiled_files/walls_floor.png" id="8_cqtvs"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="10_ww00x"]
-[ext_resource type="PackedScene" uid="uid://1cof3x55p05h" path="res://Inventory/hotbar.tscn" id="11_siba1"]
-[ext_resource type="PackedScene" uid="uid://8leoy6vt3724" path="res://SCENES/chest.tscn" id="12_vwa3o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fsqj6"]
 texture = ExtResource("1_cakuc")
@@ -2358,15 +2356,6 @@ radius = 14.0357
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ww00x"]
 size = Vector2(21, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfl8p"]
-size = Vector2(15, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqtvs"]
-size = Vector2(44, 25)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsqj6"]
-size = Vector2(23, 20)
-
 [node name="House2" type="Node2D"]
 script = ExtResource("1_eaiu3")
 
@@ -2404,37 +2393,6 @@ shape = SubResource("RectangleShape2D_ww00x")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collision"]
 polygon = PackedVector2Array(-191, -80, -191, 96, -116, 96, -116, 111, -90, 111, -91, 96, -16, 96, -16, -79, -187, -79, -186, -96, 0, -92, -4, 112, -183, 121, -233, 38)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="collision"]
-position = Vector2(-101.5, -70)
-shape = SubResource("RectangleShape2D_dfl8p")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="collision"]
-position = Vector2(-39, -66.5)
-shape = SubResource("RectangleShape2D_cqtvs")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="collision"]
-position = Vector2(-38.5, -27)
-shape = SubResource("RectangleShape2D_fsqj6")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("11_siba1")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -132.0
-offset_top = -59.0
-offset_right = 133.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="chest" parent="." instance=ExtResource("12_vwa3o")]
-z_index = -1
-position = Vector2(-102, -73)
 
 [connection signal="body_entered" from="cave_transition" to="." method="_on_cave_transition_body_entered"]
 [connection signal="body_entered" from="house2_exit" to="." method="_on_house_2_exit_body_entered"]
