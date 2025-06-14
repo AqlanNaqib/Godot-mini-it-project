@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://ca4o8plimbenm"]
+[gd_scene load_steps=66 format=3 uid="uid://ca4o8plimbenm"]
 
 [ext_resource type="Script" uid="uid://buwqfuei7y0oe" path="res://coding/world.gd" id="1_ihqeo"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="2_spbpa"]
@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://cxjb1yo87bdcs" path="res://ArrowHUD.tscn" id="34_2cw4h"]
 [ext_resource type="PackedScene" uid="uid://8leoy6vt3724" path="res://SCENES/chest.tscn" id="36_tfg73"]
 [ext_resource type="PackedScene" uid="uid://buoet8c17rxpo" path="res://SCENES/skeleton_boss.tscn" id="37_fefik"]
+[ext_resource type="PackedScene" uid="uid://4kydsvacnr21" path="res://SCENES/golem_boss.tscn" id="37_jydnu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tspm"]
 texture = ExtResource("5_38x0x")
@@ -3799,6 +3800,9 @@ position = Vector2(-8, -44)
 
 [node name="SkeletonBoss" parent="." instance=ExtResource("37_fefik")]
 position = Vector2(-90, -64)
+
+[node name="GolemBoss" parent="." instance=ExtResource("37_jydnu")]
+position = Vector2(-25, 65)
 
 [connection signal="body_entered" from="leftpath_transition_point" to="." method="_on_leftpath_transition_point_body_entered"]
 [connection signal="body_entered" from="rightpath_transition_point" to="." method="_on_rightpath_transition_point_body_entered"]

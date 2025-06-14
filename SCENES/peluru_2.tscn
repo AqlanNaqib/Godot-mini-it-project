@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://mpp11ivs43uh"]
+
+[ext_resource type="Script" uid="uid://2lp1wa53icm4" path="res://peluru_2.gd" id="1_k0m6y"]
+[ext_resource type="Texture2D" uid="uid://bxcph2p45qx5v" path="res://assets/arm_projectile_glowing.png" id="2_8q6h3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqkrj"]
+atlas = ExtResource("2_8q6h3")
+region = Rect2(0, 0, 100, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7li8"]
+atlas = ExtResource("2_8q6h3")
+region = Rect2(100, 0, 100, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_malio"]
+atlas = ExtResource("2_8q6h3")
+region = Rect2(200, 0, 100, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpgi7"]
+atlas = ExtResource("2_8q6h3")
+region = Rect2(0, 101, 100, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4m5t"]
+atlas = ExtResource("2_8q6h3")
+region = Rect2(100, 101, 100, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8hd7"]
+atlas = ExtResource("2_8q6h3")
+region = Rect2(200, 101, 100, 101)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vpme3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqkrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7li8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_malio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpgi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4m5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8hd7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_moxt3"]
+size = Vector2(37, 20)
+
+[node name="Peluru2" type="Area2D"]
+script = ExtResource("1_k0m6y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vpme3")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(27.5, -13)
+shape = SubResource("RectangleShape2D_moxt3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
