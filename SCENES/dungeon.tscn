@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://crgxwiclx0l7k"]
+[gd_scene load_steps=78 format=3 uid="uid://crgxwiclx0l7k"]
 
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="1_gus3p"]
 [ext_resource type="Script" uid="uid://iro5ycg5vobw" path="res://coding/dungeon.gd" id="1_v3ms4"]
@@ -10681,6 +10681,9 @@ size = Vector2(20, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrhfs"]
 size = Vector2(16, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbph0"]
+size = Vector2(57, 20)
+
 [node name="dungeon" type="Node2D"]
 script = ExtResource("1_v3ms4")
 
@@ -10760,6 +10763,12 @@ grow_vertical = 0
 [node name="Door" parent="." instance=ExtResource("38_lbph0")]
 z_index = -1
 position = Vector2(112, -104)
+
+[node name="victory" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="victory"]
+position = Vector2(90, -150)
+shape = SubResource("RectangleShape2D_lbph0")
 
 [connection signal="body_entered" from="dungeon_exit_point" to="." method="_on_dungeon_exit_point_body_entered"]
 [connection signal="body_entered" from="sec_dungeon" to="." method="_on_sec_dungeon_body_entered"]

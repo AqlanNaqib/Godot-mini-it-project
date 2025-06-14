@@ -12,6 +12,7 @@ class_name Door
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var interaction_area = $InteractionArea
 @onready var interaction_area_collision = $InteractionArea/CollisionShape2D
+@export var next_scene: String = "res://victory.tscn"  # Leave empty for victory screen
 
 var player_in_range: bool = false
 var current_player: Player = null
@@ -118,3 +119,13 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player_in_range = true
 		current_player = body
+
+
+func enter_door():
+	if next_scene:
+		get_tree().change_scene_to_file(next_scene)
+	else:
+		# Show victory screen
+		var victory_screen = preload("res://victory.tscn").instantiate()
+		get_tree().current_scene.add_child(victory_screen)
+		victory_screen.show_victory()
