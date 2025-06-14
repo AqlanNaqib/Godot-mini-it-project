@@ -35,7 +35,19 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_restart_pressed():
+	# Reset inventory slots (adjust size based on your hotbar)
+	var inventory = preload("res://Inventory/playerInventory.tres")
+	inventory.slots = []
+	for i in range(3):  # Replace 3 with your actual slot count
+		inventory.slots.append(InvSlot.new())
+	
+	# Reset scene manager flags
+	SceneManager.game_first_loadin = true
+	SceneManager.going_left = false
+	SceneManager.going_right = false
+	SceneManager.going_secret = false
+	SceneManager.going_house1 = false
+	
+	# Reload scene
 	get_tree().paused = false
-	get_tree().reload_current_scene()
-	
-	
+	get_tree().change_scene_to_file("res://SCENES/WORLD_REAL.tscn")

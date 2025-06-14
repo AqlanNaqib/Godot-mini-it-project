@@ -58,8 +58,13 @@ func _physics_process(delta):
 func player_death():
 	player_alive = false
 	$AnimatedSprite2D.play("death_animation")  # Make sure you have a death animation
+	
+	# Wait for a short moment to let the death animation play
 	await get_tree().create_timer(1.0).timeout
-	get_tree().reload_current_scene()
+	
+	# Close the game
+	
+	get_tree().change_scene_to_file("res://game_over2.tscn")
 
 func shoot_arrow():
 	bow_cooldown = false
