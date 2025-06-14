@@ -5,11 +5,12 @@ var speed = 50
 var health = 130
 var dead = false
 var player_in_area = false
-var player = null
+
 var last_direction = Vector2.DOWN  # Track last movement direction for idle animations
 var is_attacking = false
 var attack_cooldown = false
 
+@onready var player = get_parent().find_child("player")
 @onready var slime = $slime_collectable
 @export var itemRes: InvItem
 
