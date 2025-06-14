@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Key" load_steps=3 format=3 uid="uid://wugi51sw21kq"]
+
+[ext_resource type="Script" uid="uid://b0i4yt0mcpned" path="res://Inventory/items/key.gd" id="1_lcous"]
+[ext_resource type="Texture2D" uid="uid://c38ixf67q17js" path="res://Inventory/tools/key.png" id="2_sfsgn"]
+
+[resource]
+script = ExtResource("1_lcous")
+key_id = "Dun_key"
+name = "Dungeon_key"
+texture = ExtResource("2_sfsgn")
+maxAmountPerStack = 1
+metadata/_custom_type_script = "uid://b0i4yt0mcpned"

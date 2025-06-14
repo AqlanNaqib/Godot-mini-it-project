@@ -34,10 +34,10 @@
 [ext_resource type="PackedScene" uid="uid://bs4hwjntff02j" path="res://SCENES/slime.tscn" id="33_x3ps6"]
 [ext_resource type="PackedScene" uid="uid://cocgmximdcdfu" path="res://SCENES/apple_tree.tscn" id="34_1voum"]
 [ext_resource type="PackedScene" uid="uid://cxjb1yo87bdcs" path="res://ArrowHUD.tscn" id="35_5nm6l"]
-[ext_resource type="PackedScene" uid="uid://cr2gjsxkmfqsm" path="res://cow.tscn" id="36_8hon1"]
 [ext_resource type="PackedScene" uid="uid://8leoy6vt3724" path="res://SCENES/chest.tscn" id="37_kru1o"]
 [ext_resource type="PackedScene" uid="uid://l46bgqfjeya7" path="res://SCENES/player.tscn" id="37_l5pd7"]
 [ext_resource type="PackedScene" uid="uid://cnshyksbhqavd" path="res://pause_menu.tscn" id="38_0pjea"]
+[ext_resource type="PackedScene" uid="uid://buoet8c17rxpo" path="res://SCENES/skeleton_boss.tscn" id="39_a0rjc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tspm"]
 texture = ExtResource("4_4diey")
@@ -3793,9 +3793,6 @@ position = Vector2(-23, 50)
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("35_5nm6l")]
 
-[node name="cow" parent="." instance=ExtResource("36_8hon1")]
-position = Vector2(-182, 95)
-
 [node name="chest" parent="." instance=ExtResource("37_kru1o")]
 position = Vector2(-8, -44)
 
@@ -3807,6 +3804,8 @@ position = Vector2(2, -1)
 [node name="PauseMenu" parent="CanvasLayer3" instance=ExtResource("38_0pjea")]
 offset_left = -306.0
 offset_top = -205.0
+
+[node name="SkeletonBoss" parent="." instance=ExtResource("39_a0rjc")]
 
 [connection signal="body_entered" from="leftpath_transition_point" to="." method="_on_leftpath_transition_point_body_entered"]
 [connection signal="body_entered" from="rightpath_transition_point" to="." method="_on_rightpath_transition_point_body_entered"]
