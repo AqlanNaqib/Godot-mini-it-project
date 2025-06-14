@@ -33,8 +33,5 @@ func _physics_process(delta):
 	velocity = direction.normalized() * 40
 	move_and_collide(velocity * delta)
  
-# In skeleton_boss.gd
-func take_damage(amount: int):
-	# Your damage handling logic here
-	health -= amount
-	# ... rest of damage handling
+func take_damage():
+	health -= 10 - DEF
