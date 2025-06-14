@@ -39,7 +39,6 @@ func _physics_process(delta):
 	if player_in_range and can_attack:
 		attack_player()
 	elif player:
-		# Only move if player is not in range
 		velocity = direction.normalized() * 40
 		move_and_collide(velocity * delta)
 
@@ -48,7 +47,7 @@ func attack_player():
 		player.take_damage(attack_damage)
 		can_attack = false
 		attack_cooldown.start()
-		animated_sprite.play("attack")  # Make sure you have an attack animation
+		animated_sprite.play("attack")  
 
 func take_damage():
 	health -= 2

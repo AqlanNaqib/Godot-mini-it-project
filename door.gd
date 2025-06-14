@@ -12,7 +12,7 @@ class_name Door
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var interaction_area = $InteractionArea
 @onready var interaction_area_collision = $InteractionArea/CollisionShape2D
-@export var next_scene: String = "res://victory.tscn"  # Leave empty for victory screen
+@export var next_scene: String = "res://victory.tscn"  
 
 var player_in_range: bool = false
 var current_player: Player = null
@@ -53,11 +53,9 @@ func try_unlock_with_key() -> bool:
 		show_locked_message()
 		return false
 	
-	# Look for the required key in player's inventory
 	var key_slot_index = find_key_in_inventory()
 	
 	if key_slot_index >= 0:
-		# Found the key! Use it
 		current_player.inv.use_item_atIndex(key_slot_index)
 		return true
 	else:
@@ -74,7 +72,7 @@ func find_key_in_inventory() -> int:
 			if key.key_id == required_key_id:
 				return i
 	
-	return -1  # Key not found
+	return -1 
 
 
 func open_door():
@@ -84,7 +82,6 @@ func open_door():
 	is_opening = true
 	print("Door opening...")
 	
-	# Play opening animation
 	if animated_sprite and animated_sprite.sprite_frames.has_animation("open"):
 		animated_sprite.play("open")
 		$CollisionShape2D.disabled = true
@@ -97,21 +94,17 @@ func close_door():
 	is_closing = true
 	print("Door closing...")
 	
-	# Play closing animation
 	if animated_sprite and animated_sprite.sprite_frames.has_animation("close"):
 		animated_sprite.play("close")
 
 
 func show_interaction_prompt():
-	# You can implement UI prompt here
 	print(interaction_prompt)
 
 func hide_interaction_prompt():
-	# Hide UI prompt here
 	pass
 
 func show_locked_message():
-	# You can implement UI message here
 	print(locked_message)
 
 
@@ -125,7 +118,6 @@ func enter_door():
 	if next_scene:
 		get_tree().change_scene_to_file(next_scene)
 	else:
-		# Show victory screen
 		var victory_screen = preload("res://victory.tscn").instantiate()
 		get_tree().current_scene.add_child(victory_screen)
 		victory_screen.show_victory()

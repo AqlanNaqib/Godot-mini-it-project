@@ -146,8 +146,9 @@ func drop_meat():
 func meat_collect():
 	await get_tree().create_timer(1.5).timeout
 	slime.visible = false
-	player.collect(itemRes)
-	queue_free()
+	for i in range (5):
+		player.collect(itemRes)
+		queue_free()
 
 func enemy():
 	pass
@@ -156,3 +157,4 @@ func enemy():
 func _on_meat_collect_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		player = body
+	
