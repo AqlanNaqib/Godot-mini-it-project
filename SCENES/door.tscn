@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://kddel6jprx8q"]
+
+[ext_resource type="Script" uid="uid://dde0ky6cnta4k" path="res://door.gd" id="1_xumn6"]
+[ext_resource type="Texture2D" uid="uid://2yi8yji87nc8" path="res://Tile Maps/Sprites/Tiled_files/doors_lever_chest_animation.png" id="2_a3qm7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qfga"]
+atlas = ExtResource("2_a3qm7")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hw0h"]
+atlas = ExtResource("2_a3qm7")
+region = Rect2(64, 192, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iwhrt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qfga")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hw0h")
+}],
+"loop": true,
+"name": &"open",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibdwr"]
+size = Vector2(31, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6w54a"]
+size = Vector2(32, 48)
+
+[node name="Door" type="StaticBody2D"]
+script = ExtResource("1_xumn6")
+required_key_id = "Dun_key"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iwhrt")
+animation = &"close"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_ibdwr")
+
+[node name="interaction_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_area"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_6w54a")
+
+[connection signal="body_entered" from="interaction_area" to="." method="_on_interaction_area_body_entered"]

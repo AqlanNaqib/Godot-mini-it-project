@@ -6,6 +6,9 @@ extends CharacterBody2D
 @onready var attack_cooldown = $AttackCooldown
 @onready var attack_range = $AttackRange/CollisionShape2D
 
+@onready var key = $skeleton_collectable
+@export var itemRes: InvItem
+
 var direction : Vector2
 var can_attack = true
 var attack_damage = 20
@@ -18,6 +21,7 @@ var health: = 10:
 		if value <= 0:
 			progress_bar.visible = false
 			find_child("FiniteStateMachine").change_state("Death")
+			drop_key()
 
 func _ready():
 	set_physics_process(false)
@@ -59,3 +63,19 @@ func _on_attack_range_body_exited(body):
 
 func _on_attack_cooldown_timeout():
 	can_attack = true
+	
+func drop_key():
+	key.visible = true
+	$key_collect_area/CollisionShape2D.disabled = false
+	key_collect()
+	
+func key_collect():
+	await get_tree().create_timer(1.5).timeout
+	key.visible = false
+	player.collect(itemRes)
+	queue_free()
+
+
+func _on_key_collect_area_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
+		player = body

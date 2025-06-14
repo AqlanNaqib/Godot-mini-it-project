@@ -7,6 +7,7 @@ var items = preload("res://SCENES/chest_collectable.tscn")
 
 @export var item1: InvItem
 @export var item2: InvItem
+@export var item3: InvItem
 
 var player = null
 
@@ -51,4 +52,11 @@ func drop_items():
 	item2_instance.global_position = $Marker2D.global_position
 	get_parent().add_child(item2_instance)
 	player.collect(item2)
+	
+	await get_tree().create_timer(0.0).timeout
+	var item3_instance = items.instantiate()
+	item3_instance.rotation = rotation
+	item3_instance.global_position = $Marker2D.global_position
+	get_parent().add_child(item3_instance)
+	player.collect(item3)
 	

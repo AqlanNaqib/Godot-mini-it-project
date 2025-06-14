@@ -1,8 +1,9 @@
-[gd_scene load_steps=77 format=3 uid="uid://buoet8c17rxpo"]
+[gd_scene load_steps=80 format=3 uid="uid://buoet8c17rxpo"]
 
 [ext_resource type="Script" uid="uid://b3hdf626k7j1k" path="res://SCENES/skeleton_boss.gd" id="1_72hmh"]
 [ext_resource type="Texture2D" uid="uid://cw6kwem0wmy5e" path="res://assets/attacking.png" id="1_517i0"]
 [ext_resource type="Texture2D" uid="uid://daifioccu53i4" path="res://assets/death.png" id="2_2ij6f"]
+[ext_resource type="Resource" uid="uid://wugi51sw21kq" path="res://Inventory/items/Dungeon_key.tres" id="2_oiqda"]
 [ext_resource type="Texture2D" uid="uid://n2vf38np7gr3" path="res://assets/idle.png" id="3_rs5n7"]
 [ext_resource type="Texture2D" uid="uid://cinnalr4d2ybw" path="res://assets/skill1.png" id="4_72hmh"]
 [ext_resource type="Texture2D" uid="uid://cvide481g0eu8" path="res://assets/summon.png" id="5_3xa26"]
@@ -11,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bnean2oxm26qx" path="res://SCENES/follow.gd" id="8_rs5n7"]
 [ext_resource type="Script" uid="uid://y6636lik1mjl" path="res://SCENES/attack.gd" id="10_3xa26"]
 [ext_resource type="Script" uid="uid://c57txfqu3ursm" path="res://SCENES/teleport.gd" id="11_5vxdk"]
+[ext_resource type="PackedScene" uid="uid://citooag1o75u8" path="res://SCENES/skeleton_collectable.tscn" id="13_5i8b7"]
 [ext_resource type="Script" uid="uid://c75ww08bl0vk1" path="res://SCENES/death.gd" id="14_oiqda"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oiqda"]
@@ -410,36 +412,6 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="Animation" id="Animation_krpy3"]
-resource_name = "idle"
-length = 0.666683
-loop_mode = 1
-step = 0.166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0, 1, 2, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [&"idle"]
-}
-
 [sub_resource type="Animation" id="Animation_jo2vo"]
 length = 0.001
 tracks/0/type = "value"
@@ -537,6 +509,37 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6]
 }
 
+[sub_resource type="Animation" id="Animation_48o3v"]
+resource_name = "boss_slained"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Label:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.501391, 1.49992, 1.99903),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.0431373), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.054902)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_mrr7g"]
 resource_name = "death"
 length = 2.25001
@@ -578,6 +581,36 @@ tracks/2/keys = {
 "args": [],
 "method": &"boss_slained"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_krpy3"]
+resource_name = "idle"
+length = 0.666683
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [&"idle"]
 }
 
 [sub_resource type="Animation" id="Animation_7sva5"]
@@ -666,37 +699,6 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_48o3v"]
-resource_name = "boss_slained"
-length = 2.0
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("UI/Label:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.501391, 1.49992, 1.99903),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.0431373), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.054902)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_free"
-}]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tvnjf"]
 _data = {
 &"RESET": SubResource("Animation_jo2vo"),
@@ -716,10 +718,14 @@ height = 64.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8phh6"]
 size = Vector2(160, 172)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_oiqda"]
+radius = 169.027
+
 [node name="SkeletonBoss" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_72hmh")
+itemRes = ExtResource("2_oiqda")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_a14v5")
@@ -801,4 +807,14 @@ text = "debug"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="skeleton_collectable" parent="." instance=ExtResource("13_5i8b7")]
+visible = false
+
+[node name="key_collect_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="key_collect_area"]
+shape = SubResource("CircleShape2D_oiqda")
+disabled = true
+
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
+[connection signal="body_entered" from="key_collect_area" to="." method="_on_key_collect_area_body_entered"]
