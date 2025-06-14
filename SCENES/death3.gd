@@ -1,4 +1,4 @@
-extends State3
+extends State
  
 func enter():
 	super.enter()
