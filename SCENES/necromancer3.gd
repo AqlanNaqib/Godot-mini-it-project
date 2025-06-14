@@ -12,10 +12,10 @@ var health = 100:
 			find_child("FiniteStateMachine").change_state("Stagger")
  
 		health = value
-		progress_bar.value = value
+
  
 		if value <= 0:
-			progress_bar.visible = false
+
 			find_child("FiniteStateMachine").change_state("Death")
  
  
@@ -27,5 +27,7 @@ func _process(_delta):
 	else:
 		sprite.flip_h = false
  
-func take_damage():
-	health -= 10
+func take_damage(amount: int):
+	# Your damage handling logic here
+	health -= amount
+	# ... rest of damage handling

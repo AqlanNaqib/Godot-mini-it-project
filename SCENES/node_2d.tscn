@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bobqfk7jyw5xq"]
+
+[ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="1_cnvqn"]
+[ext_resource type="PackedScene" uid="uid://83sy4l2k3ytf" path="res://SCENES/necromancer.tscn" id="4_da861"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_cnvqn")]
+
+[node name="Necromancer" parent="." instance=ExtResource("4_da861")]

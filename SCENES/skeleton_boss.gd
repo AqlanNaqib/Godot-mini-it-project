@@ -14,7 +14,7 @@ var can_attack = true
 var attack_damage = 20
 var player_in_range = false
 
-var health: = 10:
+var health: = 30:
 	set(value):
 		health = value
 		progress_bar.value = value
@@ -49,8 +49,11 @@ func attack_player():
 		attack_cooldown.start()
 		animated_sprite.play("attack")  
 
-func take_damage():
-	health -= 2
+# In skeleton_boss.gd
+func take_damage(amount: int):
+	# Your damage handling logic here
+	health -= amount
+	# ... rest of damage handling
 
 func _on_attack_range_body_entered(body):
 	if body.name == "Player":

@@ -1,8 +1,9 @@
-[gd_scene load_steps=241 format=3 uid="uid://ddu4kmdy5xthe"]
+[gd_scene load_steps=242 format=3 uid="uid://ddu4kmdy5xthe"]
 
 [ext_resource type="Script" uid="uid://cnelf67nv5hwk" path="res://player 2/scripts/player_2.gd" id="1_eykoa"]
 [ext_resource type="Resource" uid="uid://7t1phakshht" path="res://Inventory/playerInventory.tres" id="2_gbb43"]
 [ext_resource type="Texture2D" uid="uid://hodjxwnol3tl" path="res://player 2/art/Idle_Gun_Up.png" id="2_la1qn"]
+[ext_resource type="PackedScene" uid="uid://dme8r8gicainc" path="res://SCENES/peluru.tscn" id="3_ygka5"]
 [ext_resource type="Texture2D" uid="uid://byep2f6wkpy1h" path="res://player 2/art/Idle_Gun_Down.png" id="9_kjauk"]
 [ext_resource type="Texture2D" uid="uid://bi517avp365hu" path="res://player 2/art/Idle_Gun_Left_Down.png" id="10_dg1gp"]
 [ext_resource type="Texture2D" uid="uid://elgd7164dxd2" path="res://player 2/art/Idle_Gun_Left_Up.png" id="11_y0ylp"]
@@ -1613,6 +1614,7 @@ position = Vector2(0, -1)
 collision_layer = 3
 script = ExtResource("1_eykoa")
 inv = ExtResource("2_gbb43")
+bullet_node = ExtResource("3_ygka5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mt8yd")

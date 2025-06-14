@@ -3,10 +3,12 @@ extends CharacterBody2D
 class_name Player
 
 @export var inv: Inv
+@export var bullet_node: PackedScene
 
 @onready var gun = $Gun
 @onready var bullet_spawn_point = $CenterMarker
 
+# Combat variables
 var bow_equipped = false
 var bow_cooldown = true
 var arrow = preload("res://SCENES/arrow.tscn")
@@ -17,6 +19,7 @@ var max_arrows = 10
 var current_arrows = 5
 signal arrowsChanged(count: int)
 
+# Health and movement
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 var maxHealth = 100
@@ -25,6 +28,7 @@ var player_alive = true
 var speed = 80
 var current_dir = "none"
 
+# State variables
 var mouse_loc_from_player = null
 var player_state = "idle"
 
@@ -39,38 +43,40 @@ func _physics_process(delta):
 		
 	mouse_loc_from_player = get_global_mouse_position() - self.position
 	player_movement(delta)
-	
 	enemy_attack()
 	
 	if Input.is_action_pressed("attack"):
-		gun.setup_direction(get_shooting_direction())
-		gun.shoot()
+		if bow_equipped:  # Only allow gun attack when bow is not equipped
+			gun.setup_direction(get_shooting_direction())
+			gun.shoot()
+		else:
+			print("Equip bow with B first!")
 
 	if Input.is_action_just_pressed("b"):
 		bow_equipped = !bow_equipped
+		if bow_equipped:
+			print("Bow equipped - Ready to shoot!")
+		else:
+			print("Bow unequipped")
 
 	var mouse_pos = get_global_mouse_position()
 	$Marker2D.look_at(mouse_pos)
 
 	if Input.is_action_just_pressed("left_mouse") and bow_equipped and bow_cooldown and current_arrows > 0:
 		shoot_arrow()
+	elif Input.is_action_just_pressed("left_mouse") and not bow_equipped:
+		print("Press B to equip bow first!")
 
 func player_death():
 	player_alive = false
-	$AnimatedSprite2D.play("death_animation")  # Make sure you have a death animation
-	
-	# Wait for a short moment to let the death animation play
+	$AnimatedSprite2D.play("death_animation")
 	await get_tree().create_timer(1.0).timeout
-	
-	# Close the game
-	
 	get_tree().change_scene_to_file("res://game_over2.tscn")
 
 func shoot_arrow():
 	bow_cooldown = false
 	current_arrows -= 1
-	arrowsChanged.emit(current_arrows)  # Update HUD
-	# ... rest of your shooting code ...
+	arrowsChanged.emit(current_arrows)
 	var arrow_instance = arrow.instantiate()
 	arrow_instance.rotation = $Marker2D.rotation
 	arrow_instance.global_position = $Marker2D.global_position
@@ -80,7 +86,7 @@ func shoot_arrow():
 
 func add_arrows(amount: int):
 	current_arrows = min(current_arrows + amount, max_arrows)
-	arrowsChanged.emit(current_arrows)  # Update HUD
+	arrowsChanged.emit(current_arrows)
 	print("Arrows replenished. Total: ", current_arrows)
 
 func get_shooting_direction() -> Vector2:
@@ -136,7 +142,7 @@ func play_anim(movement):
 				"left":
 					anim.play("sw_idle")
 	else:
-		speed = 0
+		speed = 40  # Reduced speed when bow is equipped
 		
 		if mouse_loc_from_player.x >= -25 and mouse_loc_from_player.x <= 25 and mouse_loc_from_player.y <= 0:
 			anim.play("n_shoot")
@@ -172,8 +178,6 @@ func play_anim(movement):
 			anim.play("sw_walk")
 		elif dir.x < -0.5 and dir.y < -0.5:
 			anim.play("nw_walk")
-func player():
-	pass
 
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("enemy"):
@@ -192,12 +196,11 @@ func enemy_attack():
 		$attack_cooldown.start()
 		print(health)
 
-func _on_attack_cooldown_timeout() -> void:
+func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
 
 func collect(item):
 	inv.insert(item)
-
 
 func _on_pickable_area_area_entered(area):
 	if area.has_method("collect"):
@@ -206,10 +209,8 @@ func _on_pickable_area_area_entered(area):
 func increase_health(amount: int):
 	health += amount
 	health = min(maxHealth, health)
-
-	print(health)
-	
 	healthChanged.emit(health)
+	print(health)
 
 func use_item(item: InvItem):
 	item.use(self)
@@ -219,8 +220,18 @@ func take_damage(damage_amount):
 	health = max(0, health)
 	healthChanged.emit()
 	
-	# Add knockback or visual feedback if you want
-	$DamageFlashAnimation.play("flash")  # Example - you'd need to create this animation
-	
 	if health <= 0 and player_alive:
 		player_death()
+
+func shoot():
+	if bow_equipped:  # Only allow shooting when bow is equipped
+		var bullet = bullet_node.instantiate()
+		bullet.position = global_position
+		bullet.direction = (get_global_mouse_position() - global_position).normalized()
+		get_tree().current_scene.call_deferred("add_child", bullet)
+	else:
+		print("Equip bow with B first!")
+
+func _input(event):
+	if event.is_action_pressed("shoot"):
+		shoot()

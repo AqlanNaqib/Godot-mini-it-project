@@ -25,5 +25,7 @@ func _physics_process(delta):
 	velocity = direction.normalized() * 40
 	move_and_collide(velocity * delta)
  
-func take_damage():
-	health -= 10
+func take_damage(amount: int):
+	# Your damage handling logic here
+	health -= amount
+	# ... rest of damage handling

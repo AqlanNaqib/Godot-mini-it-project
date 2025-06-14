@@ -1,11 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dme8r8gicainc"]
 
 [ext_resource type="Script" uid="uid://ms2g8v2jinnl" path="res://peluru.gd" id="1_2fuyt"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sjt84"]
-size = Vector2(10, 10)
+[ext_resource type="Texture2D" uid="uid://mn8sjkx8uu0t" path="res://player 2/art/03.png" id="2_sjt84"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w4bx"]
+size = Vector2(11, 6)
 
 [node name="Peluru" type="Area2D"]
 collision_layer = 0
@@ -13,14 +12,17 @@ collision_mask = 2
 script = ExtResource("1_2fuyt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 0, 1)
-texture = SubResource("PlaceholderTexture2D_sjt84")
+modulate = Color(1, 0.772549, 0.835294, 1)
+position = Vector2(4.76837e-07, -2.38419e-07)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_sjt84")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8w4bx")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-scale = Vector2(0.5, 0.5)
+position = Vector2(-0.5, 0.5)
+scale = Vector2(0.45, 0.25)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
