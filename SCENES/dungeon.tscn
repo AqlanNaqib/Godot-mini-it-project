@@ -10772,3 +10772,4 @@ shape = SubResource("RectangleShape2D_lbph0")
 
 [connection signal="body_entered" from="dungeon_exit_point" to="." method="_on_dungeon_exit_point_body_entered"]
 [connection signal="body_entered" from="sec_dungeon" to="." method="_on_sec_dungeon_body_entered"]
+[connection signal="body_entered" from="victory" to="." method="_on_victory_body_entered"]

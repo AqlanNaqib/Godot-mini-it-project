@@ -22,6 +22,9 @@ func change_scene():
 		elif SceneManager.current_scene == "dungeon":
 			get_tree().change_scene_to_file("res://SCENES/sec_dungeon.tscn")
 			SceneManager.finish_changescenes()
+		elif SceneManager.current_scene == "dungeon":
+			get_tree().change_scene_to_file("res://victory.tscn")
+			SceneManager.finish_changescenes()
 
 
 func _on_sec_dungeon_body_entered(body: PhysicsBody2D):
@@ -29,5 +32,15 @@ func _on_sec_dungeon_body_entered(body: PhysicsBody2D):
 		SceneManager.going_dungeon = false
 		SceneManager.going_down = false
 		SceneManager.going_sec_dungeon = true
+		SceneManager.transition_scene = true
+		
+
+
+func _on_victory_body_entered(body: Node2D) -> void:
+	if body.name == "player":
+		SceneManager.going_dungeon = false
+		SceneManager.going_down = false
+		SceneManager.going_sec_dungeon = false
+		SceneManager.going_victory = true
 		SceneManager.transition_scene = true
 		

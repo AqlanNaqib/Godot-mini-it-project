@@ -18,6 +18,7 @@ var going_house2 = false
 var going_cave = false
 var going_sec_cave = false
 var going_upper_stairs = false
+var going_victory = false
 
 var player_exit_leftpath_posx = -233
 var player_exit_leftpath_posy = -59
@@ -126,6 +127,9 @@ func finish_changescenes():
 		elif current_scene == "sec_dungeon" and going_sec_dungeon:
 			current_scene = "dungeon"
 			get_tree().change_scene_to_file("res://SCENES/dungeon.tscn")
+		elif current_scene == "dungeon" and going_victory:
+			current_scene = "victory"
+			get_tree().change_scene_to_file("res://victory.tscn")
 		else:
 			current_scene = "world"
 			get_tree().change_scene_to_file("res://WORLD.tscn")

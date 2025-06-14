@@ -46,3 +46,8 @@ func use_item_atIndex(index: int):
 		return
 	
 	remove_atIndex(index)
+
+func clear():
+	for slot in slots:
+		slot.item = null
+		slot.amount = 0

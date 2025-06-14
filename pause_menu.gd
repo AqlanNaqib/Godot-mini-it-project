@@ -1,6 +1,7 @@
 extends Control
 
 @onready var animation_player = $AnimationPlayer
+@onready var inv : Inv = preload("res://Inventory/playerInventory.tres")
 
 func _ready():
 	hide()  # Ensure hidden at start
@@ -36,7 +37,7 @@ func _on_quit_pressed():
 
 func _on_restart_pressed():
 	# Reset inventory slots (adjust size based on your hotbar)
-	
+	inv.clear()
 	# Reset scene manager flags
 	SceneManager.game_first_loadin = true
 	SceneManager.going_left = false
