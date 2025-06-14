@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyhjhs0dewt27"]
+
+[ext_resource type="PackedScene" uid="uid://83sy4l2k3ytf" path="res://SCENES/necromancer.tscn" id="1_w1e1j"]
+[ext_resource type="PackedScene" uid="uid://bedhmq0k03ne2" path="res://SCENES/player_boss.tscn" id="2_ts78o"]
+
+[node name="Boss3room" type="Node2D"]
+
+[node name="Necromancer" parent="." instance=ExtResource("1_w1e1j")]
+position = Vector2(936, 534)
+
+[node name="player" parent="." instance=ExtResource("2_ts78o")]
+position = Vector2(700, 551)

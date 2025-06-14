@@ -1,0 +1,186 @@
+[gd_scene load_steps=15 format=3 uid="uid://7r6r42o4ixkg"]
+
+[ext_resource type="Script" uid="uid://c6mulqm4f7t8f" path="res://SCENES/skeleton_3.gd" id="1_dt60f"]
+[ext_resource type="Texture2D" uid="uid://bxpw0cbmxisqs" path="res://assets/Skeleton enemy.png" id="1_q431w"]
+[ext_resource type="Script" uid="uid://5573sfycyv2l" path="res://SCENES/finite_state_machine3.gd" id="2_r012k"]
+[ext_resource type="Script" uid="uid://dbb8plsiqtmgr" path="res://SCENES/follow3.gd" id="3_r012k"]
+[ext_resource type="Script" uid="uid://bf1smm16o83nd" path="res://SCENES/attack_skeleton3.gd" id="5_xfvgg"]
+[ext_resource type="Script" uid="uid://hfeds6dyqwjj" path="res://SCENES/death_skeleton3.gd" id="6_dt60f"]
+
+[sub_resource type="Animation" id="Animation_22ndv"]
+resource_name = "attack"
+length = 1.62501
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.125, 1.25, 1.375, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+
+[sub_resource type="Animation" id="Animation_dt60f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_xfvgg"]
+resource_name = "death"
+length = 1.62501
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.125, 1.25, 1.375, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.625),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_j62nb"]
+resource_name = "follow"
+length = 1.50001
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.125, 1.25, 1.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37]
+}
+
+[sub_resource type="Animation" id="Animation_0or0h"]
+resource_name = "idle"
+length = 0.500013
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [39, 40, 41, 42]
+}
+
+[sub_resource type="Animation" id="Animation_ofc1u"]
+resource_name = "stagger"
+length = 0.375012
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [52, 53, 54]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_54p2b"]
+_data = {
+&"RESET": SubResource("Animation_dt60f"),
+&"attack": SubResource("Animation_22ndv"),
+&"death": SubResource("Animation_xfvgg"),
+&"follow": SubResource("Animation_j62nb"),
+&"idle": SubResource("Animation_0or0h"),
+&"stagger": SubResource("Animation_ofc1u")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dt60f"]
+height = 34.0
+
+[node name="skeleton" type="CharacterBody2D"]
+script = ExtResource("1_dt60f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_q431w")
+hframes = 13
+vframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_54p2b")
+}
+autoplay = "idle"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(100, 0)
+offset_left = -9.0
+offset_top = -24.0
+offset_right = 91.0
+offset_bottom = 3.0
+scale = Vector2(0.2, 0.2)
+value = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_dt60f")
+
+[node name="debug" type="Label" parent="."]
+custom_minimum_size = Vector2(20, 0)
+offset_left = -25.0
+offset_top = -44.0
+offset_right = 24.0
+offset_bottom = -21.0
+text = "debug"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FiniteStateMachine" type="Node2D" parent="."]
+script = ExtResource("2_r012k")
+
+[node name="Follow" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("3_r012k")
+
+[node name="AttackSkeleton" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("5_xfvgg")
+
+[node name="DeathSkeleton" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("6_dt60f")
