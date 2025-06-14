@@ -36,10 +36,6 @@ func _on_quit_pressed():
 
 func _on_restart_pressed():
 	# Reset inventory slots (adjust size based on your hotbar)
-	var inventory = preload("res://Inventory/playerInventory.tres")
-	inventory.slots = []
-	for i in range(3):  # Replace 3 with your actual slot count
-		inventory.slots.append(InvSlot.new())
 	
 	# Reset scene manager flags
 	SceneManager.game_first_loadin = true

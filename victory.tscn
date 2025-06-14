@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://du3vth08waflh"]
+[gd_scene load_steps=3 format=3 uid="uid://da0g7j84pejxr"]
 
-[ext_resource type="Script" uid="uid://c2dmakqn57xif" path="res://game_over_2.gd" id="1_8w6ib"]
-[ext_resource type="FontFile" uid="uid://dvq5o4mkjn2f2" path="res://assets/Early GameBoy.ttf" id="1_ijw00"]
+[ext_resource type="FontFile" uid="uid://dvq5o4mkjn2f2" path="res://assets/Early GameBoy.ttf" id="1_7bnjr"]
+[ext_resource type="Script" uid="uid://cta6g5jqfaas8" path="res://victory.gd" id="1_v31sk"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
-script = ExtResource("1_8w6ib")
+[node name="victory" type="CanvasLayer"]
+script = ExtResource("1_v31sk")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -13,7 +13,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
@@ -23,7 +22,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 1
@@ -32,17 +30,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -340.0
-offset_top = -264.0
-offset_right = 340.0
-offset_bottom = -164.0
+offset_left = -320.0
+offset_top = -277.0
+offset_right = 320.0
+offset_bottom = -177.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_ijw00")
+theme_override_fonts/font = ExtResource("1_7bnjr")
 theme_override_font_sizes/font_size = 80
-text = "GAME OVER"
-metadata/_edit_use_anchors_ = true
+text = "VICTORY!"
 
 [node name="exit" type="Button" parent="Control"]
 layout_mode = 1
@@ -51,15 +48,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -230.0
-offset_top = -49.5
-offset_right = 230.0
-offset_bottom = 49.5
+offset_left = -184.0
+offset_top = -40.5
+offset_right = 184.0
+offset_bottom = 40.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_ijw00")
+theme_override_fonts/font = ExtResource("1_7bnjr")
 theme_override_font_sizes/font_size = 40
 text = "EXIT"
-metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Control/exit" to="." method="_on_exit_pressed"]
