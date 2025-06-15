@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://dwbxb23ypdcaq"]
+[gd_scene load_steps=72 format=3 uid="uid://dwbxb23ypdcaq"]
 
 [ext_resource type="Script" uid="uid://crmq5rvmiaqxg" path="res://coding/down_path.gd" id="1_5r42g"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="2_ahcua"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="33_v60rc"]
 [ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="34_li5jj"]
 [ext_resource type="PackedScene" uid="uid://cxjb1yo87bdcs" path="res://ArrowHUD.tscn" id="36_s8u0y"]
+[ext_resource type="PackedScene" uid="uid://bbw1aecl8tj64" path="res://SCENES/npc3.tscn" id="37_v60rc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n8x2n"]
 texture = ExtResource("3_7t3mb")
@@ -8535,6 +8536,9 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("36_s8u0y")]
+
+[node name="npc" parent="." instance=ExtResource("37_v60rc")]
+position = Vector2(-8, -22)
 
 [connection signal="body_entered" from="down_exit_point" to="." method="_on_down_exit_point_body_entered"]
 [connection signal="body_entered" from="overworld_transition_point" to="." method="_on_overworld_transition_point_body_entered"]

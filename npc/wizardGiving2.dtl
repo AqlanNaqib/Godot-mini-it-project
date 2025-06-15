@@ -1,0 +1,10 @@
+join wizard2 center
+wizard2: "Hey, you! Yeah, you—with the ‘I-can-take-on-the-world’ look. You do know what’s down there, right?"
+- "Uh… monsters?"
+wizard2: <Empty Text Event>
+- "Sounds… dangerous?"
+wizard2: "Dangerous? Pfft. It’s like jumping into a blender full of swords. But hey—if you somehow survive, there’s a ton of shiny loot down there. Like, ‘retire-and-buy-a-castle’ levels of shiny."\
+\
+
+- "So… should I go?"
+wizard2:  "Sure! If you love being a worm snack. Orrrr… you could try the Training Cave first. Less ‘screaming,’ more ‘not dying.’ Your call!"
