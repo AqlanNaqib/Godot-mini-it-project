@@ -725,7 +725,7 @@ layer_2/name = "Ysort"
 layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(-131068, 458754, 11, -65532, 65538, 15, -131066, 2, 13, -131070, 131074, 13, -262140, 2, 15, -262145, 458754, 8, -262147, 458754, 8, -262149, 655362, 5, -327679, 655362, 5, 6, 262146, 5, 3, 262146, 5, -327674, 327682, 0, -327673, 589826, 3, -262137, 720898, 0, 262134, 327682, 2, 65526, 2, 5, 327684, 4, 3, 131068, 2, 9, -196616, 2, 0)
 
-[node name="player" parent="." instance=ExtResource("4_xgnru")]
+[node name="player" parent="." groups=["player"] instance=ExtResource("4_xgnru")]
 position = Vector2(72, 79)
 
 [node name="house_exit" type="Area2D" parent="."]

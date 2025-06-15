@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_dh0gf")
-health_increase = 5
+health_increase = 10
 name = "apple"
 texture = ExtResource("2_elno7")
 maxAmountPerStack = 10

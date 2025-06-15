@@ -1,8 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://4kydsvacnr21"]
+[gd_scene load_steps=32 format=3 uid="uid://4kydsvacnr21"]
 
 [ext_resource type="Texture2D" uid="uid://cn8ywo8lf4unu" path="res://assets/Character_sheet.png" id="1_l6kdy"]
 [ext_resource type="Script" uid="uid://dddeyhknmvuiv" path="res://SCENES/golem_boss.gd" id="1_rbrhk"]
 [ext_resource type="Texture2D" uid="uid://cm3hf60fonyf2" path="res://assets/Laser_sheet.png" id="2_4j7uc"]
+[ext_resource type="Resource" uid="uid://wugi51sw21kq" path="res://Inventory/items/Dungeon_key.tres" id="2_jag0i"]
 [ext_resource type="Script" uid="uid://cr6eb5tceyvco" path="res://FiniteStateMachine2.gd" id="3_2l01y"]
 [ext_resource type="Script" uid="uid://cgjpngo7b7xlo" path="res://SCENES/idle2.gd" id="4_4j7uc"]
 [ext_resource type="Script" uid="uid://bhlylt1pc47lt" path="res://SCENES/follow2.gd" id="6_iym5x"]
@@ -13,6 +14,7 @@
 [ext_resource type="Script" uid="uid://mm88hiar5c0a" path="res://SCENES/dash2.gd" id="11_06kyi"]
 [ext_resource type="Script" uid="uid://cuues47p0187t" path="res://SCENES/armor_buff2.gd" id="11_mm3e3"]
 [ext_resource type="Script" uid="uid://77snp83obu6w" path="res://SCENES/death2.gd" id="13_t8jdt"]
+[ext_resource type="PackedScene" uid="uid://citooag1o75u8" path="res://SCENES/skeleton_collectable.tscn" id="14_t8jdt"]
 
 [sub_resource type="Animation" id="Animation_qymri"]
 length = 0.001
@@ -360,10 +362,15 @@ radius = 81.1542
 [sub_resource type="CircleShape2D" id="CircleShape2D_mm3e3"]
 radius = 30.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jag0i"]
+radius = 356.366
+
 [node name="GolemBoss" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_rbrhk")
+itemRes = ExtResource("2_jag0i")
+unique_enemy_id = "golem_boss"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_l6kdy")
@@ -474,4 +481,14 @@ script = ExtResource("13_t8jdt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
 shape = SubResource("CircleShape2D_mm3e3")
 
+[node name="skeleton_collectable" parent="." instance=ExtResource("14_t8jdt")]
+visible = false
+
+[node name="key_collect_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="key_collect_area"]
+shape = SubResource("CircleShape2D_jag0i")
+disabled = true
+
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
+[connection signal="body_entered" from="key_collect_area" to="." method="_on_key_collect_area_body_entered"]

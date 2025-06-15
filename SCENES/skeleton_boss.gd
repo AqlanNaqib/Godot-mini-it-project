@@ -19,14 +19,13 @@ var can_attack = true
 var attack_damage = 20
 var player_in_range = false
 
-var health: = 100:
+var health: = 150:
 	set(value):
 		health = value
 		progress_bar.value = value
 		if value <= 0:
 			progress_bar.visible = false
 			find_child("FiniteStateMachine").change_state("Death")
-			drop_key()
 			# --- NEW: Add enemy ID to defeated list when health reaches 0 ---
 			if !unique_enemy_id.is_empty():
 				Globals.add_defeated_enemy(unique_enemy_id)
@@ -122,27 +121,3 @@ func _on_attack_range_body_exited(body):
 func _on_attack_cooldown_timeout():
 	can_attack = true
 	
-func drop_key():
-	if is_instance_valid(key): # Add instance check
-		key.visible = true
-	if $key_collect_area/CollisionShape2D: # Add instance check
-		$key_collect_area/CollisionShape2D.disabled = false
-	key_collect()
-	
-func key_collect():
-	await get_tree().create_timer(1.5).timeout
-	if is_instance_valid(key): # Add instance check
-		key.visible = false
-	if is_instance_valid(player) and itemRes: # Add instance check for player
-		player.collect(itemRes)
-		# print(f"Enemy '{unique_enemy_id}' dropped key and is freeing.") # Can uncomment for debugging
-	#else:
-		# Use a print for easier debugging than commented out line
-		#printerr(f"ERROR: Enemy at {get_path()}: Player or itemRes is null during key collection. Cannot collect item.")
-	
-	queue_free()
-
-func _on_key_collect_area_body_entered(body: Node2D) -> void:
-	if body.has_method("player"): # Keep existing method check, but consider using groups
-		player = body
-		key_collect()

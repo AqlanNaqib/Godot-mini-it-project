@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://bpw3n64w7jq0e"]
+[gd_scene load_steps=86 format=3 uid="uid://bpw3n64w7jq0e"]
 
 [ext_resource type="Script" uid="uid://bpcxqw2ht74pv" path="res://coding/sec_cave.gd" id="1_1k4m6"]
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="1_a1xl7"]
@@ -43,6 +43,8 @@
 [ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="40_s7cso"]
 [ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="41_i0qyb"]
 [ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="42_0hxbx"]
+[ext_resource type="PackedScene" uid="uid://yx8but0chgsv" path="res://SCENES/main_boss4.tscn" id="44_s7cso"]
+[ext_resource type="PackedScene" uid="uid://8leoy6vt3724" path="res://SCENES/chest.tscn" id="45_i0qyb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1jnk"]
 texture = ExtResource("1_a1xl7")
@@ -10883,6 +10885,9 @@ sources/36 = SubResource("TileSetAtlasSource_vms37")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7h0h1"]
 size = Vector2(32, 12)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0qyb"]
+size = Vector2(13, 14)
+
 [node name="sec_cave" type="Node2D"]
 script = ExtResource("1_1k4m6")
 
@@ -10900,7 +10905,7 @@ layer_2/name = "Ysort"
 layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(327692, 524314, 1, 393228, 524314, 2, 458764, 524314, 3, 524300, 524314, 4, 458744, 589860, 3, 589816, 589860, 3, -262133, 589860, 4, -262130, 524324, 4, -65545, 1376282, 3, -131082, 1245210, 4, -458742, 1376282, 5)
 
-[node name="player" parent="." instance=ExtResource("38_xwomt")]
+[node name="player" parent="." groups=["player"] instance=ExtResource("38_xwomt")]
 position = Vector2(200, 114)
 
 [node name="sec_cave_exit" type="Area2D" parent="."]
@@ -10920,6 +10925,10 @@ polygon = PackedVector2Array(-136, 46, -136, 88, -126, 89, -126, 109, -121, 108,
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="collision"]
 polygon = PackedVector2Array(188, 120, 168, 117, 168, 73, 229, 71, 230, 108, 229, 122, 212, 120, 222, 108, 218, 84, 183, 84, 181, 109)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision"]
+position = Vector2(-212.5, -119)
+shape = SubResource("RectangleShape2D_i0qyb")
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("39_dphfp")]
 
@@ -10954,6 +10963,13 @@ offset_right = 0.0
 offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="MainBoss" parent="." instance=ExtResource("44_s7cso")]
+position = Vector2(-160, -107)
+unique_enemy_id = "bossman"
+
+[node name="chest" parent="." instance=ExtResource("45_i0qyb")]
+position = Vector2(-213, -125)
 
 [connection signal="body_entered" from="sec_cave_exit" to="." method="_on_sec_cave_exit_body_entered"]
 

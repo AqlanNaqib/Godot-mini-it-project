@@ -40,16 +40,16 @@ func drop_items():
 		return
 
 	# Assuming you want to add item1 to inventory 5 times
-	for i in range(5):
+	for i in range(20):
 		Globals.player_inventory.insert(item1)
 		print("Added 1x ", item1.name, " from chest.")
 		# If you want a visual instantiation and fall, this code belongs on the chest_collectable.tscn itself
 		# and it would then handle its own collection via Area2D.
 		# For now, immediate insertion into inventory.
 
-	# Add item2 once
-	Globals.player_inventory.insert(item2)
-	print("Added 1x ", item2.name, " from chest.")
+	for i in range(3):
+		Globals.player_inventory.insert(item2)
+		print("Added 1x ", item2.name, " from chest.")
 
 	# No need for these if items are instantly added to inventory
 	# await get_tree().create_timer(0.0).timeout

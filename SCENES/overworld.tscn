@@ -8461,7 +8461,7 @@ layer_2/name = "Ysort"
 layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(393216, 327702, 36)
 
-[node name="player" parent="." instance=ExtResource("30_46nvm")]
+[node name="player" parent="." groups=["player"] instance=ExtResource("30_46nvm")]
 position = Vector2(-232, 44)
 
 [node name="overworld_exit" type="Area2D" parent="."]

@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_kw3eq")
-health_increase = 10
+health_increase = 15
 name = "meat"
 texture = ExtResource("2_vvygf")
 maxAmountPerStack = 10

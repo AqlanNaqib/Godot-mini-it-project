@@ -2369,9 +2369,9 @@ polygon = PackedVector2Array(177, -43, 172, -43, 173, -74, 226, -76, 227, -42, 1
 position = Vector2(-250.5, 63)
 shape = SubResource("RectangleShape2D_y0x5g")
 
-[node name="slime" parent="." instance=ExtResource("26_5oc41")]
+[node name="slime" parent="." groups=["player"] instance=ExtResource("26_5oc41")]
 position = Vector2(81, 9)
-unique_slime = "slime_right"
+unique_slime = "right_slime"
 
 [node name="player" parent="." groups=["player"] instance=ExtResource("21_ofyxt")]
 position = Vector2(-229, 69)

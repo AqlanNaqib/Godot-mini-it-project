@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://bn1a3vmgdvf5i"]
+[gd_scene load_steps=82 format=3 uid="uid://bn1a3vmgdvf5i"]
 
 [ext_resource type="Script" uid="uid://ddvqpku02ncka" path="res://coding/sec_dungeon.gd" id="1_7trul"]
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="1_q1h6k"]
@@ -41,6 +41,8 @@
 [ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="38_ubhq2"]
 [ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="39_fr736"]
 [ext_resource type="PackedScene" uid="uid://cxjb1yo87bdcs" path="res://ArrowHUD.tscn" id="41_1gj45"]
+[ext_resource type="PackedScene" uid="uid://buoet8c17rxpo" path="res://SCENES/skeleton_boss.tscn" id="42_ubhq2"]
+[ext_resource type="PackedScene" uid="uid://8leoy6vt3724" path="res://SCENES/chest.tscn" id="43_fr736"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7trul"]
 texture = ExtResource("1_q1h6k")
@@ -10695,7 +10697,7 @@ layer_2/name = "Ysort"
 layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(393208, 196634, 1, 524278, 65562, 3, 458743, 131098, 2, 524279, 131098, 3, 458744, 196634, 2, 524280, 1245210, 4, -589832, 131092, 26, -589831, 196628, 26, -524296, 131092, 27, -524295, 196628, 27, -655357, 458778, 7, -655348, 458778, 7, -262147, 458778, 5, -262148, 720922, 7, -262145, 851994, 5, -589829, 458778, 1, -524293, 458778, 2, -458757, 458778, 3, 65526, 65562, 7, -9, 196634, 5, -8, 393242, 5)
 
-[node name="player" parent="." instance=ExtResource("35_auldu")]
+[node name="player" parent="." groups=["player"] instance=ExtResource("35_auldu")]
 position = Vector2(-133, 110)
 
 [node name="sec_dungeon_exit_point" type="Area2D" parent="."]
@@ -10759,6 +10761,13 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("41_1gj45")]
+
+[node name="SkeletonBoss" parent="." instance=ExtResource("42_ubhq2")]
+position = Vector2(112, -70)
+unique_enemy_id = "skeleton_boss"
+
+[node name="chest" parent="." instance=ExtResource("43_fr736")]
+position = Vector2(208, -99)
 
 [connection signal="body_entered" from="sec_dungeon_exit_point" to="." method="_on_sec_dungeon_exit_point_body_entered"]
 

@@ -25,7 +25,6 @@ func _ready():
 	# DELETE THIS LINE: inv.use_item.connect(use_item)
 	# This connection is no longer needed as Inv.gd's use_item_atIndex directly
 	# calls item.use(), and item.use() interacts with Globals.
-	
 	$AnimatedSprite2D.play("front idle")
 	Globals.player_died.connect(player_death_visuals)
 

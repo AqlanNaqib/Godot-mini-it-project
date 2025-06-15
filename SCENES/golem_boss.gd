@@ -5,6 +5,9 @@ extends CharacterBody2D
 @onready var progress_bar = $UI/ProgressBar
 @onready var laser_damage_area = $LaserDamageArea # Already there
 
+@onready var key = $skeleton_collectable
+@export var itemRes: InvItem
+
 # --- NEW: Unique Identifier for this enemy instance ---
 # IMPORTANT: You MUST set this unique ID in the editor for EACH instance of this enemy.
 # Example: "laser_enemy_zone_a_1"
@@ -14,7 +17,7 @@ var direction : Vector2
 var DEF = 0 # Defense stat
 var is_dead = false # NEW: Track death state for _physics_process
 
-var health = 100:
+var health = 200:
 	set(value):
 		health = value
 		progress_bar.value = value
@@ -26,6 +29,7 @@ var health = 100:
 				is_dead = true
 				if !unique_enemy_id.is_empty():
 					Globals.add_defeated_enemy(unique_enemy_id)
+					drop_key()
 				#else:
 					#printerr(f"ERROR: Enemy at {get_path()} died but does NOT have a unique_enemy_id set. Its defeat will NOT be persistent.")
 		elif value <= progress_bar.max_value / 2 and DEF == 0:
@@ -101,3 +105,29 @@ func deal_melee_damage_to_player():
 		if player.global_position.distance_to(self.global_position) < 70: # Adjust range as needed
 			player.take_damage(20) # Adjust damage amount as needed (e.g., 20 damage)
 			# print("Player hit by melee attack! Health: ", player.health) # Can uncomment for debugging
+			
+func drop_key():
+	if is_instance_valid(key): # Add instance check
+		key.visible = true
+	if $key_collect_area/CollisionShape2D: # Add instance check
+		$key_collect_area/CollisionShape2D.disabled = false
+	key_collect()
+	
+func key_collect():
+	await get_tree().create_timer(1.5).timeout
+	if is_instance_valid(key): # Add instance check
+		key.visible = false
+	if is_instance_valid(player) and itemRes: # Add instance check for player
+		player.collect(itemRes)
+		# print(f"Enemy '{unique_enemy_id}' dropped key and is freeing.") # Can uncomment for debugging
+	#else:
+		# Use a print for easier debugging than commented out line
+		#printerr(f"ERROR: Enemy at {get_path()}: Player or itemRes is null during key collection. Cannot collect item.")
+	
+	queue_free()
+
+
+func _on_key_collect_area_body_entered(body: Node2D) -> void:
+	if body.has_method("player"): # Keep existing method check, but consider using groups
+		player = body
+		key_collect()

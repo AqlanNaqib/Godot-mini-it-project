@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://bvvfk106t5faw"]
+[gd_scene load_steps=83 format=3 uid="uid://bvvfk106t5faw"]
 
 [ext_resource type="Script" uid="uid://difo007grjl55" path="res://coding/cave.gd" id="1_c32yf"]
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="2_o38tc"]
@@ -39,9 +39,9 @@
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="37_1ql7m"]
 [ext_resource type="PackedScene" uid="uid://1cof3x55p05h" path="res://Inventory/hotbar.tscn" id="38_87uaw"]
 [ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="39_4a07q"]
-[ext_resource type="PackedScene" uid="uid://8leoy6vt3724" path="res://SCENES/chest.tscn" id="39_b05b1"]
 [ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="40_6ptbu"]
 [ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="41_pyif7"]
+[ext_resource type="PackedScene" uid="uid://bs4hwjntff02j" path="res://SCENES/slime.tscn" id="43_4a07q"]
 [ext_resource type="PackedScene" uid="uid://cxjb1yo87bdcs" path="res://ArrowHUD.tscn" id="43_ww4cs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c32yf"]
@@ -10824,9 +10824,6 @@ size = Vector2(30, 14)
 [sub_resource type="CircleShape2D" id="CircleShape2D_c32yf"]
 radius = 13.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ckm1"]
-size = Vector2(14, 14)
-
 [node name="cave" type="Node2D"]
 script = ExtResource("1_c32yf")
 
@@ -10844,7 +10841,7 @@ layer_2/name = "Ysort"
 layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(-11, 458778, 3, -65547, 458778, 2, -131083, 458778, 1, 131061, 524319, 11, -458750, 589855, 11, -131078, 262175, 4, -196611, 262175, 4, -262146, 262175, 4, -393215, 393247, 4, -327677, 458783, 4)
 
-[node name="player" parent="." instance=ExtResource("37_1ql7m")]
+[node name="player" parent="." groups=["player"] instance=ExtResource("37_1ql7m")]
 position = Vector2(-169, -22)
 
 [node name="cave_exit" type="Area2D" parent="."]
@@ -10874,14 +10871,6 @@ polygon = PackedVector2Array(73, -6, 74, 47, 57, 56, 57, 116, 81, 117, 88, 134, 
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="collision"]
 polygon = PackedVector2Array(-182, -21, -202, -22, -201, -73, -138, -73, -137, -23, -155, -22, -147, -40, -150, -57, -186, -57, -188, -45)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="collision"]
-position = Vector2(219, -124)
-shape = SubResource("RectangleShape2D_3ckm1")
-
-[node name="chest" parent="." instance=ExtResource("39_b05b1")]
-z_index = -1
-position = Vector2(220, -131)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -10916,6 +10905,14 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("43_ww4cs")]
+
+[node name="slime" parent="." instance=ExtResource("43_4a07q")]
+position = Vector2(-160, 80)
+unique_slime = "cave_bottom_slime"
+
+[node name="slime2" parent="." instance=ExtResource("43_4a07q")]
+position = Vector2(111, -78)
+unique_slime = "cave_right_slime"
 
 [connection signal="body_entered" from="cave_exit" to="." method="_on_cave_exit_body_entered"]
 [connection signal="body_entered" from="sec_cave" to="." method="_on_sec_cave_body_entered"]

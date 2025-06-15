@@ -1,7 +1,7 @@
 extends Area2D
 
 var speed = 300
-var damage = 50 # This will be the damage the arrow deals
+var damage = 15 # This will be the damage the arrow deals
 
 func _ready():
 	set_as_top_level(true)

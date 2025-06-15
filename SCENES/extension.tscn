@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://cvhpgaarjy3pw"]
+[gd_scene load_steps=69 format=3 uid="uid://cvhpgaarjy3pw"]
 
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="1_p6jja"]
 [ext_resource type="Script" uid="uid://ba4xt3o2prrrt" path="res://coding/extension.gd" id="1_qo78d"]
@@ -33,10 +33,10 @@
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="30_oyyw6"]
 [ext_resource type="PackedScene" uid="uid://1cof3x55p05h" path="res://Inventory/hotbar.tscn" id="32_vex1t"]
 [ext_resource type="PackedScene" uid="uid://cxjb1yo87bdcs" path="res://ArrowHUD.tscn" id="33_fv4pw"]
-[ext_resource type="PackedScene" uid="uid://8leoy6vt3724" path="res://SCENES/chest.tscn" id="33_msgcy"]
 [ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="34_pfvq0"]
 [ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="35_aftj5"]
 [ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="36_3djs6"]
+[ext_resource type="PackedScene" uid="uid://4kydsvacnr21" path="res://SCENES/golem_boss.tscn" id="37_fv4pw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_acmdq"]
 texture = ExtResource("1_p6jja")
@@ -8447,9 +8447,6 @@ sources/20 = SubResource("TileSetAtlasSource_ekkel")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_el8qw"]
 size = Vector2(34, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ip1dw"]
-size = Vector2(20, 16)
-
 [node name="extension" type="Node2D"]
 script = ExtResource("1_qo78d")
 
@@ -8467,7 +8464,7 @@ layer_2/name = "Ysort"
 layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(-393219, 131083, 8, -327683, 131083, 9, -393218, 196619, 8, -327682, 196619, 9, 196611, 131083, 8, 262147, 131083, 9, 196612, 196619, 8, 262148, 196619, 9, 327677, 131083, 8, 393213, 131083, 9, 327678, 196619, 8, 393214, 196619, 9)
 
-[node name="player" parent="." instance=ExtResource("30_oyyw6")]
+[node name="player" parent="." groups=["player"] instance=ExtResource("30_oyyw6")]
 position = Vector2(-120, 135)
 
 [node name="extension_exit" type="Area2D" parent="."]
@@ -8481,14 +8478,6 @@ shape = SubResource("RectangleShape2D_el8qw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collision"]
 polygon = PackedVector2Array(-8, -109, 156, -108, 156, -38, 92, -37, 93, 75, 38, 75, 37, 46, 12, 46, 12, 76, 5, 75, 4, 83, -3, 84, -3, 92, -99, 93, -99, 141, -102, 140, -102, 160, -138, 160, -138, 94, -156, 93, -156, 85, -171, 85, -171, 60, -187, 60, -188, -60, -155, -61, -155, -77, -139, -77, -138, -93, -42, -93, -36, -85, -28, -85, -22, -92, -12, -92, -11, -107, -226, -109, -214, 175, 204, 160, 186, -133, -13, -124)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="collision"]
-position = Vector2(79, 32)
-shape = SubResource("RectangleShape2D_ip1dw")
-
-[node name="chest" parent="." instance=ExtResource("33_msgcy")]
-position = Vector2(84, 32)
-rotation = 1.5708
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("33_fv4pw")]
 
@@ -8523,6 +8512,9 @@ offset_right = 0.0
 offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="GolemBoss" parent="." instance=ExtResource("37_fv4pw")]
+position = Vector2(8, -26)
 
 [connection signal="body_entered" from="extension_exit" to="." method="_on_extension_exit_body_entered"]
 

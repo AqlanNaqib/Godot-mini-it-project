@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://crgxwiclx0l7k"]
+[gd_scene load_steps=83 format=3 uid="uid://crgxwiclx0l7k"]
 
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="1_gus3p"]
 [ext_resource type="Script" uid="uid://iro5ycg5vobw" path="res://coding/dungeon.gd" id="1_v3ms4"]
@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="39_i10yc"]
 [ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="40_7r2tn"]
 [ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="41_cs2x1"]
+[ext_resource type="PackedScene" uid="uid://bs4hwjntff02j" path="res://SCENES/slime.tscn" id="43_i10yc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrhfs"]
 texture = ExtResource("2_gx2s0")
@@ -10705,7 +10706,7 @@ layer_2/name = "Ysort"
 layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(-524286, 327700, 18, -458750, 327700, 19, -393214, 327700, 20, -589822, 131092, 17, -655358, 131092, 17, -524280, 393236, 18, -458744, 393236, 19, -393208, 393236, 20, -589816, 131092, 17, -655352, 131092, 17, -524285, 65556, 18, -458749, 65556, 19, -393213, 65556, 20, -524284, 65556, 18, -458748, 65556, 19, -393212, 65556, 20, -524283, 65556, 18, -458747, 65556, 19, -393211, 65556, 20, 458754, 20, 25, 524290, 20, 26, 589826, 20, 27, 458755, 65556, 25, 524291, 65556, 26, 589827, 65556, 27, 196622, 131092, 16, 262158, 131092, 16, 327694, 131092, 16, 393230, 131092, 16, 458766, 393236, 18, 524302, 393236, 19, 589838, 393236, 20, -720888, 524308, 15, -720894, 524308, 15)
 
-[node name="player" parent="." instance=ExtResource("1_gus3p")]
+[node name="player" parent="." groups=["player"] instance=ExtResource("1_gus3p")]
 position = Vector2(225, 20)
 
 [node name="dungeon_exit_point" type="Area2D" parent="."]
@@ -10792,6 +10793,14 @@ offset_right = 0.0
 offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="slime" parent="." instance=ExtResource("43_i10yc")]
+position = Vector2(-104, 29)
+unique_slime = "dungeon_left_slime"
+
+[node name="slime2" parent="." instance=ExtResource("43_i10yc")]
+position = Vector2(178, -106)
+unique_slime = "dungeon_right_slime"
 
 [connection signal="body_entered" from="dungeon_exit_point" to="." method="_on_dungeon_exit_point_body_entered"]
 [connection signal="body_entered" from="sec_dungeon" to="." method="_on_sec_dungeon_body_entered"]

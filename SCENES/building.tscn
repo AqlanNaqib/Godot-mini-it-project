@@ -8469,7 +8469,7 @@ layer_1/tile_data = PackedInt32Array(-131066, 1441814, 805306413, -65530, 327702
 layer_2/name = "Ysort"
 layer_2/y_sort_enabled = true
 
-[node name="player" parent="." instance=ExtResource("31_51t6j")]
+[node name="player" parent="." groups=["player"] instance=ExtResource("31_51t6j")]
 position = Vector2(160, 137)
 
 [node name="building_exit" type="Area2D" parent="."]

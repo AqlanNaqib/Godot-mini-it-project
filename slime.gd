@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # Movement and stats
 var speed = 50
-var health = 130
+var health = 50
 var dead = false
 var player_in_area = false
 var player = null # This will hold a reference to the player node

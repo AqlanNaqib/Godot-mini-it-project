@@ -8,7 +8,7 @@ extends CharacterBody2D
 # Example: "worm_cave_entrance_1"
 @export var unique_enemy_id: String = "" # <-- Set this in the Inspector!
 
-var max_health: int = 50 # Max health for the worm
+var max_health: int = 100 # Max health for the worm
 var current_health: int = 50 # Current health for the worm
 var is_alive: bool = true
 
