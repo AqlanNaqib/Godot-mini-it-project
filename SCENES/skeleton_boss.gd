@@ -14,7 +14,7 @@ var can_attack = true
 var attack_damage = 20
 var player_in_range = false
 
-var health: = 10:
+var health: = 100:
 	set(value):
 		health = value
 		progress_bar.value = value
@@ -25,6 +25,9 @@ var health: = 10:
 
 func _ready():
 	set_physics_process(false)
+	# Initialize the progress bar with the current health
+	progress_bar.max_value = health # Set max value to initial health
+	progress_bar.value = health
 
 func _process(_delta):
 	if player:
@@ -47,10 +50,16 @@ func attack_player():
 		player.take_damage(attack_damage)
 		can_attack = false
 		attack_cooldown.start()
-		animated_sprite.play("attack")  
+		animated_sprite.play("attack")
 
-func take_damage():
-	health -= 2
+func take_damage(amount: int): # Modified to accept 'amount' argument
+	health -= amount # Subtract the received damage amount
+	health = max(0, health) # Ensure health doesn't go below zero
+	print("Boss health: ", health) # For debugging purposes
+	if health <= 0:
+		progress_bar.visible = false
+		find_child("FiniteStateMachine").change_state("Death")
+		drop_key()
 
 func _on_attack_range_body_entered(body):
 	if body.name == "Player":
@@ -73,7 +82,6 @@ func key_collect():
 	key.visible = false
 	player.collect(itemRes)
 	queue_free()
-
 
 func _on_key_collect_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):

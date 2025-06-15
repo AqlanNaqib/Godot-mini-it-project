@@ -2,7 +2,7 @@ extends CharacterBody2D
  
 @onready var player = get_parent().find_child("player")
 @onready var sprite = $Sprite2D
-@onready var progress_bar = $ProgressBar3
+@onready var progress_bar = $ProgressBar
  
 var direction : Vector2
  

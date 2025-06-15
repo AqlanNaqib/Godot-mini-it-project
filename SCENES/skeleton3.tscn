@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://7r6r42o4ixkg"]
+[gd_scene load_steps=16 format=3 uid="uid://7r6r42o4ixkg"]
 
 [ext_resource type="Script" uid="uid://c6mulqm4f7t8f" path="res://SCENES/skeleton_3.gd" id="1_dt60f"]
 [ext_resource type="Texture2D" uid="uid://bxpw0cbmxisqs" path="res://assets/Skeleton enemy.png" id="1_q431w"]
@@ -6,6 +6,21 @@
 [ext_resource type="Script" uid="uid://dbb8plsiqtmgr" path="res://SCENES/follow3.gd" id="3_r012k"]
 [ext_resource type="Script" uid="uid://bf1smm16o83nd" path="res://SCENES/attack_skeleton3.gd" id="5_xfvgg"]
 [ext_resource type="Script" uid="uid://hfeds6dyqwjj" path="res://SCENES/death_skeleton3.gd" id="6_dt60f"]
+
+[sub_resource type="Animation" id="Animation_dt60f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_22ndv"]
 resource_name = "attack"
@@ -23,21 +38,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-}
-
-[sub_resource type="Animation" id="Animation_dt60f"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_xfvgg"]
@@ -137,6 +137,8 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dt60f"]
 height = 34.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xfvgg"]
+
 [node name="skeleton" type="CharacterBody2D"]
 script = ExtResource("1_dt60f")
 
@@ -184,3 +186,8 @@ script = ExtResource("5_xfvgg")
 
 [node name="DeathSkeleton" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("6_dt60f")
+
+[node name="enemy_hitbox" type="Area2D" parent="." groups=["enemy_hitbox"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
+shape = SubResource("CapsuleShape2D_xfvgg")

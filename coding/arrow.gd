@@ -1,7 +1,7 @@
 extends Area2D
 
 var speed = 300
-var damage = 50
+var damage = 50 # This will be the damage the arrow deals
 
 func _ready():
 	set_as_top_level(true)
@@ -20,8 +20,10 @@ func _on_visible_on_screen_enabler_2d_screen_exited():
 func _on_area_entered(area):
 	# Check if the area we hit is an enemy's hitbox
 	if area.is_in_group("enemy_hitbox"):
-		queue_free()  # Make arrow disappear when hitting enemy
+		# Try to call a method on the parent of the hitbox (which should be the enemy/boss)
+		if area.get_parent().has_method("take_damage"):
+			area.get_parent().take_damage(damage) # Pass the arrow's damage
+		queue_free() # Make arrow disappear when hitting enemy
 	
 func add_arrow(new_arrow):
 	pass
-	

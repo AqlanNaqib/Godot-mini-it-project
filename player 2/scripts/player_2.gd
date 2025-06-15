@@ -219,8 +219,8 @@ func take_damage(damage_amount):
 	health = max(0, health)
 	healthChanged.emit()
 	
-	# Add knockback or visual feedback if you want
-	$DamageFlashAnimation.play("flash")  # Example - you'd need to create this animation
+	
+	 
 	
 	if health <= 0 and player_alive:
 		player_death()
