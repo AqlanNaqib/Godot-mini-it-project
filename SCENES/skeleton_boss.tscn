@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://buoet8c17rxpo"]
+[gd_scene load_steps=81 format=3 uid="uid://buoet8c17rxpo"]
 
 [ext_resource type="Script" uid="uid://b3hdf626k7j1k" path="res://SCENES/skeleton_boss.gd" id="1_72hmh"]
 [ext_resource type="Texture2D" uid="uid://cw6kwem0wmy5e" path="res://assets/attacking.png" id="1_517i0"]
@@ -721,6 +721,10 @@ size = Vector2(160, 172)
 [sub_resource type="CircleShape2D" id="CircleShape2D_oiqda"]
 radius = 169.027
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oiqda"]
+radius = 17.0
+height = 70.0
+
 [node name="SkeletonBoss" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 0
@@ -816,5 +820,12 @@ visible = false
 shape = SubResource("CircleShape2D_oiqda")
 disabled = true
 
+[node name="enemy_hitbox" type="Area2D" parent="." groups=["enemy_hitbox"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
+position = Vector2(-4, 0)
+shape = SubResource("CapsuleShape2D_oiqda")
+
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
 [connection signal="body_entered" from="key_collect_area" to="." method="_on_key_collect_area_body_entered"]
+[connection signal="area_entered" from="enemy_hitbox" to="." method="_on_hitbox_area_entered"]
