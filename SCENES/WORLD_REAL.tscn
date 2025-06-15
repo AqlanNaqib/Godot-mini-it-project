@@ -3753,10 +3753,11 @@ offset_bottom = 30.0
 value = 100.0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = 1849.0
-offset_top = 2.0
-offset_right = 1913.0
-offset_bottom = 12.0
+offset_left = 1665.0
+offset_top = 1.0
+offset_right = 1729.0
+offset_bottom = 11.0
+scale = Vector2(4, 4)
 texture_under = ExtResource("26_mf4fn")
 texture_progress = ExtResource("27_di7fi")
 script = ExtResource("26_tsqhg")
@@ -3788,6 +3789,8 @@ position = Vector2(-35, -98)
 position = Vector2(178, -33)
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("34_2cw4h")]
+scale = Vector2(1.8, 1.8)
+transform = Transform2D(1.8, 0, 0, 1.8, 0, 0)
 
 [node name="chest" parent="." instance=ExtResource("36_tfg73")]
 position = Vector2(-8, -44)

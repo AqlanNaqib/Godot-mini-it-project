@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://baoeq5li0jrvr"]
+[gd_scene load_steps=22 format=3 uid="uid://baoeq5li0jrvr"]
 
 [ext_resource type="Script" uid="uid://gl4mx5inc3t0" path="res://coding/house_1.gd" id="1_h3tkp"]
 [ext_resource type="Texture2D" uid="uid://brth33ip3peyo" path="res://Tile Maps/Sprites/Floors.png" id="1_sodcb"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://d0gj2pxyr5p6q" path="res://Tile Maps/Sprites/Basic_Furniture.png" id="5_adpi5"]
 [ext_resource type="Texture2D" uid="uid://b7bvqiwvrgppk" path="res://Tile Maps/Sprites/Doors.png" id="6_p5cgj"]
 [ext_resource type="PackedScene" uid="uid://1cof3x55p05h" path="res://Inventory/hotbar.tscn" id="8_adpi5"]
+[ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="9_xjj2x"]
+[ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="10_oy5pp"]
+[ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="11_f5tyg"]
+[ext_resource type="PackedScene" uid="uid://cxjb1yo87bdcs" path="res://ArrowHUD.tscn" id="12_qf3ko"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h3tkp"]
 texture = ExtResource("1_sodcb")
@@ -781,5 +785,44 @@ offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer2"]
+visible = false
+offset_left = 1100.0
+offset_top = 3.0
+offset_right = 1146.0
+offset_bottom = 30.0
+value = 100.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer2"]
+offset_left = 1665.0
+offset_top = 1.0
+offset_right = 1729.0
+offset_bottom = 11.0
+scale = Vector2(4, 4)
+texture_under = ExtResource("9_xjj2x")
+texture_progress = ExtResource("10_oy5pp")
+script = ExtResource("11_f5tyg")
+
+[node name="hotbar" parent="CanvasLayer2" instance=ExtResource("8_adpi5")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = -59.0
+offset_right = 0.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CanvasLayer3" parent="." instance=ExtResource("12_qf3ko")]
+scale = Vector2(1.8, 1.8)
+transform = Transform2D(1.8, 0, 0, 1.8, 0, 0)
+
 [connection signal="body_entered" from="house_exit" to="." method="_on_house_exit_body_entered"]
 [connection signal="body_entered" from="upper_stairs_transition" to="." method="_on_upper_stairs_transition_body_entered"]
+
+[editable path="CanvasLayer3"]
