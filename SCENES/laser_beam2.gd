@@ -70,7 +70,7 @@ func _on_damage_timer_timeout():
 			
 			if distance_from_line < laser_width_tolerance:
 				owner.player.take_damage(damage_per_tick)
-				print("Player hit by laser! Health: ", owner.player.health) # Debugging
+				#print("Player hit by laser! Health: ", owner.player.health) # Debugging
 
 func transition():
 	if can_transition:
