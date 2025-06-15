@@ -3,7 +3,6 @@ extends StaticBody2D
 class_name Door
 
 @export var required_key_id: String = ""
-@export var interaction_prompt: String = "Press C to interact"
 @export var auto_use_key: bool = true
 @export var locked_message: String = "This door is locked. You need a key."
 @export var unlocked_message: String = "Door unlocked!"
@@ -23,25 +22,23 @@ signal door_opened
 signal door_closed
 
 func _ready():
-	# Ensure collision_shape exists before trying to access it
-	if collision_shape:
-		$CollisionShape2D.disabled = false # Ensure door is initially closed/collidable
+	pass
 
 func _input(event):
 	if event.is_action_pressed("interact") and player_in_range and current_player:
 		interact_with_door()
 
-func _on_player_entered(body): # This might be triggered by Area2D.body_entered
-	if body.has_method("player"): # Check if the entering body is a player
+func _on_player_entered(body): 
+	if body.has_method("player"): 
 		player_in_range = true
 		current_player = body as Player # Cast to Player type for better type safety
-		show_interaction_prompt()
+		
 
-func _on_player_exited(body): # This might be triggered by Area2D.body_exited
+func _on_player_exited(body): 
 	if body.has_method("player"):
 		player_in_range = false
 		current_player = null
-		hide_interaction_prompt()
+		
 
 func interact_with_door():
 	if is_opening:
@@ -50,8 +47,8 @@ func interact_with_door():
 	# The core change: Use Globals.player_inventory
 	if try_unlock_with_key():
 		open_door()
-	else:
-		show_locked_message() # Ensure message is shown if unlock fails
+	
+
 
 func try_unlock_with_key() -> bool:
 	# Check if the global inventory is available
@@ -101,24 +98,7 @@ func open_door():
 
 	if animated_sprite and animated_sprite.sprite_frames.has_animation("open"):
 		animated_sprite.play("open")
-		# Connect to the animation_finished signal to handle scene change or other logic
-		animated_sprite.animation_finished.connect(func(anim_name):
-			if anim_name == "open":
-				# Make collision disabled after animation
-				if collision_shape:
-					$CollisionShape2D.disabled = true
-				door_opened.emit() # Emit signal that door is open
-				is_opening = false # Reset opening flag
-				# Optionally, call enter_door() here if you want immediate scene change after opening animation
-				# enter_door()
-		)
-	else:
-		# If no animation, just set collision disabled and emit signal
-		if collision_shape:
-			$CollisionShape2D.disabled = true
-		door_opened.emit()
-		is_opening = false
-		# enter_door() # Call immediately if no animation
+		$CollisionShape2D.disabled = true
 
 func close_door():
 	if is_closing or not visible: # visible property might not be the best check for closing state
@@ -129,32 +109,9 @@ func close_door():
 
 	if animated_sprite and animated_sprite.sprite_frames.has_animation("close"):
 		animated_sprite.play("close")
-		# Connect to the animation_finished signal for cleanup
-		animated_sprite.animation_finished.connect(func(anim_name):
-			if anim_name == "close":
-				if collision_shape:
-					$CollisionShape2D.disabled = false # Re-enable collision after closing
-				door_closed.emit()
-				is_closing = false
-		)
-	else:
-		if collision_shape:
-			$CollisionShape2D.disabled = false
-		door_closed.emit()
-		is_closing = false
 
-func show_interaction_prompt():
-	print(interaction_prompt)
-
-func hide_interaction_prompt():
-	pass # Implement actual UI hiding here
-
-func show_locked_message():
-	print(locked_message) # Implement actual UI message here
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
-	# This function seems redundant with _on_player_entered if it's connected to the same Area2D.
-	# Make sure you only connect one to avoid double-triggers.
 	if body.has_method("player"):
 		player_in_range = true
 		current_player = body as Player
