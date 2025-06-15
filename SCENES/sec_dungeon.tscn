@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://bn1a3vmgdvf5i"]
+[gd_scene load_steps=80 format=3 uid="uid://bn1a3vmgdvf5i"]
 
 [ext_resource type="Script" uid="uid://ddvqpku02ncka" path="res://coding/sec_dungeon.gd" id="1_7trul"]
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="1_q1h6k"]
@@ -37,6 +37,10 @@
 [ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="34_kw0db"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="35_auldu"]
 [ext_resource type="PackedScene" uid="uid://1cof3x55p05h" path="res://Inventory/hotbar.tscn" id="37_3pxc4"]
+[ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="37_a58yb"]
+[ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="38_ubhq2"]
+[ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="39_fr736"]
+[ext_resource type="PackedScene" uid="uid://cxjb1yo87bdcs" path="res://ArrowHUD.tscn" id="41_1gj45"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7trul"]
 texture = ExtResource("1_q1h6k")
@@ -10717,14 +10721,31 @@ shape = SubResource("RectangleShape2D_7trul")
 polygon = PackedVector2Array(-67, 18, -67, -46, -82, -47, -83, -63, -99, -63, -99, -79, -189, -79, -189, 32, -186, 32, -186, -76, -103, -75, -102, -61, -86, -59, -86, -45, -71, -44, -70, 18)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="collisions"]
-polygon = PackedVector2Array(-245, 146, -27, 148, -28, 131, -15, 131, -11, 114, 5, 114, 5, 98, 44, 99, 44, 130, 60, 131, 60, 146, 246, 146, 246, -108, 229, -106, 228, -135, 28, -135, 29, -120, 10, -119, 11, -103, -8, -102, -5, -88, -18, -88, -23, -88, -22, -64, -26, -67, -26, -89, -59, -88, -60, -135, -244, -133, -242, 138, -253, 138, -251, -173, 253, -167, 254, 154, -254, 155)
+polygon = PackedVector2Array(-245, 146, -27, 148, -28, 131, -15, 131, -11, 114, 5, 114, 5, 98, 44, 99, 44, 130, 60, 131, 60, 146, 246, 146, 246, -108, 229, -106, 228, -135, 28, -135, 29, -120, 10, -119, 11, -103, -8, -102, -5, -88, -18, -88, -23, -88, -22, -64, -26, -67, -26, -89, -59, -88, -60, -135, -244, -133, -242, 143, -253, 141, -251, -173, 253, -167, 254, 154, -254, 155)
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="collisions"]
 polygon = PackedVector2Array(44, -18, 44, -3, 30, -2, 29, 14, 14, 15, 13, 49, 29, 50, 30, 66, 77, 66, 77, 96, 147, 97, 147, 81, 163, 80, 164, 66, 179, 65, 180, -2, 164, -1, 163, -19)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("37_3pxc4")]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+visible = false
+offset_left = 1100.0
+offset_top = 3.0
+offset_right = 1146.0
+offset_bottom = 30.0
+value = 100.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 1849.0
+offset_top = 2.0
+offset_right = 1913.0
+offset_bottom = 12.0
+texture_under = ExtResource("37_a58yb")
+texture_progress = ExtResource("38_ubhq2")
+script = ExtResource("39_fr736")
+
+[node name="hotbar" parent="CanvasLayer" instance=ExtResource("37_3pxc4")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -10732,9 +10753,13 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -132.0
 offset_top = -59.0
-offset_right = 133.0
-offset_bottom = -3.0
+offset_right = 0.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
 
+[node name="CanvasLayer2" parent="." instance=ExtResource("41_1gj45")]
+
 [connection signal="body_entered" from="sec_dungeon_exit_point" to="." method="_on_sec_dungeon_exit_point_body_entered"]
+
+[editable path="CanvasLayer2"]

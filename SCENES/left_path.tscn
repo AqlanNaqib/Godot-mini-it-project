@@ -2195,21 +2195,6 @@ position = Vector2(227, -77)
 [node name="campfire" parent="." instance=ExtResource("22_w6hx0")]
 position = Vector2(-32, 8)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("23_4re7f")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -132.0
-offset_top = -59.0
-offset_right = 133.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 0
-
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer2"]

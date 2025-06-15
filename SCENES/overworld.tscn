@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://np8i26hjhbv6"]
+[gd_scene load_steps=69 format=3 uid="uid://np8i26hjhbv6"]
 
 [ext_resource type="Script" uid="uid://cahcj2vfgtgm" path="res://coding/overworld.gd" id="1_a4f1j"]
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="1_w4ggn"]
@@ -32,6 +32,10 @@
 [ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="29_kc5td"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="30_46nvm"]
 [ext_resource type="PackedScene" uid="uid://1cof3x55p05h" path="res://Inventory/hotbar.tscn" id="32_1yrv5"]
+[ext_resource type="PackedScene" uid="uid://cxjb1yo87bdcs" path="res://ArrowHUD.tscn" id="32_7ajqq"]
+[ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="33_i6qyp"]
+[ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="34_al6ox"]
+[ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="35_hkb53"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a4f1j"]
 texture = ExtResource("1_w4ggn")
@@ -8497,9 +8501,28 @@ polygon = PackedVector2Array(65, 54, 74, 54, 74, 66, 79, 68, 79, 77, 74, 78, 72,
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="collision"]
 polygon = PackedVector2Array(89, 81, 90, 141, 157, 143, 159, 75, 150, 73, 151, 63, 238, 63, 239, 27, 236, 28, 237, 52, 151, 53, 151, 42, 100, 41, 82, 42, 82, 50, 108, 51, 108, 79, 111, 79, 111, 49, 86, 48, 85, 44, 149, 45, 148, 76, 157, 76, 156, 118, 112, 118, 107, 112, 106, 101, 92, 100, 92, 81)
 
+[node name="CanvasLayer2" parent="." instance=ExtResource("32_7ajqq")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("32_1yrv5")]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+visible = false
+offset_left = 1100.0
+offset_top = 3.0
+offset_right = 1146.0
+offset_bottom = 30.0
+value = 100.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 1849.0
+offset_top = 2.0
+offset_right = 1913.0
+offset_bottom = 12.0
+texture_under = ExtResource("33_i6qyp")
+texture_progress = ExtResource("34_al6ox")
+script = ExtResource("35_hkb53")
+
+[node name="hotbar" parent="CanvasLayer" instance=ExtResource("32_1yrv5")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -8507,10 +8530,12 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -132.0
 offset_top = -59.0
-offset_right = 133.0
-offset_bottom = -3.0
+offset_right = 0.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [connection signal="body_entered" from="overworld_exit" to="." method="_on_overworld_exit_body_entered"]
 [connection signal="body_entered" from="building_transition" to="." method="_on_building_transition_body_entered"]
+
+[editable path="CanvasLayer2"]

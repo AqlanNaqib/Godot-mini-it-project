@@ -825,7 +825,7 @@ radius = 16.0312
 radius = 21.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mjkby"]
-radius = 53.0094
+radius = 64.0078
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bbf8i"]
 radius = 249.018
@@ -834,6 +834,7 @@ radius = 249.018
 script = ExtResource("1_rjxjy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_6o35p")
 animation = &"front_idle"
 
@@ -854,6 +855,7 @@ shape = SubResource("CircleShape2D_mjkby")
 visible = false
 
 [node name="meat_collect_area" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="meat_collect_area"]
 shape = SubResource("CircleShape2D_bbf8i")

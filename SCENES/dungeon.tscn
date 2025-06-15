@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://crgxwiclx0l7k"]
+[gd_scene load_steps=82 format=3 uid="uid://crgxwiclx0l7k"]
 
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="1_gus3p"]
 [ext_resource type="Script" uid="uid://iro5ycg5vobw" path="res://coding/dungeon.gd" id="1_v3ms4"]
@@ -38,6 +38,10 @@
 [ext_resource type="Texture2D" uid="uid://bdrqmy782oq0b" path="res://Tile Maps/Sprites/Oak_Tree_Small.png" id="32_plqls"]
 [ext_resource type="PackedScene" uid="uid://1cof3x55p05h" path="res://Inventory/hotbar.tscn" id="37_2pcr7"]
 [ext_resource type="PackedScene" uid="uid://kddel6jprx8q" path="res://SCENES/door.tscn" id="38_lbph0"]
+[ext_resource type="PackedScene" uid="uid://cxjb1yo87bdcs" path="res://ArrowHUD.tscn" id="38_odn6n"]
+[ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="39_i10yc"]
+[ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="40_7r2tn"]
+[ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="41_cs2x1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrhfs"]
 texture = ExtResource("2_gx2s0")
@@ -10745,21 +10749,6 @@ polygon = PackedVector2Array(121, -54, 195, -53, 196, -8, 233, -7, 233, -19, 199
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="collisions"]
 polygon = PackedVector2Array(-103, 1, -93, 1, -93, -47, -13, -48, -13, -128, 0, -128, 0, -136, 5, -136, 6, -124, -10, -124, -10, -44, -90, -44, -90, 3, -103, 4)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("37_2pcr7")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -132.0
-offset_top = -59.0
-offset_right = 133.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 0
-
 [node name="Door" parent="." instance=ExtResource("38_lbph0")]
 z_index = -1
 position = Vector2(112, -104)
@@ -10770,6 +10759,42 @@ position = Vector2(112, -104)
 position = Vector2(90, -150)
 shape = SubResource("RectangleShape2D_lbph0")
 
+[node name="CanvasLayer2" parent="." instance=ExtResource("38_odn6n")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+visible = false
+offset_left = 1100.0
+offset_top = 3.0
+offset_right = 1146.0
+offset_bottom = 30.0
+value = 100.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 1849.0
+offset_top = 2.0
+offset_right = 1913.0
+offset_bottom = 12.0
+texture_under = ExtResource("39_i10yc")
+texture_progress = ExtResource("40_7r2tn")
+script = ExtResource("41_cs2x1")
+
+[node name="hotbar" parent="CanvasLayer" instance=ExtResource("37_2pcr7")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = -59.0
+offset_right = 0.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
 [connection signal="body_entered" from="dungeon_exit_point" to="." method="_on_dungeon_exit_point_body_entered"]
 [connection signal="body_entered" from="sec_dungeon" to="." method="_on_sec_dungeon_body_entered"]
 [connection signal="body_entered" from="victory" to="." method="_on_victory_body_entered"]
+
+[editable path="CanvasLayer2"]
