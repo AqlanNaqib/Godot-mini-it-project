@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://crgxwiclx0l7k"]
+[gd_scene load_steps=84 format=3 uid="uid://crgxwiclx0l7k"]
 
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="1_gus3p"]
 [ext_resource type="Script" uid="uid://iro5ycg5vobw" path="res://coding/dungeon.gd" id="1_v3ms4"]
@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="40_7r2tn"]
 [ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="41_cs2x1"]
 [ext_resource type="PackedScene" uid="uid://bs4hwjntff02j" path="res://SCENES/slime.tscn" id="43_i10yc"]
+[ext_resource type="PackedScene" uid="uid://buoet8c17rxpo" path="res://SCENES/skeleton_boss.tscn" id="44_7r2tn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrhfs"]
 texture = ExtResource("2_gx2s0")
@@ -10794,13 +10795,29 @@ offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
 
+[node name="SkeletonBoss" parent="." instance=ExtResource("44_7r2tn")]
+position = Vector2(-58, -91)
+unique_enemy_id = "skeleton_boss"
+
 [node name="slime" parent="." instance=ExtResource("43_i10yc")]
-position = Vector2(-104, 29)
-unique_slime = "dungeon_left_slime"
+position = Vector2(121, 8)
+unique_slime = "dungeon_a_slime"
 
 [node name="slime2" parent="." instance=ExtResource("43_i10yc")]
-position = Vector2(178, -106)
-unique_slime = "dungeon_right_slime"
+position = Vector2(169, -29)
+unique_slime = "dungeon_b_slime"
+
+[node name="slime3" parent="." instance=ExtResource("43_i10yc")]
+position = Vector2(98, 93)
+unique_slime = "dungeon_c_slime"
+
+[node name="slime4" parent="." instance=ExtResource("43_i10yc")]
+position = Vector2(113, -76)
+unique_slime = "dungeon_d_slime"
+
+[node name="slime5" parent="." instance=ExtResource("43_i10yc")]
+position = Vector2(56, 51)
+unique_slime = "dungeon_e_slime"
 
 [connection signal="body_entered" from="dungeon_exit_point" to="." method="_on_dungeon_exit_point_body_entered"]
 [connection signal="body_entered" from="sec_dungeon" to="." method="_on_sec_dungeon_body_entered"]

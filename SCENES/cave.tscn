@@ -10908,11 +10908,23 @@ grow_vertical = 0
 
 [node name="slime" parent="." instance=ExtResource("43_4a07q")]
 position = Vector2(-160, 80)
-unique_slime = "cave_bottom_slime"
+unique_slime = "cave_a_slime"
 
 [node name="slime2" parent="." instance=ExtResource("43_4a07q")]
 position = Vector2(111, -78)
-unique_slime = "cave_right_slime"
+unique_slime = "cave_b_slime"
+
+[node name="slime3" parent="." instance=ExtResource("43_4a07q")]
+position = Vector2(-166, -105)
+unique_slime = "cave_c_slime"
+
+[node name="slime4" parent="." instance=ExtResource("43_4a07q")]
+position = Vector2(-72, -61)
+unique_slime = "cave_d_slime"
+
+[node name="slime5" parent="." instance=ExtResource("43_4a07q")]
+position = Vector2(27, -37)
+unique_slime = "cave_e_slime"
 
 [connection signal="body_entered" from="cave_exit" to="." method="_on_cave_exit_body_entered"]
 [connection signal="body_entered" from="sec_cave" to="." method="_on_sec_cave_body_entered"]

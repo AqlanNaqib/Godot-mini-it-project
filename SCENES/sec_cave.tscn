@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://bpw3n64w7jq0e"]
+[gd_scene load_steps=87 format=3 uid="uid://bpw3n64w7jq0e"]
 
 [ext_resource type="Script" uid="uid://bpcxqw2ht74pv" path="res://coding/sec_cave.gd" id="1_1k4m6"]
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="1_a1xl7"]
@@ -45,6 +45,7 @@
 [ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="42_0hxbx"]
 [ext_resource type="PackedScene" uid="uid://yx8but0chgsv" path="res://SCENES/main_boss4.tscn" id="44_s7cso"]
 [ext_resource type="PackedScene" uid="uid://8leoy6vt3724" path="res://SCENES/chest.tscn" id="45_i0qyb"]
+[ext_resource type="PackedScene" uid="uid://bs4hwjntff02j" path="res://SCENES/slime.tscn" id="46_0hxbx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1jnk"]
 texture = ExtResource("1_a1xl7")
@@ -10969,7 +10970,16 @@ position = Vector2(-160, -107)
 unique_enemy_id = "bossman"
 
 [node name="chest" parent="." instance=ExtResource("45_i0qyb")]
+z_index = -1
 position = Vector2(-213, -125)
+
+[node name="slime" parent="." instance=ExtResource("46_0hxbx")]
+position = Vector2(53, 104)
+unique_slime = "sec_cave_a_slime"
+
+[node name="slime2" parent="." instance=ExtResource("46_0hxbx")]
+position = Vector2(202, 18)
+unique_slime = "sec_cave_b_slime"
 
 [connection signal="body_entered" from="sec_cave_exit" to="." method="_on_sec_cave_exit_body_entered"]
 

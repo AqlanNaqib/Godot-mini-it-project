@@ -58,7 +58,6 @@ func player_death_visuals():
 	set_physics_process(false)
 	set_process_input(false)
 	
-	await get_tree().create_timer(1.0).timeout
 
 func shoot_arrow():
 	bow_cooldown = false

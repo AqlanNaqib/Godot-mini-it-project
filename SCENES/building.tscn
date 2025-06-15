@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://hhm8l6olrl0s"]
+[gd_scene load_steps=72 format=3 uid="uid://hhm8l6olrl0s"]
 
 [ext_resource type="Script" uid="uid://dwajkyvkie02g" path="res://coding/building.gd" id="1_cx74j"]
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="2_11n8w"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="34_ul4q4"]
 [ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="35_23k86"]
 [ext_resource type="PackedScene" uid="uid://cxjb1yo87bdcs" path="res://ArrowHUD.tscn" id="37_88cao"]
+[ext_resource type="PackedScene" uid="uid://bs4hwjntff02j" path="res://SCENES/slime.tscn" id="38_ul4q4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cx74j"]
 texture = ExtResource("2_11n8w")
@@ -8532,6 +8533,18 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("37_88cao")]
+
+[node name="slime" parent="." instance=ExtResource("38_ul4q4")]
+position = Vector2(204, 49)
+
+[node name="slime2" parent="." instance=ExtResource("38_ul4q4")]
+position = Vector2(146, 57)
+
+[node name="slime3" parent="." instance=ExtResource("38_ul4q4")]
+position = Vector2(1, 56)
+
+[node name="slime4" parent="." instance=ExtResource("38_ul4q4")]
+position = Vector2(-206, 54)
 
 [connection signal="body_entered" from="building_exit" to="." method="_on_building_exit_body_entered"]
 [connection signal="body_entered" from="extension_transition" to="." method="_on_extension_transition_body_entered"]
