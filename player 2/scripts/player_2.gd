@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 class_name Player
 
-@export var inv: Inv
+# DELETE THIS LINE: @export var inv: Inv
+# The player no longer needs to directly manage an 'inv' instance.
+# Inventory is now accessed globally via Globals.player_inventory
 
 @onready var gun = $Gun
 @onready var bullet_spawn_point = $CenterMarker
@@ -10,18 +12,9 @@ class_name Player
 var bow_equipped = false
 var bow_cooldown = true
 var arrow = preload("res://SCENES/arrow.tscn")
-signal healthChanged
-
-# Arrow system
-var max_arrows = 10
-var current_arrows = 5
-signal arrowsChanged(count: int)
 
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
-var maxHealth = 100
-var health = 100
-var player_alive = true
 var speed = 80
 var current_dir = "none"
 
@@ -29,12 +22,15 @@ var mouse_loc_from_player = null
 var player_state = "idle"
 
 func _ready():
-	inv.use_item.connect(use_item)
+	# DELETE THIS LINE: inv.use_item.connect(use_item)
+	# This connection is no longer needed as Inv.gd's use_item_atIndex directly
+	# calls item.use(), and item.use() interacts with Globals.
+	
 	$AnimatedSprite2D.play("front idle")
+	Globals.player_died.connect(player_death_visuals)
 
 func _physics_process(delta):
-	if health <= 0 and player_alive:
-		player_death()
+	if not Globals.player_alive:
 		return
 		
 	mouse_loc_from_player = get_global_mouse_position() - self.position
@@ -52,36 +48,31 @@ func _physics_process(delta):
 	var mouse_pos = get_global_mouse_position()
 	$Marker2D.look_at(mouse_pos)
 
-	if Input.is_action_just_pressed("left_mouse") and bow_equipped and bow_cooldown and current_arrows > 0:
+	if Input.is_action_just_pressed("left_mouse") and bow_equipped and bow_cooldown and Globals.player_current_arrows > 0:
 		shoot_arrow()
 
-func player_death():
-	player_alive = false
-	$AnimatedSprite2D.play("death_animation")  # Make sure you have a death animation
+func player_death_visuals():
+	print("Player playing death animation...")
+	$AnimatedSprite2D.play("death_animation")
 	
-	# Wait for a short moment to let the death animation play
+	set_process(false)
+	set_physics_process(false)
+	set_process_input(false)
+	
 	await get_tree().create_timer(1.0).timeout
-	
-	# Close the game
-	
-	get_tree().change_scene_to_file("res://game_over2.tscn")
 
 func shoot_arrow():
 	bow_cooldown = false
-	current_arrows -= 1
-	arrowsChanged.emit(current_arrows)  # Update HUD
-	# ... rest of your shooting code ...
-	var arrow_instance = arrow.instantiate()
-	arrow_instance.rotation = $Marker2D.rotation
-	arrow_instance.global_position = $Marker2D.global_position
-	add_child(arrow_instance)
-	await get_tree().create_timer(0.4).timeout
+	if Globals.shoot_arrow():
+		var arrow_instance = arrow.instantiate()
+		arrow_instance.rotation = $Marker2D.rotation
+		arrow_instance.global_position = $Marker2D.global_position
+		add_child(arrow_instance)
+		await get_tree().create_timer(0.4).timeout
 	bow_cooldown = true
 
 func add_arrows(amount: int):
-	current_arrows = min(current_arrows + amount, max_arrows)
-	arrowsChanged.emit(current_arrows)  # Update HUD
-	print("Arrows replenished. Total: ", current_arrows)
+	Globals.add_arrows(amount)
 
 func get_shooting_direction() -> Vector2:
 	match current_dir:
@@ -164,14 +155,7 @@ func play_anim(movement):
 			anim.play("s_walk")
 		elif dir == "left":
 			anim.play("w_walk")
-		elif dir.x > 0.5 and dir.y < -0.5:
-			anim.play("ne_walk")
-		elif dir.x > 0.5 and dir.y > 0.5:
-			anim.play("se_walk")
-		elif dir.x < -0.5 and dir.y > 0.5:
-			anim.play("sw_walk")
-		elif dir.x < -0.5 and dir.y < -0.5:
-			anim.play("nw_walk")
+
 func player():
 	pass
 
@@ -185,42 +169,30 @@ func _on_player_hitbox_body_exited(body):
 
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown:
-		health -= 20
-		health = max(0, health)
-		healthChanged.emit()
+		Globals.take_damage(20)
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
-		print(health)
+		print("Player current health: ", Globals.player_current_health)
 
 func _on_attack_cooldown_timeout() -> void:
 	enemy_attack_cooldown = true
 
 func collect(item):
-	inv.insert(item)
-
+	# Directly use the global inventory for insertion
+	Globals.player_inventory.insert(item)
 
 func _on_pickable_area_area_entered(area):
 	if area.has_method("collect"):
-		area.collect(inv)
+		# Pass the global inventory to the collectable item
+		area.collect(Globals.player_inventory)
 
 func increase_health(amount: int):
-	health += amount
-	health = min(maxHealth, health)
+	Globals.increase_health(amount)
+	print("Player current health: ", Globals.player_current_health)
 
-	print(health)
-	
-	healthChanged.emit(health)
+# DELETE THIS ENTIRE FUNCTION:
+# func use_item(item: InvItem):
+# 	item.use()
 
-func use_item(item: InvItem):
-	item.use(self)
-	
 func take_damage(damage_amount):
-	health -= damage_amount
-	health = max(0, health)
-	healthChanged.emit()
-	
-	
-	 
-	
-	if health <= 0 and player_alive:
-		player_death()
+	Globals.take_damage(damage_amount)

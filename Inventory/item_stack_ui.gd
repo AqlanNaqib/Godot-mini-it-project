@@ -14,6 +14,8 @@ func _ready():
 	
 func update():
 	if !invSlot || !invSlot.item: 
+		item_visual.visible = false # Ensure visual is hidden if no item
+		amount_text.visible = false # Ensure text is hidden if no item
 		return
 	
 	if item_visual == null or amount_text == null:
@@ -28,4 +30,3 @@ func update():
 	else:
 		if invSlot.amount == 1:
 			amount_text.visible = false
-			

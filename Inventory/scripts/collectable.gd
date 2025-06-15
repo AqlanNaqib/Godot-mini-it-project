@@ -5,4 +5,4 @@ extends Area2D
 func collect(inv: Inv):
 	if inv and itemRes:
 		inv.insert(itemRes)
-		queue_free()
+		queue_free() # Remove the collectable item from the scene after it's picked up

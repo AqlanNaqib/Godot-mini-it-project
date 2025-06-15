@@ -656,5 +656,7 @@ limit_bottom = 144
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
+[node name="Marker2D" type="Marker2D" parent="."]
+
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]

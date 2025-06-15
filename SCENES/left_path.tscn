@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dseotriiare3y"]
+[gd_scene load_steps=47 format=3 uid="uid://dseotriiare3y"]
 
 [ext_resource type="Script" uid="uid://cw4rlsmsplkmb" path="res://coding/left_path.gd" id="1_ca0fl"]
 [ext_resource type="Texture2D" uid="uid://c484e7pdsqlei" path="res://Tile Maps/Sprites/Path_Middle.png" id="1_ipemq"]
@@ -23,6 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://bs4hwjntff02j" path="res://SCENES/slime.tscn" id="19_nfipc"]
 [ext_resource type="PackedScene" uid="uid://bg2epomyvict4" path="res://SCENES/campfire.tscn" id="22_w6hx0"]
 [ext_resource type="PackedScene" uid="uid://1cof3x55p05h" path="res://Inventory/hotbar.tscn" id="23_4re7f"]
+[ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="24_fu3df"]
+[ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="25_mf85t"]
+[ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="26_vcfqw"]
+[ext_resource type="PackedScene" uid="uid://cxjb1yo87bdcs" path="res://ArrowHUD.tscn" id="27_h7eex"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ph87p"]
 texture = ExtResource("1_ipemq")
@@ -2205,4 +2209,40 @@ offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer2"]
+visible = false
+offset_left = 1100.0
+offset_top = 3.0
+offset_right = 1146.0
+offset_bottom = 30.0
+value = 100.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer2"]
+offset_left = 1849.0
+offset_top = 2.0
+offset_right = 1913.0
+offset_bottom = 12.0
+texture_under = ExtResource("24_fu3df")
+texture_progress = ExtResource("25_mf85t")
+script = ExtResource("26_vcfqw")
+
+[node name="hotbar" parent="CanvasLayer2" instance=ExtResource("23_4re7f")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = -59.0
+offset_right = 0.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CanvasLayer3" parent="." instance=ExtResource("27_h7eex")]
+
 [connection signal="body_entered" from="leftpath_exit_point" to="." method="_on_leftpath_exit_point_body_entered"]
+
+[editable path="CanvasLayer3"]
