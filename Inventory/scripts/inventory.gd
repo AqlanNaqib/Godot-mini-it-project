@@ -7,6 +7,15 @@ signal use_item
 
 @export var slots: Array[InvSlot]
 
+# *** ADD THIS FUNCTION ***
+func clear():
+	# Iterate through each slot and re-initialize it to an empty InvSlot.
+	# This effectively clears the inventory while maintaining the array size.
+	for i in range(slots.size()):
+		slots[i] = InvSlot.new()
+	print("Inventory resource cleared.")
+	update.emit() # Emit the update signal to notify UI elements
+
 func insert(item: InvItem):
 	# Add null check for 'slot' within the filter
 	var itemslots = slots.filter(func(slot): return slot != null and slot.item == item)

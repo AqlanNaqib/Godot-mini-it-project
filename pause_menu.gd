@@ -4,7 +4,7 @@ extends Control
 @onready var inv : Inv = preload("res://Inventory/playerInventory.tres")
 
 func _ready():
-	hide()  # Ensure hidden at start
+	hide() # Ensure hidden at start
 	# Optional: animation_player.play("RESET")
 
 func resume():
@@ -21,7 +21,7 @@ func pause():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
-		if visible:  # If menu is currently showing
+		if visible: # If menu is currently showing
 			resume()
 		else:
 			pause()
@@ -36,8 +36,23 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_restart_pressed():
-	# Reset inventory slots (adjust size based on your hotbar)
+	# Reset inventory slots
 	inv.clear()
+
+	# --- FIX: Explicitly reset Global player stats and properties ---
+	Globals.player_current_health = Globals.player_max_health
+	Globals.player_current_arrows = Globals.player_max_arrows
+	Globals.player_alive = true
+	Globals.player_score = 0
+	print("Globals: Player stats reset for restart.")
+
+	# --- Emit signals to update HUDs with new values ---
+	# This is crucial because Globals._ready() doesn't rerun on scene change.
+	Globals.health_changed.emit(Globals.player_current_health, Globals.player_max_health)
+	Globals.arrows_changed.emit(Globals.player_current_arrows, Globals.player_max_arrows)
+	print("Globals: Health and arrows signals emitted for HUD update.")
+	# --- End FIX ---
+
 	# Reset scene manager flags
 	SceneManager.game_first_loadin = true
 	SceneManager.going_left = false
