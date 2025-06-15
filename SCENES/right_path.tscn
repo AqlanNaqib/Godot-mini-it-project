@@ -2370,8 +2370,9 @@ shape = SubResource("RectangleShape2D_y0x5g")
 
 [node name="slime" parent="." instance=ExtResource("26_5oc41")]
 position = Vector2(81, 9)
+unique_slime = "slime_right"
 
-[node name="player" parent="." instance=ExtResource("21_ofyxt")]
+[node name="player" parent="." groups=["player"] instance=ExtResource("21_ofyxt")]
 position = Vector2(-229, 69)
 
 [node name="house2_transition" type="Area2D" parent="."]

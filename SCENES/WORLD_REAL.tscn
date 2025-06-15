@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://ca4o8plimbenm"]
+[gd_scene load_steps=67 format=3 uid="uid://ca4o8plimbenm"]
 
 [ext_resource type="Script" uid="uid://buwqfuei7y0oe" path="res://coding/world.gd" id="1_ihqeo"]
 [ext_resource type="PackedScene" uid="uid://ddu4kmdy5xthe" path="res://player 2/player_2.tscn" id="2_spbpa"]
@@ -36,6 +36,8 @@
 [ext_resource type="PackedScene" uid="uid://cxjb1yo87bdcs" path="res://ArrowHUD.tscn" id="34_2cw4h"]
 [ext_resource type="PackedScene" uid="uid://buoet8c17rxpo" path="res://SCENES/skeleton_boss.tscn" id="36_fefik"]
 [ext_resource type="PackedScene" uid="uid://8leoy6vt3724" path="res://SCENES/chest.tscn" id="36_tfg73"]
+[ext_resource type="PackedScene" uid="uid://4kydsvacnr21" path="res://SCENES/golem_boss.tscn" id="37_fefik"]
+[ext_resource type="PackedScene" uid="uid://yx8but0chgsv" path="res://SCENES/main_boss4.tscn" id="38_jydnu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tspm"]
 texture = ExtResource("5_38x0x")
@@ -3741,7 +3743,7 @@ shape = SubResource("RectangleShape2D_2tspm")
 position = Vector2(160, 139)
 shape = SubResource("RectangleShape2D_f8fgu")
 
-[node name="player" parent="." instance=ExtResource("2_spbpa")]
+[node name="player" parent="." groups=["player"] instance=ExtResource("2_spbpa")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -3776,7 +3778,8 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="slime" parent="." instance=ExtResource("27_17ncv")]
-position = Vector2(-175, -79)
+position = Vector2(-140, -69)
+unique_slime = "middle goblin"
 
 [node name="house_transition" type="Area2D" parent="."]
 position = Vector2(-128, 61)
@@ -3797,6 +3800,16 @@ position = Vector2(177, -36)
 position = Vector2(-8, -44)
 
 [node name="SkeletonBoss" parent="." instance=ExtResource("36_fefik")]
+position = Vector2(-168, -117)
+unique_enemy_id = "bangang"
+
+[node name="GolemBoss" parent="." instance=ExtResource("37_fefik")]
+position = Vector2(-148, -109)
+unique_enemy_id = "bodoh"
+
+[node name="MainBoss" parent="." instance=ExtResource("38_jydnu")]
+position = Vector2(22, 49)
+unique_enemy_id = "cibai"
 
 [connection signal="body_entered" from="leftpath_transition_point" to="." method="_on_leftpath_transition_point_body_entered"]
 [connection signal="body_entered" from="rightpath_transition_point" to="." method="_on_rightpath_transition_point_body_entered"]

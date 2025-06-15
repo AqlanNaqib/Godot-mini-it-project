@@ -36,24 +36,15 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_restart_pressed():
-	# Reset inventory slots
-	inv.clear()
+	# --- FIX: Call the comprehensive reset_game_state function ---
+	# This function already handles:
+	# - Player health, arrows, alive status, score reset
+	# - Inventory clear (inv.clear())
+	# - Clearing the Globals.killed_enemies_ids list
+	Globals.reset_game_state()
+	print("Globals: Game state reset via Pause Menu restart.")
 
-	# --- FIX: Explicitly reset Global player stats and properties ---
-	Globals.player_current_health = Globals.player_max_health
-	Globals.player_current_arrows = Globals.player_max_arrows
-	Globals.player_alive = true
-	Globals.player_score = 0
-	print("Globals: Player stats reset for restart.")
-
-	# --- Emit signals to update HUDs with new values ---
-	# This is crucial because Globals._ready() doesn't rerun on scene change.
-	Globals.health_changed.emit(Globals.player_current_health, Globals.player_max_health)
-	Globals.arrows_changed.emit(Globals.player_current_arrows, Globals.player_max_arrows)
-	print("Globals: Health and arrows signals emitted for HUD update.")
-	# --- End FIX ---
-
-	# Reset scene manager flags
+	# SceneManager flags reset (keep these as they are specific to scene transitions)
 	SceneManager.game_first_loadin = true
 	SceneManager.going_left = false
 	SceneManager.going_right = false

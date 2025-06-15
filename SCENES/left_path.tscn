@@ -2187,8 +2187,9 @@ shape = SubResource("RectangleShape2D_83ltd")
 
 [node name="slime" parent="." instance=ExtResource("19_nfipc")]
 position = Vector2(10, -103)
+unique_slime = "SLIME_LEFT"
 
-[node name="player" parent="." instance=ExtResource("17_83ltd")]
+[node name="player" parent="." groups=["player"] instance=ExtResource("17_83ltd")]
 position = Vector2(227, -77)
 
 [node name="campfire" parent="." instance=ExtResource("22_w6hx0")]
