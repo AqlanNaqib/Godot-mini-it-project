@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bvdlwj3yq6wbm"
+path="res://.godot/imported/Queen - We Are The Champions [Lyrics].mp3-4466bdec9172008ad9a9675131eff53d.mp3str"
+
+[deps]
+
+source_file="res://assets/Queen - We Are The Champions [Lyrics].mp3"
+dest_files=["res://.godot/imported/Queen - We Are The Champions [Lyrics].mp3-4466bdec9172008ad9a9675131eff53d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

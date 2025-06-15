@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://da0g7j84pejxr"]
+[gd_scene load_steps=4 format=3 uid="uid://da0g7j84pejxr"]
 
 [ext_resource type="FontFile" uid="uid://dvq5o4mkjn2f2" path="res://assets/Early GameBoy.ttf" id="1_7bnjr"]
 [ext_resource type="Script" uid="uid://cta6g5jqfaas8" path="res://victory.gd" id="1_v31sk"]
+[ext_resource type="AudioStream" uid="uid://dwx4mqw1ixifa" path="res://assets/UEFA Champions League Anthem.mp3" id="3_qr7ta"]
 
 [node name="victory" type="CanvasLayer"]
 script = ExtResource("1_v31sk")
@@ -57,5 +58,9 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_7bnjr")
 theme_override_font_sizes/font_size = 40
 text = "EXIT"
+
+[node name="queen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qr7ta")
+volume_db = 1.938
 
 [connection signal="pressed" from="Control/exit" to="." method="_on_exit_pressed"]
