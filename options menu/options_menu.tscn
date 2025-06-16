@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://clpsiy2vfs0h8"]
 
 [ext_resource type="FontFile" uid="uid://dvq5o4mkjn2f2" path="res://assets/Early GameBoy.ttf" id="1_a4uof"]
-[ext_resource type="Script" uid="uid://cpup3imyesmmn" path="res://options menu/options_menu.gd" id="1_wdnow"]
+[ext_resource type="Script" uid="uid://dm2tquot84r1o" path="res://options menu/options_menu.gd" id="1_wdnow"]
 [ext_resource type="PackedScene" uid="uid://4883rayf7ti7" path="res://options menu/settings_tab_container.tscn" id="3_3i7ix"]
 
 [node name="Options_Menu" type="Control"]
