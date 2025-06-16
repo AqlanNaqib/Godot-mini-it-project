@@ -17,7 +17,7 @@ var direction : Vector2
 var DEF = 0 # Defense stat
 var is_dead = false # NEW: Track death state for _physics_process
 
-var health = 200:
+var health = 160:
 	set(value):
 		health = value
 		progress_bar.value = value

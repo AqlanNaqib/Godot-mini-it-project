@@ -28,7 +28,7 @@ func attack(move = "1"):
 		
 		# Directly call the take_damage function on the player
 		# You can set the damage amount here or get it from a variable in the boss script.
-		var damage_amount = 30 # Example damage, adjust as needed
+		var damage_amount = 10 # Example damage, adjust as needed
 		player_node.take_damage(damage_amount)
 		print("Player hit for ", damage_amount, " damage!")
 	# --- ADDED CODE END ---

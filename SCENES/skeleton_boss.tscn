@@ -751,12 +751,11 @@ shape = SubResource("CircleShape2D_5i8b7")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="UI"]
-visible = false
 custom_minimum_size = Vector2(200, 0)
-offset_left = 840.0
-offset_top = 1040.0
-offset_right = 1040.0
-offset_bottom = 1067.0
+offset_left = 850.0
+offset_top = 970.0
+offset_right = 1050.0
+offset_bottom = 997.0
 min_value = 10.0
 max_value = 10.0
 value = 10.0

@@ -1,14 +1,12 @@
 extends Area2D
 
 @onready var animated_sprite = $AnimatedSprite2D
-# REMOVED: @onready var player = get_parent().find_child("player")
-# We will now get the player reference from the enemy that spawns the missile.
-# This makes the missile more independent and less reliant on scene hierarchy.
+
 
 var acceleration: Vector2 = Vector2.ZERO
 var velocity: Vector2 = Vector2.ZERO
 
-var target_player_ref: CharacterBody2D = null # New variable to hold the player reference
+var target_player_ref: CharacterBody2D = null 
 
 # New function to set the player target from the spawner (enemy)
 func set_target_player(player_node: CharacterBody2D):

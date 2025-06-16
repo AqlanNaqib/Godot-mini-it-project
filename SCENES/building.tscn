@@ -8538,15 +8538,19 @@ transform = Transform2D(1.8, 0, 0, 1.8, 0, 0)
 
 [node name="slime" parent="." instance=ExtResource("38_ul4q4")]
 position = Vector2(204, 49)
+unique_slime = "build_a_golem"
 
 [node name="slime2" parent="." instance=ExtResource("38_ul4q4")]
 position = Vector2(146, 57)
+unique_slime = "build_b_goblin"
 
 [node name="slime3" parent="." instance=ExtResource("38_ul4q4")]
 position = Vector2(1, 56)
+unique_slime = "build_c_goblin"
 
 [node name="slime4" parent="." instance=ExtResource("38_ul4q4")]
 position = Vector2(-206, 54)
+unique_slime = "build_d_goblin"
 
 [connection signal="body_entered" from="building_exit" to="." method="_on_building_exit_body_entered"]
 [connection signal="body_entered" from="extension_transition" to="." method="_on_extension_transition_body_entered"]

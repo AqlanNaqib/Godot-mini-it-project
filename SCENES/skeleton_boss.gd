@@ -16,10 +16,10 @@ extends CharacterBody2D
 
 var direction : Vector2
 var can_attack = true
-var attack_damage = 20
+var attack_damage = 5
 var player_in_range = false
 
-var health: = 150:
+var health: = 80:
 	set(value):
 		health = value
 		progress_bar.value = value

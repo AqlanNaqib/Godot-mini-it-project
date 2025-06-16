@@ -10802,24 +10802,16 @@ grow_vertical = 0
 position = Vector2(-58, -91)
 unique_enemy_id = "skeleton_boss"
 
-[node name="slime" parent="." instance=ExtResource("43_i10yc")]
-position = Vector2(121, 8)
-unique_slime = "dungeon_a_slime"
-
-[node name="slime2" parent="." instance=ExtResource("43_i10yc")]
-position = Vector2(169, -29)
-unique_slime = "dungeon_b_slime"
-
 [node name="slime3" parent="." instance=ExtResource("43_i10yc")]
-position = Vector2(98, 93)
+position = Vector2(112, -82)
 unique_slime = "dungeon_c_slime"
 
 [node name="slime4" parent="." instance=ExtResource("43_i10yc")]
-position = Vector2(113, -76)
+position = Vector2(65, -38)
 unique_slime = "dungeon_d_slime"
 
 [node name="slime5" parent="." instance=ExtResource("43_i10yc")]
-position = Vector2(56, 51)
+position = Vector2(-11, 55)
 unique_slime = "dungeon_e_slime"
 
 [connection signal="body_entered" from="dungeon_exit_point" to="." method="_on_dungeon_exit_point_body_entered"]
