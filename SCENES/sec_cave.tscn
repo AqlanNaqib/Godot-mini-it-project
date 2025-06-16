@@ -10969,7 +10969,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="MainBoss" parent="." instance=ExtResource("44_s7cso")]
-position = Vector2(-160, -107)
+position = Vector2(-205, -105)
 unique_enemy_id = "bossman"
 
 [node name="chest" parent="." instance=ExtResource("45_i0qyb")]
