@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cwts8r5agfokb"]
+[gd_scene load_steps=32 format=3 uid="uid://cwts8r5agfokb"]
 
 [ext_resource type="Texture2D" uid="uid://brth33ip3peyo" path="res://Tile Maps/Sprites/Floors.png" id="1_cakuc"]
 [ext_resource type="Script" uid="uid://dmi5x1lic7qp6" path="res://coding/house_2.gd" id="1_eaiu3"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cnd7geivuxnbp" path="res://player 2/art/healthbarUnder.png" id="12_fsqj6"]
 [ext_resource type="Texture2D" uid="uid://d4epp05k8byeq" path="res://player 2/art/healthbarProgress.png" id="13_y4oj5"]
 [ext_resource type="Script" uid="uid://e7rw0fkglcpx" path="res://SCENES/healtBar.gd" id="14_7nc0d"]
+[ext_resource type="PackedScene" uid="uid://b8tpncf3fovoq" path="res://SCENES/npc2.tscn" id="16_fsqj6"]
 [ext_resource type="PackedScene" uid="uid://cxjb1yo87bdcs" path="res://ArrowHUD.tscn" id="16_mnge6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fsqj6"]
@@ -2448,6 +2449,9 @@ grow_vertical = 0
 [node name="CanvasLayer2" parent="." instance=ExtResource("16_mnge6")]
 scale = Vector2(1.8, 1.8)
 transform = Transform2D(1.8, 0, 0, 1.8, 0, 0)
+
+[node name="npc" parent="." instance=ExtResource("16_fsqj6")]
+position = Vector2(-81, -22)
 
 [connection signal="body_entered" from="cave_transition" to="." method="_on_cave_transition_body_entered"]
 [connection signal="body_entered" from="house2_exit" to="." method="_on_house_2_exit_body_entered"]
