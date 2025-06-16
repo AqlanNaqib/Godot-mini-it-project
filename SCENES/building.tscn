@@ -8511,10 +8511,10 @@ offset_bottom = 30.0
 value = 100.0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = 1849.0
-offset_top = 2.0
-offset_right = 1913.0
-offset_bottom = 12.0
+offset_left = 1662.0
+offset_right = 1726.0
+offset_bottom = 10.0
+scale = Vector2(4, 4)
 texture_under = ExtResource("33_jjerj")
 texture_progress = ExtResource("34_ul4q4")
 script = ExtResource("35_23k86")
@@ -8533,6 +8533,8 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("37_88cao")]
+scale = Vector2(1.8, 1.8)
+transform = Transform2D(1.8, 0, 0, 1.8, 0, 0)
 
 [node name="slime" parent="." instance=ExtResource("38_ul4q4")]
 position = Vector2(204, 49)
