@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://4883rayf7ti7"]
+[gd_scene load_steps=8 format=3 uid="uid://4883rayf7ti7"]
 
 [ext_resource type="FontFile" uid="uid://dvq5o4mkjn2f2" path="res://assets/Early GameBoy.ttf" id="1_efxv5"]
+[ext_resource type="PackedScene" uid="uid://dyyvll57ee7at" path="res://hotkey_rebind_button.tscn" id="2_vr7dw"]
 [ext_resource type="PackedScene" uid="uid://cu4xwm3akjwbf" path="res://sound slider.tscn" id="2_xd2c3"]
 [ext_resource type="PackedScene" uid="uid://dk73ox326mlob" path="res://window_mode_button.tscn" id="3_ygodd"]
 [ext_resource type="PackedScene" uid="uid://tdgldq2qxibv" path="res://resolution_mode_button.tscn" id="4_pk0c1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxv5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vr7dw"]
 
 [node name="Settings_Tab_Container" type="Control"]
 layout_mode = 3
@@ -28,9 +33,10 @@ theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("1_efxv5")
 theme_override_font_sizes/font_size = 20
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -63,16 +69,13 @@ layout_mode = 2
 bus_name = "Master"
 
 [node name="Audio_Slider_Settings2" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_xd2c3")]
-visible = false
 layout_mode = 2
 
 [node name="Audio_Slider_Settings3" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_xd2c3")]
-visible = false
 layout_mode = 2
 bus_name = "Sfx"
 
 [node name="Graphics" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -100,3 +103,60 @@ layout_mode = 2
 
 [node name="Resolution_Mode_Button" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("4_pk0c1")]
 layout_mode = 2
+
+[node name="Controls" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_efxv5")
+
+[node name="Hotkey_Rebind_Button" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_vr7dw")]
+layout_mode = 2
+action_name = "move_left"
+
+[node name="Hotkey_Rebind_Button2" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_vr7dw")]
+layout_mode = 2
+
+[node name="Hotkey_Rebind_Button3" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_vr7dw")]
+layout_mode = 2
+action_name = "jump"
+
+[node name="Hotkey_Rebind_Button4" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_vr7dw")]
+layout_mode = 2
+action_name = "move_up"
+
+[node name="Hotkey_Rebind_Button5" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_vr7dw")]
+layout_mode = 2
+action_name = "move_down"
+
+[node name="Hotkey_Rebind_Button6" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_vr7dw")]
+layout_mode = 2
+action_name = "attack"
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vr7dw")
