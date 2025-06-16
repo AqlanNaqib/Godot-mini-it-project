@@ -8502,8 +8502,6 @@ polygon = PackedVector2Array(65, 54, 74, 54, 74, 66, 79, 68, 79, 77, 74, 78, 72,
 polygon = PackedVector2Array(89, 81, 90, 141, 157, 143, 159, 75, 150, 73, 151, 63, 238, 63, 239, 27, 236, 28, 237, 52, 151, 53, 151, 42, 100, 41, 82, 42, 82, 50, 108, 51, 108, 79, 111, 79, 111, 49, 86, 48, 85, 44, 149, 45, 148, 76, 157, 76, 156, 118, 112, 118, 107, 112, 106, 101, 92, 100, 92, 81)
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("32_7ajqq")]
-scale = Vector2(1.8, 1.8)
-transform = Transform2D(1.8, 0, 0, 1.8, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -8516,10 +8514,10 @@ offset_bottom = 30.0
 value = 100.0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = 1663.0
-offset_right = 1727.0
-offset_bottom = 10.0
-scale = Vector2(4, 4)
+offset_left = 1849.0
+offset_top = 2.0
+offset_right = 1913.0
+offset_bottom = 12.0
 texture_under = ExtResource("33_i6qyp")
 texture_progress = ExtResource("34_al6ox")
 script = ExtResource("35_hkb53")

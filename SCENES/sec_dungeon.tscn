@@ -10737,11 +10737,10 @@ offset_bottom = 30.0
 value = 100.0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = 1661.0
-offset_top = 3.0
-offset_right = 1725.0
-offset_bottom = 13.0
-scale = Vector2(4, 4)
+offset_left = 1849.0
+offset_top = 2.0
+offset_right = 1913.0
+offset_bottom = 12.0
 texture_under = ExtResource("37_a58yb")
 texture_progress = ExtResource("38_ubhq2")
 script = ExtResource("39_fr736")
@@ -10760,8 +10759,6 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("41_1gj45")]
-scale = Vector2(1.8, 1.8)
-transform = Transform2D(1.8, 0, 0, 1.8, 0, 0)
 
 [connection signal="body_entered" from="sec_dungeon_exit_point" to="." method="_on_sec_dungeon_exit_point_body_entered"]
 

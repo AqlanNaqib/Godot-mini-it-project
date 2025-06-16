@@ -10932,8 +10932,6 @@ position = Vector2(-212.5, -119)
 shape = SubResource("RectangleShape2D_i0qyb")
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("39_dphfp")]
-scale = Vector2(1.8, 1.8)
-transform = Transform2D(1.8, 0, 0, 1.8, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -10946,11 +10944,10 @@ offset_bottom = 30.0
 value = 100.0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
-offset_left = 1663.0
-offset_top = 1.0
-offset_right = 1727.0
-offset_bottom = 11.0
-scale = Vector2(4, 4)
+offset_left = 1849.0
+offset_top = 2.0
+offset_right = 1913.0
+offset_bottom = 12.0
 texture_under = ExtResource("40_s7cso")
 texture_progress = ExtResource("41_i0qyb")
 script = ExtResource("42_0hxbx")
